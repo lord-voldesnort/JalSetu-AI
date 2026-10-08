@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base { html, body { margin: 0; padding: 0; } body { overscroll-behavior: none; } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "secondary-container": "#febf90", "surface-container-low": "#eaf6f3", "tertiary-container": "#6a4cb6", "error": "#ba1a1a", "surface-variant": "#d9e5e2", "on-primary": "#ffffff", "surface": "#f0fcf8", "outline-variant": "#bec9c8", "on-secondary-fixed-variant": "#673d18", "on-primary-container": "#9be9e8", "on-secondary-fixed": "#2f1500", "on-secondary-container": "#794c26", "tertiary": "#52329c", "on-surface-variant": "#3f4948", "surface-tint": "#0a6969", "on-surface": "#131e1c", "primary-fixed-dim": "#86d4d3", "on-error": "#ffffff", "on-primary-fixed-variant": "#004f50", "primary": "#005151", "on-error-container": "#93000a", "on-tertiary-fixed": "#22005c", "surface-container-high": "#deebe7", "on-tertiary": "#ffffff", "primary-container": "#0e6b6b", "secondary": "#82542d", "inverse-primary": "#86d4d3", "surface-container-lowest": "#ffffff", "tertiary-fixed-dim": "#cfbcff", "surface-bright": "#f0fcf8", "on-secondary": "#ffffff", "secondary-fixed": "#ffdcc4", "primary-fixed": "#a2f0ef", "on-tertiary-container": "#e2d4ff", "secondary-fixed-dim": "#f8ba8b", "on-primary-fixed": "#002020", "outline": "#6f7979", "surface-container": "#e4f1ed", "inverse-on-surface": "#e7f3f0", "error-container": "#ffdad6", "surface-dim": "#d0ddd9", "tertiary-fixed": "#e9ddff", "on-tertiary-fixed-variant": "#50309b", "background": "#f0fcf8", "inverse-surface": "#273330", "on-background": "#131e1c", "surface-container-highest": "#d9e5e2" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "gutter": "1.5rem", "space-sm": "0.5rem", "gutter-mobile": "1rem", "space-xl": "2.5rem", "margin-mobile": "1rem", "space-xs": "0.25rem", "margin": "2rem", "space-md": "1rem", "space-lg": "1.5rem" }, "fontFamily": { "display-lg-mobile": [ "Newsreader" ], "display-lg": [ "Newsreader" ], "title-md": [ "Newsreader" ], "body-lg": [ "Manrope" ], "headline-md": [ "Newsreader" ], "body-md": [ "Manrope" ], "metric-numeral-lg": [ "Manrope" ], "body-sm": [ "Manrope" ], "label-badge": [ "Manrope" ], "label-md": [ "Manrope" ], "headline-lg": [ "Newsreader" ], "headline-lg-mobile": [ "Newsreader" ], "metric-numeral-xl": [ "Manrope" ] }, "fontSize": { "display-lg-mobile": [ "32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "400" } ], "display-lg": [ "44px", { "lineHeight": "52px", "letterSpacing": "-0.02em", "fontWeight": "400" } ], "title-md": [ "20px", { "lineHeight": "28px", "fontWeight": "600" } ], "body-lg": [ "18px", { "lineHeight": "28px", "fontWeight": "400" } ], "headline-md": [ "24px", { "lineHeight": "32px", "fontWeight": "500" } ], "body-md": [ "16px", { "lineHeight": "24px", "fontWeight": "400" } ], "metric-numeral-lg": [ "28px", { "lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "600" } ], "body-sm": [ "14px", { "lineHeight": "20px", "fontWeight": "500" } ], "label-badge": [ "12px", { "lineHeight": "16px", "letterSpacing": "0.03em", "fontWeight": "700" } ], "label-md": [ "13px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "600" } ], "headline-lg": [ "32px", { "lineHeight": "40px", "letterSpacing": "-0.015em", "fontWeight": "400" } ], "headline-lg-mobile": [ "26px", { "lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "400" } ], "metric-numeral-xl": [ "36px", { "lineHeight": "44px", "letterSpacing": "-0.03em", "fontWeight": "700" } ] } } } };</script></head><body class="bg-background font-body-md text-on-surface min-h-screen selection:bg-secondary-fixed selection:text-on-secondary-fixed"><aside class="fixed left-0 top-0 bottom-0 w-64 bg-surface-container-low shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50 flex flex-col justify-between"><div class="flex flex-col"><div class="h-20 px-space-md flex items-center gap-space-sm bg-surface-container-low"><img alt="JalSetu AI Brand Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1U9N0aFFKO4EzMzgTgixd6WdSfq6WUtx169p3cGgnQ-TwS7cJa7pdrsYJxRBJ9bOwibEGqfmN4RRs5FbbdDXszY_I7qK9hPv0itK7V9lC0yvgFBGaoRHHJUzjVlp5ijkPrt9JqX648eR2Thbww5I2GV8qyANciQut-Nu1bSL6o439SPlGRp6_AFICJi5d6dsscO-nze5EcICvkvIXaYwR9vEm4c5ltu4pHwRSLp-Ds"/><div class="flex flex-col min-w-0"><span class="font-title-md text-title-md text-primary tracking-tight leading-none truncate">JalSetu AI</span><span class="font-label-badge text-label-badge text-secondary uppercase tracking-widest leading-normal mt-0.5">Decision Copilot</span></div></div><div class="px-space-md py-space-xs"><div class="flex items-center justify-between px-space-sm mb-space-xs"><span class="font-label-badge text-label-badge text-on-surface-variant uppercase tracking-wider">Workflow Loop</span><span class="font-label-badge text-label-badge text-primary font-semibold">4 Stages</span></div><div class="px-space-sm mb-2"><div class="flex items-center justify-between text-[10px] uppercase font-bold text-outline-variant"><span class="text-primary">1</span><span class="h-0.5 w-4 bg-outline-variant/60 rounded"></span><span>2</span><span class="h-0.5 w-4 bg-outline-variant/60 rounded"></span><span>3</span><span class="h-0.5 w-4 bg-outline-variant/60 rounded"></span><span>4</span></div></div></div><nav class="relative flex flex-col gap-2 px-space-sm" data-active-classes="bg-primary-container text-on-primary font-bold shadow-sm"><div aria-hidden="true" class="absolute left-7 top-4 bottom-4 w-0.5 bg-outline-variant/40 -z-0 pointer-events-none"></div><a class="relative z-10 flex flex-col gap-0.5 px-space-md py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-sm text-body-sm group" data-path="monitor" href="#"><span class="font-semibold truncate leading-snug group-hover:text-primary transition-colors">Monitor</span><span class="font-label-badge text-label-badge text-outline group-hover:text-on-surface-variant uppercase tracking-wide">Observe</span></a><a class="relative z-10 flex flex-col gap-0.5 px-space-md py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-sm text-body-sm group" data-path="fields-and-crops" href="#"><span class="font-semibold truncate leading-snug group-hover:text-primary transition-colors">Fields &amp; Crops</span><span class="font-label-badge text-label-badge text-outline group-hover:text-on-surface-variant uppercase tracking-wide">Understand</span></a><a class="relative z-10 flex flex-col gap-0.5 px-space-md py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-sm text-body-sm group" data-path="water-plan" href="#"><span class="font-semibold truncate leading-snug group-hover:text-primary transition-colors">Water Plan</span><span class="font-label-badge text-label-badge text-outline group-hover:text-on-surface-variant uppercase tracking-wide">Decide</span></a><a class="relative z-10 flex flex-col gap-0.5 px-space-md py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-sm text-body-sm group" data-path="log-and-trust" href="#"><span class="font-semibold truncate leading-snug group-hover:text-primary transition-colors">Log &amp; Trust</span><span class="font-label-badge text-label-badge text-outline group-hover:text-on-surface-variant uppercase tracking-wide">Review</span></a></nav></div><div class="p-space-sm"><div class="bg-surface-container-lowest p-space-sm rounded-lg shadow-[0_1px_4px_rgba(0,0,0,0.03)] flex flex-col gap-1.5"><div class="flex items-center justify-between"><span class="font-label-badge text-label-badge text-on-surface-variant uppercase">Telemetry Link</span><span class="h-2 w-2 rounded-full bg-primary animate-pulse"></span></div><div class="font-label-md text-label-md text-primary font-semibold truncate">IMD Pune Doppler Linked</div><div class="font-label-badge text-label-badge text-outline">Stream Latency: 1.4s</div></div></div></aside><div class="pl-64 flex flex-col min-h-screen"><header class="fixed top-0 left-64 right-0 h-20 bg-surface-container-lowest/90 backdrop-blur-md shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 px-space-lg flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-sm bg-surface-container-low px-space-md py-1.5 rounded-lg"><span class="material-symbols-outlined text-primary text-[20px]">location_on</span><div class="flex flex-col"><span class="font-label-md text-label-md text-on-surface leading-tight font-semibold">Pimpri-Chinchwad Cluster, Pune</span><span class="font-label-badge text-label-badge text-secondary leading-none">10 Fields · Tomato / Vegetable</span></div></div><div class="flex items-center gap-space-xs bg-surface-container px-space-md py-1.5 rounded-lg"><span class="material-symbols-outlined text-secondary text-[18px]">thunderstorm</span><div class="flex flex-col"><span class="font-label-md text-label-md text-on-surface leading-tight font-semibold">Rainfall deficit + Heat event</span><span class="font-label-badge text-label-badge text-secondary font-bold">Replay Scenario Active</span></div><span class="material-symbols-outlined text-on-surface-variant text-[18px] ml-1">expand_more</span></div></div><div class="flex items-center gap-space-md"><button aria-label="Settings and Configurations" class="p-2 rounded-full bg-surface-container-low text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" title="Settings &amp; Demo Setup" type="button"><span class="material-symbols-outlined text-[20px]">settings</span></button><div class="flex items-center bg-surface-container-high rounded-full p-0.5 text-on-surface-variant font-label-badge text-label-badge"><button class="px-2.5 py-1 rounded-full bg-surface-container-lowest text-primary shadow-xs font-bold" type="button">English</button><button class="px-2.5 py-1 rounded-full hover:text-on-surface transition-colors font-medium" type="button">मराठी</button><button class="px-2.5 py-1 rounded-full hover:text-on-surface transition-colors font-medium" type="button">हिन्दी</button></div><button aria-label="Toggle Light or Dark Mode Demo" class="flex items-center gap-1 bg-surface-container-low px-2.5 py-1.5 rounded-full text-on-surface-variant hover:text-on-surface transition-colors font-label-badge text-label-badge" title="Light/Dark Demo Mode" type="button"><span class="material-symbols-outlined text-[16px] text-secondary">light_mode</span><span>Light</span></button><div class="relative group flex items-center gap-space-sm pl-space-xs"><button aria-haspopup="true" class="flex items-center gap-space-sm text-left focus:outline-none" type="button"><div class="flex flex-col text-right hidden sm:flex"><span class="font-label-md text-label-md text-on-surface leading-tight font-semibold">Anand Patil</span><span class="font-label-badge text-label-badge text-on-surface-variant leading-none">Lead Agronomist</span></div><img alt="Profile of Anand Patil" class="w-9 h-9 rounded-full object-cover ring-2 ring-primary/20" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2CJWhMR6ILwIcxYQd72H5efhDg7q7HjjahaUIACr0dR5znRLIUgdydssxkC4za-8YUCSl7EglM6VVHOMqhcHZXxcIIxdb4xTA-NfgX7DkMjH24vfrfzKu0EzPTDn-7TVf-cdZi7rbPv2tmSXcOsBXvNFfd2g9xPx9PNffZG8jf1hL4NacPDKEVjY55hUqUDrJorgBzMZaUanWO2qGDgifbwgn5W-dkrOzxPQ5T08"/></button><div class="absolute right-0 top-full mt-2 w-56 bg-surface-container-lowest rounded-xl shadow-lg border border-outline-variant/30 py-2 hidden group-hover:flex flex-col z-50 text-body-sm font-body-sm"><div class="px-space-md py-1 border-b border-surface-container"><p class="font-semibold text-on-surface">Anand Patil</p><p class="text-[11px] text-outline font-normal">anand.patil@jalsetu.gov.in</p></div><div class="py-1"><div class="flex items-center justify-between px-space-md py-1.5 text-on-surface-variant hover:bg-surface-container transition-colors cursor-pointer"><span class="flex items-center gap-2"><span class="material-symbols-outlined text-[18px]">person</span>Profile &amp; Role</span><span class="text-[10px] bg-surface-container-high px-1.5 py-0.5 rounded text-primary font-bold">Admin</span></div><div class="flex items-center gap-2 px-space-md py-1.5 text-on-surface-variant hover:bg-surface-container transition-colors cursor-pointer"><span class="material-symbols-outlined text-[18px]">tune</span>Cluster Settings</div><div class="flex items-center gap-2 px-space-md py-1.5 text-on-surface-variant hover:bg-surface-container transition-colors cursor-pointer"><span class="material-symbols-outlined text-[18px]">help_outline</span>Documentation</div></div><div class="pt-1 border-t border-surface-container"><div class="flex items-center gap-2 px-space-md py-1.5 text-error hover:bg-error-container/20 transition-colors cursor-pointer font-semibold"><span class="material-symbols-outlined text-[18px]">logout</span>Sign Out</div></div></div></div></div></header><main class="w-full pt-20 pb-12 px-space-lg flex-1 bg-background"><div class="flex flex-col w-full">
+<!-- Top View Switcher & Title Metadata -->
+<section class="flex flex-col gap-space-md mb-space-lg">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md">
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs text-on-surface-variant font-label-badge text-label-badge uppercase tracking-wider mb-1">
+<span>Workflow Stage 4 of 4</span>
+<span>•</span>
+<span class="text-primary font-bold">Closed-Loop Verification</span>
+</div>
+<div class="flex items-baseline gap-space-sm">
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Log &amp; Trust Architecture</h1>
+<span class="text-on-surface-variant font-body-sm text-body-sm hidden md:inline">Audit trail &amp; multi-source provenance ledger</span>
+</div>
+</div>
+<!-- Segmented Control Tab switcher -->
+<div class="inline-flex items-center p-1 bg-surface-container rounded-xl self-start lg:self-auto shadow-sm">
+<button class="px-space-md py-2 rounded-lg font-label-md text-label-md transition-all duration-200 bg-surface-container-lowest text-primary shadow-sm flex items-center gap-space-xs font-semibold" id="tab-btn-action" onclick="switchView('action')">
+<span class="material-symbols-outlined text-[18px]">verified_user</span>
+<span>Action Log &amp; Governance</span>
+<span class="ml-1 px-1.5 py-0.2 bg-primary/10 text-primary rounded-full font-label-badge text-label-badge">10</span>
+</button>
+<button class="px-space-md py-2 rounded-lg font-label-md text-label-md transition-all duration-200 text-on-surface-variant hover:text-on-surface flex items-center gap-space-xs font-medium" id="tab-btn-health" onclick="switchView('health')">
+<span class="material-symbols-outlined text-[18px]">fact_check</span>
+<span>Data Health &amp; Trust Ledger</span>
+<span class="ml-1 px-1.5 py-0.2 bg-secondary-container/40 text-on-secondary-container rounded-full font-label-badge text-label-badge">82%</span>
+</button>
+</div>
+</div>
+<!-- Governance KPI Cluster -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-md">
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between text-on-surface-variant font-label-badge text-label-badge uppercase">
+<span>Cluster Actions</span>
+<span class="material-symbols-outlined text-primary text-[20px]">tune</span>
+</div>
+<div class="mt-2 flex items-baseline gap-2">
+<span class="font-metric-numeral-xl text-metric-numeral-xl text-on-surface">10</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Fields Evaluated</span>
+</div>
+<div class="mt-2 text-on-surface-variant font-body-sm text-body-sm flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span>100% telemetry synced</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between text-on-surface-variant font-label-badge text-label-badge uppercase">
+<span>Plan Concurrence</span>
+<span class="material-symbols-outlined text-secondary text-[20px]">rule</span>
+</div>
+<div class="mt-2 flex items-center gap-2">
+<span class="font-metric-numeral-xl text-metric-numeral-xl text-primary font-bold">7</span>
+<span class="text-xs text-on-surface-variant uppercase font-semibold">Accepted</span>
+<span class="text-outline-variant font-body-sm">/</span>
+<span class="font-metric-numeral-lg text-metric-numeral-lg text-secondary">2</span>
+<span class="text-xs text-on-surface-variant uppercase font-semibold">Overridden</span>
+</div>
+<div class="mt-2 flex items-center justify-between text-on-surface-variant font-label-badge text-label-badge">
+<span>1 Field Paused for Field Inspection</span>
+<span class="text-tertiary font-bold">F06</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between text-on-surface-variant font-label-badge text-label-badge uppercase">
+<span>Water Budget Guard</span>
+<span class="material-symbols-outlined text-primary text-[20px]">format_image_left</span>
+</div>
+<div class="mt-2 flex items-baseline gap-2">
+<span class="font-metric-numeral-xl text-metric-numeral-xl text-primary">100%</span>
+<span class="font-body-sm text-body-sm text-primary font-semibold">Enforced</span>
+</div>
+<div class="mt-2 text-on-surface-variant font-body-sm text-body-sm flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span>0 Hard-budget violations</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between text-on-surface-variant font-label-badge text-label-badge uppercase">
+<span>Active Experiment</span>
+<span class="material-symbols-outlined text-secondary text-[20px]">find_replace</span>
+</div>
+<div class="mt-2">
+<span class="font-title-md text-title-md text-on-surface block leading-tight">Heat Spike Nov Replay</span>
+<span class="font-label-badge text-label-badge text-secondary font-bold uppercase tracking-wider">Deterministic State</span>
+</div>
+<div class="mt-2 text-on-surface-variant font-body-sm text-body-sm flex items-center justify-between">
+<span>Pune Peri-Urban Basin</span>
+<span class="text-primary font-semibold">T+4h Active</span>
+</div>
+</div>
+</div>
+</section>
+<!-- VIEW 1: ACTION LOG & OVERRIDE GOVERNANCE (Active by Default) -->
+<div class="flex flex-col gap-space-lg" id="view-action-log">
+<!-- Audit Controls & Filters -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col md:flex-row items-stretch md:items-center justify-between gap-space-md">
+<div class="flex flex-wrap items-center gap-space-sm">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-[18px] text-outline">search</span>
+<input class="bg-surface-container-low pl-9 pr-3 py-1.5 rounded-lg text-body-sm font-body-sm text-on-surface placeholder:text-outline focus:outline-none focus:bg-surface-container-high transition-colors w-64" placeholder="Filter by field, agronomist, crop..." type="text"/>
+</div>
+<div class="flex items-center gap-1.5 px-3 py-1.5 bg-surface-container-low rounded-lg text-body-sm font-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px] text-primary">filter_alt</span>
+<span>Status:</span>
+<span class="font-semibold text-on-surface">All Decisions (10)</span>
+</div>
+<div class="flex items-center gap-1.5 px-3 py-1.5 bg-surface-container-low rounded-lg text-body-sm font-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]">psychology</span>
+<span>Model:</span>
+<span class="font-semibold text-on-surface">XGBoost v0.3</span>
+</div>
+</div>
+<div class="flex items-center gap-space-sm justify-end">
+<button class="px-3 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md flex items-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-[16px]">file_download</span>
+<span>Export Ledger CSV</span>
+</button>
+<button class="px-3 py-1.5 rounded-lg bg-primary text-on-primary font-label-md text-label-md flex items-center gap-1 transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[16px]">model_training</span>
+<span>Send Overrides to Retraining Pipeline</span>
+</button>
+</div>
+</div>
+<!-- Closed-Loop Action & Override Audit Table -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden flex flex-col">
+<div class="p-space-md flex flex-col md:flex-row items-start md:items-center justify-between gap-space-sm bg-surface-container-low/40">
+<div>
+<h2 class="font-title-md text-title-md text-on-surface">Closed-Loop Allocation Audit Ledger</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">High-stakes traceability connecting recommendation, planned quota, physical valve actuation, and telemetry verification.</p>
+</div>
+<div class="flex items-center gap-2">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container text-primary font-label-badge text-label-badge">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-ping"></span>
+            Real-time Telemetry Linked
+          </span>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left font-body-sm text-body-sm">
+<thead class="bg-surface-container-low text-on-surface-variant font-label-badge text-label-badge uppercase tracking-wider">
+<tr>
+<th class="py-3 px-4">Timestamp &amp; Field</th>
+<th class="py-3 px-4">Crop &amp; Growth Stage</th>
+<th class="py-3 px-4 text-center">AI Rec.</th>
+<th class="py-3 px-4 text-center">Plan Action</th>
+<th class="py-3 px-4 text-center">Actual Actuation</th>
+<th class="py-3 px-4">Override Rationale</th>
+<th class="py-3 px-4">Approver</th>
+<th class="py-3 px-4">Verification Closed-Loop</th>
+</tr>
+</thead>
+<tbody class="divide-y-0 text-on-surface">
+<!-- Row 1: F03 Regular Normal Execution -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py-3.5 px-4">
+<div class="flex flex-col">
+<span class="font-semibold text-primary">F03</span>
+<span class="text-xs text-on-surface-variant font-mono">14:15 IST • Today</span>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex flex-col">
+<span class="font-medium text-on-surface">Tomato (Hybrid)</span>
+<span class="text-xs text-on-surface-variant">Fruit Development</span>
+</div>
+</td>
+<td class="py-3.5 px-4 text-center font-metric-numeral-lg text-on-surface text-[18px]">18u</td>
+<td class="py-3.5 px-4 text-center">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-primary-fixed/50 text-on-primary-fixed-variant font-semibold">18u</span>
+</td>
+<td class="py-3.5 px-4 text-center font-semibold text-primary">18.0u</td>
+<td class="py-3.5 px-4">
+<span class="text-xs text-on-surface-variant italic">None (Concurred)</span>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[16px]">verified</span>
+<span class="text-xs font-semibold text-on-surface">Anand Patil</span>
+</div>
+<span class="text-[10px] text-outline">Lead Agronomist</span>
+</td>
+<td class="py-3.5 px-4">
+<div class="p-2 rounded bg-surface-container-low text-xs flex flex-col gap-0.5">
+<div class="flex items-center gap-1 text-primary font-semibold">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+<span>Drip Flow Telemetry Confirmed</span>
+</div>
+<span class="text-[11px] text-on-surface-variant">Delivered 18.1u. Soil tension reduced from 34 to 18 kPa.</span>
+</div>
+</td>
+</tr>
+<!-- Row 2: F05 Override (+1u local soil knowledge) -->
+<tr class="bg-secondary-fixed/10 hover:bg-secondary-fixed/20 transition-colors">
+<td class="py-3.5 px-4">
+<div class="flex flex-col">
+<div class="flex items-center gap-1">
+<span class="font-semibold text-secondary">F05</span>
+<span class="text-[10px] uppercase font-bold px-1.5 rounded bg-secondary text-on-secondary">Override</span>
+</div>
+<span class="text-xs text-on-surface-variant font-mono">14:18 IST • Today</span>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex flex-col">
+<span class="font-medium text-on-surface">Tomato (Determinate)</span>
+<span class="text-xs text-on-surface-variant">Flowering / Early Set</span>
+</div>
+</td>
+<td class="py-3.5 px-4 text-center font-metric-numeral-lg text-outline text-[18px]">11u</td>
+<td class="py-3.5 px-4 text-center">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-secondary text-on-secondary font-bold">12u (+1u)</span>
+</td>
+<td class="py-3.5 px-4 text-center font-semibold text-secondary">12.0u</td>
+<td class="py-3.5 px-4">
+<div class="text-xs font-medium text-secondary">
+                  "Local knowledge: light sandy soil patch near canal line requires increased percolation compensation."
+                </div>
+<div class="mt-1 flex items-center gap-1 text-[10px] text-primary">
+<span class="material-symbols-outlined text-[12px]">dataset</span>
+<span>Flagged for XGBoost v0.4 feature fine-tuning</span>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-secondary text-[16px]">edit_note</span>
+<span class="text-xs font-semibold text-on-surface">Anand Patil</span>
+</div>
+<span class="text-[10px] text-outline">Lead Agronomist</span>
+</td>
+<td class="py-3.5 px-4">
+<div class="p-2 rounded bg-surface-container-low text-xs flex flex-col gap-0.5">
+<div class="flex items-center gap-1 text-primary font-semibold">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+<span>Actuation Registered</span>
+</div>
+<span class="text-[11px] text-on-surface-variant">Sub-main valve valve #05 pulsed 54 min. Moisture gradient restored.</span>
+</div>
+</td>
+</tr>
+<!-- Row 3: F06 Paused / Field Inspection Needed -->
+<tr class="bg-surface-container-high/40 hover:bg-surface-container-high/60 transition-colors">
+<td class="py-3.5 px-4">
+<div class="flex flex-col">
+<div class="flex items-center gap-1">
+<span class="font-semibold text-tertiary">F06</span>
+<span class="text-[10px] uppercase font-bold px-1.5 rounded bg-tertiary-fixed text-on-tertiary-fixed-variant">Inspect</span>
+</div>
+<span class="text-xs text-on-surface-variant font-mono">14:10 IST • Today</span>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex flex-col">
+<span class="font-medium text-on-surface">Eggplant (Brinjal)</span>
+<span class="text-xs text-on-surface-variant">Vegetative (35 DAP)</span>
+</div>
+</td>
+<td class="py-3.5 px-4 text-center font-metric-numeral-lg text-outline text-[18px]">0u</td>
+<td class="py-3.5 px-4 text-center">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-surface-container-highest text-on-surface-variant font-semibold">0u (Hold)</span>
+</td>
+<td class="py-3.5 px-4 text-center font-semibold text-outline">0.0u</td>
+<td class="py-3.5 px-4">
+<div class="text-xs font-medium text-tertiary">
+                  "Field Inspection Scheduled: Satellite optical data obscured (9d cloud cover); anomalous root-zone resistance."
+                </div>
+<span class="text-[10px] text-outline">Risk avoidance protocol triggered</span>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-tertiary text-[16px]">visibility</span>
+<span class="text-xs font-semibold text-on-surface">Anand Patil</span>
+</div>
+<span class="text-[10px] text-outline">Lead Agronomist</span>
+</td>
+<td class="py-3.5 px-4">
+<div class="p-2 rounded bg-tertiary-fixed/30 text-xs flex flex-col gap-0.5">
+<div class="flex items-center gap-1 text-tertiary font-semibold">
+<span class="material-symbols-outlined text-[14px]">directions_walk</span>
+<span>Scout Dispatched</span>
+</div>
+<span class="text-[11px] text-on-surface-variant">Handheld TDR soil probe dispatched. No irrigation release until calibrated.</span>
+</div>
+</td>
+</tr>
+<!-- Row 4: F07 Standard Execution -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py-3.5 px-4">
+<div class="flex flex-col">
+<span class="font-semibold text-primary">F07</span>
+<span class="text-xs text-on-surface-variant font-mono">14:22 IST • Today</span>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex flex-col">
+<span class="font-medium text-on-surface">Chilli (Pepper)</span>
+<span class="text-xs text-on-surface-variant">Flowering &amp; Pod Fill</span>
+</div>
+</td>
+<td class="py-3.5 px-4 text-center font-metric-numeral-lg text-on-surface text-[18px]">16u</td>
+<td class="py-3.5 px-4 text-center">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-primary-fixed/50 text-on-primary-fixed-variant font-semibold">16u</span>
+</td>
+<td class="py-3.5 px-4 text-center font-semibold text-primary">16.0u</td>
+<td class="py-3.5 px-4">
+<span class="text-xs text-on-surface-variant italic">None (Concurred)</span>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[16px]">verified</span>
+<span class="text-xs font-semibold text-on-surface">Anand Patil</span>
+</div>
+<span class="text-[10px] text-outline">Lead Agronomist</span>
+</td>
+<td class="py-3.5 px-4">
+<div class="p-2 rounded bg-surface-container-low text-xs flex flex-col gap-0.5">
+<div class="flex items-center gap-1 text-primary font-semibold">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+<span>Drip Active</span>
+</div>
+<span class="text-[11px] text-on-surface-variant">Pump Zone B executed without cavitation. ETo demand satisfied.</span>
+</div>
+</td>
+</tr>
+<!-- Row 5: F04 Negative Override (-1u balancing) -->
+<tr class="bg-secondary-fixed/10 hover:bg-secondary-fixed/20 transition-colors">
+<td class="py-3.5 px-4">
+<div class="flex flex-col">
+<div class="flex items-center gap-1">
+<span class="font-semibold text-secondary">F04</span>
+<span class="text-[10px] uppercase font-bold px-1.5 rounded bg-secondary text-on-secondary">Override</span>
+</div>
+<span class="text-xs text-on-surface-variant font-mono">14:26 IST • Today</span>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex flex-col">
+<span class="font-medium text-on-surface">Cabbage</span>
+<span class="text-xs text-on-surface-variant">Head Formation</span>
+</div>
+</td>
+<td class="py-3.5 px-4 text-center font-metric-numeral-lg text-outline text-[18px]">4u</td>
+<td class="py-3.5 px-4 text-center">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-secondary text-on-secondary font-bold">3u (-1u)</span>
+</td>
+<td class="py-3.5 px-4 text-center font-semibold text-secondary">3.0u</td>
+<td class="py-3.5 px-4">
+<div class="text-xs font-medium text-secondary">
+                  "Pump pressure balancing offset: Lateral line friction loss risk on distant perimeter manifold."
+                </div>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-secondary text-[16px]">edit_note</span>
+<span class="text-xs font-semibold text-on-surface">Anand Patil</span>
+</div>
+<span class="text-[10px] text-outline">Lead Agronomist</span>
+</td>
+<td class="py-3.5 px-4">
+<div class="p-2 rounded bg-surface-container-low text-xs flex flex-col gap-0.5">
+<div class="flex items-center gap-1 text-primary font-semibold">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+<span>Pressure Stabilized</span>
+</div>
+<span class="text-[11px] text-on-surface-variant">Manifold pressure held at 2.1 bar. No emitter blowouts reported.</span>
+</div>
+</td>
+</tr>
+<!-- Rows 6 to 10: Compact Summary Representation -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py-3 px-4 font-mono text-xs text-primary font-semibold">F01, F02, F08, F09, F10</td>
+<td class="py-3 px-4 text-xs text-on-surface-variant">Mixed Horticulture (Onion, Okra, Tomato)</td>
+<td class="py-3 px-4 text-center text-xs text-on-surface font-semibold">39u combined</td>
+<td class="py-3 px-4 text-center">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-primary-fixed/50 text-on-primary-fixed-variant text-xs font-semibold">39u (5 Fields)</span>
+</td>
+<td class="py-3 px-4 text-center text-xs font-semibold text-primary">39.0u</td>
+<td class="py-3 px-4 text-xs text-on-surface-variant italic">None (Automated acceptance batch)</td>
+<td class="py-3 px-4 text-xs text-on-surface">Anand Patil</td>
+<td class="py-3 px-4 text-xs text-primary font-medium flex items-center gap-1 pt-4">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+<span>All flowmeters &amp; tensiometer curves responding within ±4% envelope</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Closed loop Retraining telemetry badge footer -->
+<div class="p-space-md bg-surface-container-low flex flex-col sm:flex-row items-center justify-between gap-space-sm text-on-surface-variant font-label-badge text-label-badge">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[18px]">sync_alt</span>
+<span>Overrides are automatically serialized to <code class="bg-surface-container-highest px-1.5 py-0.5 rounded text-on-surface">dataset_v04_training_feedback.parquet</code></span>
+</div>
+<div class="flex items-center gap-3">
+<span>Active Model: <strong>XGBoost-Regressor-2024.11-v0.3</strong></span>
+<span>•</span>
+<span class="text-primary font-bold">Calibration Slope: 0.982</span>
+</div>
+</div>
+</div>
+<!-- Governance Advisory Card -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-space-md">
+<div class="lg:col-span-2 bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between">
+<div class="flex items-start justify-between gap-space-md mb-space-sm">
+<div>
+<h3 class="font-title-md text-title-md text-on-surface">Agronomist Override Attribution Analysis</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Patterns observed in agronomist adjustments over the last 14 allocation cycles.</p>
+</div>
+<span class="p-2 bg-secondary-fixed/30 text-secondary rounded-lg">
+<span class="material-symbols-outlined">analytics</span>
+</span>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-space-sm my-space-xs">
+<div class="p-space-sm bg-surface-container-low rounded-lg">
+<div class="text-on-surface-variant font-label-badge text-label-badge">Soil Texture Micro-Variations</div>
+<div class="font-metric-numeral-lg text-metric-numeral-lg text-secondary mt-1">68%</div>
+<p class="text-xs text-on-surface-variant mt-1">Leading reason for positive (+water) adjustments.</p>
+</div>
+<div class="p-space-sm bg-surface-container-low rounded-lg">
+<div class="text-on-surface-variant font-label-badge text-label-badge">Hydraulic Pressure Limits</div>
+<div class="font-metric-numeral-lg text-metric-numeral-lg text-primary mt-1">22%</div>
+<p class="text-xs text-on-surface-variant mt-1">Leading reason for negative (-water) adjustments.</p>
+</div>
+<div class="p-space-sm bg-surface-container-low rounded-lg">
+<div class="text-on-surface-variant font-label-badge text-label-badge">Sensory Uncertainty Pauses</div>
+<div class="font-metric-numeral-lg text-metric-numeral-lg text-tertiary mt-1">10%</div>
+<p class="text-xs text-on-surface-variant mt-1">Field visits requested before actuation.</p>
+</div>
+</div>
+<div class="mt-space-sm text-on-surface-variant font-body-sm text-body-sm bg-surface-container-low/50 p-space-sm rounded-lg flex items-center justify-between">
+<span class="text-xs">Next automated hyperparameter refinement scheduled for Sunday at 02:00 IST.</span>
+<button class="text-xs text-primary font-bold hover:underline">Inspect Weights →</button>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-space-xs">
+<span class="font-label-badge text-label-badge text-on-surface-variant uppercase">Safety Principle</span>
+<span class="material-symbols-outlined text-secondary text-[20px]">gavel</span>
+</div>
+<h4 class="font-title-md text-title-md text-on-surface">Hard Water Budget Guard</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-2">
+            The decision solver strictly prevents human operators or AI recommendations from issuing allocations exceeding the dynamic cluster limit (90u).
+          </p>
+</div>
+<div class="mt-4 p-space-sm bg-surface-container rounded-lg flex flex-col gap-1.5">
+<div class="flex justify-between font-label-badge text-label-badge text-on-surface">
+<span>Cluster Quota Utilization</span>
+<span class="font-bold text-primary">70u / 90u (77.8%)</span>
+</div>
+<div class="h-2.5 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 77.8%"></div>
+</div>
+<div class="text-[11px] text-outline text-right">Remaining reserve buffer: 20 units</div>
+</div>
+</div>
+</div>
+</div>
+<!-- VIEW 2: DATA HEALTH & TRUST LEDGER (Toggleable & side-by-side accessible) -->
+<div class="flex flex-col gap-space-lg" id="view-health-ledger">
+<!-- Visual Proportion & Freshness Overview -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-md">
+<!-- Freshness Donut / Proportion Metric Card -->
+<div class="lg:col-span-5 bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between">
+<span class="font-label-badge text-label-badge text-on-surface-variant uppercase">Telemetry Reliability Composite</span>
+<span class="inline-flex items-center gap-1 text-primary font-label-badge text-label-badge font-bold bg-primary-fixed/40 px-2 py-0.5 rounded-full">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+              GRADE A-
+            </span>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface mt-1">Multi-Source Provenance Health</h3>
+</div>
+<!-- Inline Visual Donut Representation -->
+<div class="my-space-md flex items-center justify-center gap-space-lg">
+<div class="relative w-36 h-36 flex items-center justify-center">
+<!-- Inline SVG Conic Progress Donut -->
+<svg class="w-full h-full transform -rotate-90" viewbox="0 0 100 100">
+<!-- Background Ring -->
+<circle class="text-surface-container-high" cx="50" cy="50" fill="none" r="40" stroke="currentColor" stroke-width="12"></circle>
+<!-- Fresh: 82% (Circumference = 251.32. 82% = 206.1) -->
+<circle class="text-primary" cx="50" cy="50" fill="none" r="40" stroke="currentColor" stroke-dasharray="206.1 251.3" stroke-linecap="round" stroke-width="12"></circle>
+<!-- Imputed: 10% (offset 206.1, dash 25.1) -->
+<circle class="text-tertiary-container" cx="50" cy="50" fill="none" r="40" stroke="currentColor" stroke-dasharray="25.1 251.3" stroke-dashoffset="-206.1" stroke-linecap="round" stroke-width="12"></circle>
+<!-- Stale: 8% (offset 231.2, dash 20.1) -->
+<circle class="text-secondary" cx="50" cy="50" fill="none" r="40" stroke="currentColor" stroke-dasharray="20.1 251.3" stroke-dashoffset="-231.2" stroke-linecap="round" stroke-width="12"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
+<span class="font-metric-numeral-lg text-metric-numeral-lg text-on-surface font-bold leading-none">82%</span>
+<span class="text-[10px] text-on-surface-variant uppercase font-semibold">Live Fresh</span>
+</div>
+</div>
+<div class="flex flex-col gap-2.5">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-primary"></span>
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm font-semibold text-on-surface">Fresh: 82%</span>
+<span class="text-[11px] text-on-surface-variant">Real-time / Valid cache</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-tertiary-container"></span>
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm font-semibold text-on-surface">Imputed: 10%</span>
+<span class="text-[11px] text-on-surface-variant">Spatial mesh interpolation</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-secondary"></span>
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm font-semibold text-on-surface">Stale: 8%</span>
+<span class="text-[11px] text-on-surface-variant">Optical clouds &gt;7d (F06)</span>
+</div>
+</div>
+</div>
+</div>
+<p class="text-xs text-on-surface-variant bg-surface-container-low p-2.5 rounded-lg">
+<strong>Decision Guard Activated:</strong> Model automatically throttled confidence bounds by 18% on F06 due to optical staleness, elevating requirement for human physical confirmation.
+        </p>
+</div>
+<!-- How JalSetu Decides 5-Step Explainer Card -->
+<div class="lg:col-span-7 bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between mb-space-sm">
+<div>
+<span class="font-label-badge text-label-badge text-primary uppercase font-bold tracking-wider">Explainable AI Core</span>
+<h3 class="font-title-md text-title-md text-on-surface">How JalSetu Synthesizes Decisions (5-Step Loop)</h3>
+</div>
+<span class="px-2 py-1 bg-surface-container text-on-surface-variant rounded font-label-badge text-label-badge">
+            MILP + SHAP v2
+          </span>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-5 gap-2 my-2">
+<!-- Step 1 -->
+<div class="bg-surface-container-low p-2.5 rounded-lg flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between text-xs font-bold text-primary mb-1">
+<span>01</span>
+<span class="material-symbols-outlined text-[14px]">sensors</span>
+</div>
+<h5 class="font-semibold text-on-surface text-xs">Observe</h5>
+<p class="text-[11px] text-on-surface-variant mt-1 leading-snug">Multi-modal ingestion: Doppler, radar, IoT probes.</p>
+</div>
+<span class="text-[9px] uppercase font-bold text-outline mt-2">Ingestion</span>
+</div>
+<!-- Step 2 -->
+<div class="bg-surface-container-low p-2.5 rounded-lg flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between text-xs font-bold text-primary mb-1">
+<span>02</span>
+<span class="material-symbols-outlined text-[14px]">trending_up</span>
+</div>
+<h5 class="font-semibold text-on-surface text-xs">Forecast</h5>
+<p class="text-[11px] text-on-surface-variant mt-1 leading-snug">XGBoost computes 3-7 day moisture deficit curve.</p>
+</div>
+<span class="text-[9px] uppercase font-bold text-outline mt-2">Prediction</span>
+</div>
+<!-- Step 3 -->
+<div class="bg-surface-container-low p-2.5 rounded-lg flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between text-xs font-bold text-primary mb-1">
+<span>03</span>
+<span class="material-symbols-outlined text-[14px]">balance</span>
+</div>
+<h5 class="font-semibold text-on-surface text-xs">Prioritize</h5>
+<p class="text-[11px] text-on-surface-variant mt-1 leading-snug">PuLP / OR-Tools linear programming with hard bounds.</p>
+</div>
+<span class="text-[9px] uppercase font-bold text-outline mt-2">Constraint</span>
+</div>
+<!-- Step 4 -->
+<div class="bg-surface-container-low p-2.5 rounded-lg flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between text-xs font-bold text-primary mb-1">
+<span>04</span>
+<span class="material-symbols-outlined text-[14px]">lightbulb</span>
+</div>
+<h5 class="font-semibold text-on-surface text-xs">Explain</h5>
+<p class="text-[11px] text-on-surface-variant mt-1 leading-snug">SHAP feature coefficients &amp; data provenance flags.</p>
+</div>
+<span class="text-[9px] uppercase font-bold text-outline mt-2">SHAP Local</span>
+</div>
+<!-- Step 5 -->
+<div class="bg-surface-container-low p-2.5 rounded-lg flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between text-xs font-bold text-primary mb-1">
+<span>05</span>
+<span class="material-symbols-outlined text-[14px]">published_with_changes</span>
+</div>
+<h5 class="font-semibold text-on-surface text-xs">Review &amp; Log</h5>
+<p class="text-[11px] text-on-surface-variant mt-1 leading-snug">Agronomist sign-off; overrides logged for retraining.</p>
+</div>
+<span class="text-[9px] uppercase font-bold text-outline mt-2">Human Loop</span>
+</div>
+</div>
+<div class="flex items-center justify-between text-xs text-on-surface-variant pt-2">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-primary">policy</span>
+            Guaranteed compliance with State Agricultural Resource Guidelines
+          </span>
+<span class="font-mono text-[11px] text-outline">Latency: 480ms / cluster solve</span>
+</div>
+</div>
+</div>
+<!-- Section: 6 Data Source Freshness Cards -->
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<h3 class="font-title-md text-title-md text-on-surface">Data Stream Health &amp; Ingestion Mesh</h3>
+<span class="font-body-sm text-body-sm text-on-surface-variant">6 Heterogeneous Inputs Connected</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-space-md">
+<!-- Card 1: IMD Doppler -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-2">
+<span class="p-2 bg-primary-fixed/40 text-primary rounded-lg">
+<span class="material-symbols-outlined text-[20px]">radar</span>
+</span>
+<div class="flex flex-col">
+<h4 class="font-title-md text-body-md font-bold text-on-surface leading-tight">IMD Doppler &amp; Forecast</h4>
+<span class="text-xs text-on-surface-variant font-mono">Pune Pashan Station</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-primary/10 text-primary font-label-badge text-label-badge flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+                Fresh (100%)
+              </span>
+</div>
+<div class="mt-4 flex items-baseline gap-2">
+<span class="text-sm font-semibold text-on-surface">Updated 18 min ago</span>
+<span class="text-xs text-outline">• REST API v2</span>
+</div>
+<p class="text-xs text-on-surface-variant mt-1.5">
+              Reflectivity grid indicates 0.0mm precipitation next 48h; heat spike event active with ETo projection +24%.
+            </p>
+</div>
+<div class="mt-4 pt-3 flex items-center justify-between text-xs text-on-surface-variant bg-surface-container-low -mx-space-md -mb-space-md px-space-md py-2 rounded-b-xl">
+<span>Ping Latency: <strong>320ms</strong></span>
+<span class="text-primary font-semibold">Healthy</span>
+</div>
+</div>
+<!-- Card 2: Sentinel-2 MSI Vegetation NDVI -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-2">
+<span class="p-2 bg-primary-fixed/40 text-primary rounded-lg">
+<span class="material-symbols-outlined text-[20px]">satellite_alt</span>
+</span>
+<div class="flex flex-col">
+<h4 class="font-title-md text-body-md font-bold text-on-surface leading-tight">Sentinel-2 MSI Vegetation</h4>
+<span class="text-xs text-on-surface-variant font-mono">ESA Copernicus Hub</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-primary/10 text-primary font-label-badge text-label-badge flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                Fresh
+              </span>
+</div>
+<div class="mt-4 flex items-baseline gap-2">
+<span class="text-sm font-semibold text-on-surface">Updated 2 days ago</span>
+<span class="text-xs text-outline">• Tile 43QDA</span>
+</div>
+<p class="text-xs text-on-surface-variant mt-1.5">
+              10m multi-spectral resolution. Cluster mean NDVI: 0.68. Next flyover orbital pass scheduled in 3 days.
+            </p>
+</div>
+<div class="mt-4 pt-3 flex items-center justify-between text-xs text-on-surface-variant bg-surface-container-low -mx-space-md -mb-space-md px-space-md py-2 rounded-b-xl">
+<span>Spatial Coverage: <strong>100%</strong></span>
+<span class="text-primary font-semibold">Active Orbit</span>
+</div>
+</div>
+<!-- Card 3: Soil Moisture Tensiometers -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-2">
+<span class="p-2 bg-secondary-fixed/40 text-secondary rounded-lg">
+<span class="material-symbols-outlined text-[20px]">water_bottle</span>
+</span>
+<div class="flex flex-col">
+<h4 class="font-title-md text-body-md font-bold text-on-surface leading-tight">In-situ Soil Moisture</h4>
+<span class="text-xs text-on-surface-variant font-mono">LoRaWAN Tension Mesh</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container/40 text-on-secondary-container font-label-badge text-label-badge flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">info</span>
+                Hybrid Mesh
+              </span>
+</div>
+<div class="mt-4 flex items-baseline gap-2">
+<span class="text-sm font-semibold text-on-surface">Updated 15 min ago</span>
+<span class="text-xs text-outline">• 8/10 Live Probes</span>
+</div>
+<p class="text-xs text-on-surface-variant mt-1.5">
+              8 fields streaming at 15cm &amp; 30cm root depths. Fields F06 &amp; F09 imputed via inverse-distance spatial kriging.
+            </p>
+</div>
+<div class="mt-4 pt-3 flex items-center justify-between text-xs text-on-surface-variant bg-surface-container-low -mx-space-md -mb-space-md px-space-md py-2 rounded-b-xl">
+<span>Imputed ratio: <strong>20%</strong></span>
+<span class="text-secondary font-semibold">Mesh Re-routed</span>
+</div>
+</div>
+<!-- Card 4: Cadastral Crop Phenology -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-2">
+<span class="p-2 bg-surface-container text-on-surface-variant rounded-lg">
+<span class="material-symbols-outlined text-[20px]">agriculture</span>
+</span>
+<div class="flex flex-col">
+<h4 class="font-title-md text-body-md font-bold text-on-surface leading-tight">Cadastral Phenology</h4>
+<span class="text-xs text-on-surface-variant font-mono">MahaAgri GIS Cadastre</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-primary/10 text-primary font-label-badge text-label-badge flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                Confirmed
+              </span>
+</div>
+<div class="mt-4 flex items-baseline gap-2">
+<span class="text-sm font-semibold text-on-surface">Updated 24h ago</span>
+<span class="text-xs text-outline">• Field Verified</span>
+</div>
+<p class="text-xs text-on-surface-variant mt-1.5">
+              DAP (Days After Planting) calibrated across all 10 plots. Kc stage coefficients adjusted for fruit-development phase.
+            </p>
+</div>
+<div class="mt-4 pt-3 flex items-center justify-between text-xs text-on-surface-variant bg-surface-container-low -mx-space-md -mb-space-md px-space-md py-2 rounded-b-xl">
+<span>Lead Sign-off: <strong>Anand Patil</strong></span>
+<span class="text-primary font-semibold">Locked</span>
+</div>
+</div>
+<!-- Card 5: Irrigation Pump Telemetry -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-2">
+<span class="p-2 bg-primary-fixed/40 text-primary rounded-lg">
+<span class="material-symbols-outlined text-[20px]">electric_bolt</span>
+</span>
+<div class="flex flex-col">
+<h4 class="font-title-md text-body-md font-bold text-on-surface leading-tight">Pump &amp; Valve Telemetry</h4>
+<span class="text-xs text-on-surface-variant font-mono">SCADA MQTT Node</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-primary/10 text-primary font-label-badge text-label-badge flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-ping"></span>
+                Live Stream
+              </span>
+</div>
+<div class="mt-4 flex items-baseline gap-2">
+<span class="text-sm font-semibold text-on-surface">Stream Latency: 1.4s</span>
+<span class="text-xs text-outline">• QoS Level 1</span>
+</div>
+<p class="text-xs text-on-surface-variant mt-1.5">
+              Motor current (Amperes), line pressure (Bar), and volumetric pulse counters reporting continuously on 3 solar pump sets.
+            </p>
+</div>
+<div class="mt-4 pt-3 flex items-center justify-between text-xs text-on-surface-variant bg-surface-container-low -mx-space-md -mb-space-md px-space-md py-2 rounded-b-xl">
+<span>Cluster Pressure: <strong>2.4 Bar</strong></span>
+<span class="text-primary font-semibold">Continuous</span>
+</div>
+</div>
+<!-- Card 6: Satellite Cloud Cover Monitor (Stale Alert) -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-2">
+<span class="p-2 bg-error-container text-error rounded-lg">
+<span class="material-symbols-outlined text-[20px]">cloud_sync</span>
+</span>
+<div class="flex flex-col">
+<h4 class="font-title-md text-body-md font-bold text-on-surface leading-tight">Optical Cloud Obscuration</h4>
+<span class="text-xs text-on-surface-variant font-mono">MODIS / Landsat 9</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-error-container text-on-error-container font-label-badge text-label-badge flex items-center gap-1 font-bold">
+<span class="material-symbols-outlined text-[12px]">warning</span>
+                Stale (F06)
+              </span>
+</div>
+<div class="mt-4 flex items-baseline gap-2">
+<span class="text-sm font-semibold text-error">9 days without clear pass</span>
+<span class="text-xs text-outline">• F06 Sector</span>
+</div>
+<p class="text-xs text-on-surface-variant mt-1.5">
+              Heavy localized cirrus cloud mask prevents valid NIR reflectance extraction over Field 06. SAR radar backscatter engaged as fall-back.
+            </p>
+</div>
+<div class="mt-4 pt-3 flex items-center justify-between text-xs text-on-surface-variant bg-surface-container-low -mx-space-md -mb-space-md px-space-md py-2 rounded-b-xl">
+<span>Fallback: <strong>Sentinel-1 SAR</strong></span>
+<span class="text-secondary font-semibold">Degraded Mode</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Machine Learning Governance Details & Environmental Context -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-sm mb-space-md pb-space-sm bg-surface-container-low/30 -mx-space-md -mt-space-md p-space-md rounded-t-xl">
+<div>
+<span class="font-label-badge text-label-badge text-secondary font-bold uppercase">Algorithm Transparency Card</span>
+<h4 class="font-title-md text-title-md text-on-surface">XGBoost Decision Engine (v0.3 Calibrated)</h4>
+</div>
+<div class="flex items-center gap-2 text-xs text-on-surface-variant">
+<span>Model Registry ID: <code>MDL-AGRI-2024-XG-03-PUN</code></span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-space-md">
+<div class="flex flex-col">
+<span class="text-xs text-on-surface-variant uppercase font-semibold">Objective Loss Function</span>
+<span class="font-mono text-xs text-on-surface mt-1">RMSE + L2 Regularization (λ=1.5)</span>
+<span class="text-[11px] text-outline mt-1">Penalizes over-irrigation in shallow soil depths</span>
+</div>
+<div class="flex flex-col">
+<span class="text-xs text-on-surface-variant uppercase font-semibold">Constraint Solver</span>
+<span class="font-mono text-xs text-on-surface mt-1">CBC / PuLP Linear Simplex</span>
+<span class="text-[11px] text-outline mt-1">Hard limit enforced: ≤90.0 units aggregate</span>
+</div>
+<div class="flex flex-col">
+<span class="text-xs text-on-surface-variant uppercase font-semibold">Cross-Validation Score</span>
+<span class="font-mono text-xs text-primary font-bold mt-1">R² = 0.931 (10-Fold Spatial CV)</span>
+<span class="text-[11px] text-outline mt-1">Tested against historic 2021-2023 IMD drought records</span>
+</div>
+<div class="flex flex-col">
+<span class="text-xs text-on-surface-variant uppercase font-semibold">Human-in-the-Loop SLA</span>
+<span class="font-mono text-xs text-secondary font-bold mt-1">Manual Approval Mandatory</span>
+<span class="text-[11px] text-outline mt-1">All recommendations require agronomist key authorization</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+  function switchView(viewName) {
+    const actionTab = document.getElementById('view-action-log');
+    const healthTab = document.getElementById('view-health-ledger');
+    const btnAction = document.getElementById('tab-btn-action');
+    const btnHealth = document.getElementById('tab-btn-health');
+
+    if (viewName === 'action') {
+      actionTab.classList.remove('hidden');
+      healthTab.classList.add('hidden');
+      
+      btnAction.className = 'px-space-md py-2 rounded-lg font-label-md text-label-md transition-all duration-200 bg-surface-container-lowest text-primary shadow-sm flex items-center gap-space-xs font-semibold';
+      btnHealth.className = 'px-space-md py-2 rounded-lg font-label-md text-label-md transition-all duration-200 text-on-surface-variant hover:text-on-surface flex items-center gap-space-xs font-medium';
+    } else {
+      actionTab.classList.add('hidden');
+      healthTab.classList.remove('hidden');
+      
+      btnHealth.className = 'px-space-md py-2 rounded-lg font-label-md text-label-md transition-all duration-200 bg-surface-container-lowest text-primary shadow-sm flex items-center gap-space-xs font-semibold';
+      btnAction.className = 'px-space-md py-2 rounded-lg font-label-md text-label-md transition-all duration-200 text-on-surface-variant hover:text-on-surface flex items-center gap-space-xs font-medium';
+    }
+  }
+
+  // Initial state setup: show action log by default, keeping health accessible
+  document.addEventListener('DOMContentLoaded', () => {
+    switchView('action');
+  });
+</script></main><footer class="fixed bottom-0 left-64 right-0 h-10 bg-surface-container-low/95 backdrop-blur-sm z-30 px-space-lg flex items-center justify-between text-on-surface-variant font-label-badge text-label-badge shadow-[0_-1px_6px_rgba(0,0,0,0.02)]"><div class="flex items-center gap-space-sm truncate"><span class="text-secondary font-bold">⚠️ Decision support, not an autonomous agronomist. Review recommendations in local context.</span></div><div class="flex items-center gap-space-md whitespace-nowrap hidden md:flex"><span>Model: <strong class="text-primary">XGBoost v0.3 (Calibrated)</strong></span><span>·</span><span>Deterministic replay data</span><span>·</span><span class="inline-flex items-center gap-1 text-primary font-bold"><span class="material-symbols-outlined text-[14px]">nest_eco_leaf</span>SDG 13 Climate Action</span></div></footer></div></body></html>
