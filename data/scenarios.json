@@ -1,0 +1,170 @@
+[
+  {
+    "id": "normal_01",
+    "name": "Normal Baseline Replay",
+    "title": "Normal Baseline Replay",
+    "description": "Nominal peri-urban vegetable cluster conditions under standard October replay schedule with regular irrigation and historical weather patterns.",
+    "scenario_type": "baseline",
+    "affected_field_ids": [],
+    "changed_input_signals": [],
+    "expected_risk_direction": "baseline_nominal",
+    "qualitative_risk_direction": "Nominal baseline risk with scheduled allocation.",
+    "recommended_action": "follow_scheduled_plan",
+    "reset_behavior": {
+      "target_scenario_id": "normal_01",
+      "reverts_to_baseline": true,
+      "mutates_base_fixtures": false,
+      "description": "Baseline anchor state. Represents the unperturbed operational state. Re-evaluating or resetting restores default observations from data/observations.json without mutating base fixture files."
+    },
+    "is_synthetic_replay": true,
+    "synthetic_notice": "Fictional synthetic/replayed scenario prototype data for demonstration purposes; not real field measurements or actual meteorological forecasts."
+  },
+  {
+    "id": "rainfall_deficit_heat_01",
+    "name": "Rainfall Deficit + Heat Shock",
+    "title": "Rainfall Deficit with Heat Shock Scenario",
+    "description": "Compound climate shock: persistent rainfall deficit coupled with a sharp heat wave (+4.0°C maximum temperature) stressing sensitive vegetative and flowering tomato fields.",
+    "scenario_type": "rainfall_deficit",
+    "intensity": "severe",
+    "affected_field_ids": [
+      "PC-001",
+      "PC-003",
+      "PC-009"
+    ],
+    "changed_input_signals": [
+      {
+        "variable": "forecast_tmax",
+        "source": "synthetic_weather_replay",
+        "unit": "deg_C",
+        "change_type": "delta",
+        "value": 4.0,
+        "replayed_value": 38.2,
+        "baseline_reference_value": 34.2,
+        "description": "Forecast maximum daily temperature elevated by +4.0°C across the 3-day forecast window, producing extreme heat stress."
+      },
+      {
+        "variable": "forecast_rainfall",
+        "source": "synthetic_weather_replay",
+        "unit": "mm",
+        "change_type": "absolute",
+        "value": 0.0,
+        "replayed_value": 0.0,
+        "baseline_reference_value": 1.5,
+        "description": "Forecast precipitation suppressed to 0.0 mm across the 3-day horizon (no incoming rain relief)."
+      },
+      {
+        "variable": "rainfall_daily",
+        "source": "synthetic_weather_replay",
+        "unit": "multiplier",
+        "value": 0.0,
+        "replayed_value": 0.0,
+        "baseline_reference_value": 4.2,
+        "description": "Cumulative past rainfall reduced to 0.0 mm, worsening rootzone water deficit."
+      },
+      {
+        "variable": "soil_moisture_proxy",
+        "source": "synthetic_soil_proxy",
+        "unit": "fraction_0_to_1",
+        "change_type": "absolute",
+        "value": 0.22,
+        "replayed_value": 0.22,
+        "baseline_reference_value": 0.48,
+        "description": "Root-zone soil moisture proxy drops sharply to 0.22, indicating depletion approaching wilting threshold."
+      },
+      {
+        "variable": "ndvi_trend_14d",
+        "source": "synthetic_satellite_replay",
+        "unit": "delta",
+        "change_type": "absolute",
+        "value": -0.06,
+        "replayed_value": -0.06,
+        "baseline_reference_value": 0.03,
+        "description": "14-day satellite vegetation trend flips negative (-0.06), signaling onset of canopy thermal and moisture stress."
+      }
+    ],
+    "expected_risk_direction": "increased_water_stress_risk",
+    "qualitative_risk_direction": "Increased water and thermal stress risk across affected fields.",
+    "recommended_action": "irrigate_now",
+    "candidate_actions": [
+      "irrigate_now",
+      "inspect"
+    ],
+    "reset_behavior": {
+      "target_scenario_id": "normal_01",
+      "reverts_to_baseline": true,
+      "mutates_base_fixtures": false,
+      "description": "Revert to normal_01 baseline replay state; clears heat wave and rainfall deficit signal overrides and restores base observation fixtures without persisting mutations."
+    },
+    "is_synthetic_replay": true,
+    "synthetic_notice": "Fictional synthetic/replayed scenario prototype data for demonstration purposes; not real field measurements or actual meteorological forecasts."
+  },
+  {
+    "id": "heavy_rain_pause_01",
+    "name": "Heavy Rain & Pause Irrigation",
+    "title": "Heavy Intense Rain with Irrigation Pause Scenario",
+    "description": "Intense localized cloudburst event (65.0 mm past deluge + 42.0 mm near-term rain forecast) saturating root zones and prompting immediate irrigation pause to prevent waterlogging and disease.",
+    "scenario_type": "intense_rain",
+    "intensity": "severe",
+    "affected_field_ids": [
+      "PC-002",
+      "PC-005"
+    ],
+    "changed_input_signals": [
+      {
+        "variable": "rainfall_daily",
+        "source": "synthetic_weather_replay",
+        "unit": "mm",
+        "change_type": "absolute",
+        "value": 65.0,
+        "replayed_value": 65.0,
+        "baseline_reference_value": 0.0,
+        "description": "Recent intense 24-hour deluge injects 65.0 mm of rainfall onto affected demonstration fields."
+      },
+      {
+        "variable": "forecast_rainfall",
+        "source": "synthetic_weather_replay",
+        "unit": "mm",
+        "change_type": "absolute",
+        "value": 42.0,
+        "replayed_value": 42.0,
+        "baseline_reference_value": 1.5,
+        "description": "High continuing rainfall forecast of 42.0 mm over the upcoming 48 hours."
+      },
+      {
+        "variable": "forecast_tmax",
+        "source": "synthetic_weather_replay",
+        "unit": "deg_C",
+        "change_type": "absolute",
+        "value": 26.5,
+        "replayed_value": 26.5,
+        "baseline_reference_value": 34.0,
+        "description": "Heavy cloud cover and precipitation suppress daytime maximum temperatures to 26.5°C."
+      },
+      {
+        "variable": "soil_moisture_proxy",
+        "source": "synthetic_soil_proxy",
+        "unit": "fraction_0_to_1",
+        "change_type": "absolute",
+        "value": 0.92,
+        "replayed_value": 0.92,
+        "baseline_reference_value": 0.50,
+        "description": "Soil moisture proxy surges to 0.92 saturation, indicating waterlogging hazard and high standing-water risk."
+      }
+    ],
+    "expected_risk_direction": "reduced_immediate_irrigation_need_increased_pause_inspect",
+    "qualitative_risk_direction": "Reduced immediate irrigation need but increased inspection and protect-pause state.",
+    "recommended_action": "protect_pause",
+    "candidate_actions": [
+      "protect_pause",
+      "inspect"
+    ],
+    "reset_behavior": {
+      "target_scenario_id": "normal_01",
+      "reverts_to_baseline": true,
+      "mutates_base_fixtures": false,
+      "description": "Revert to normal_01 baseline replay state; clears heavy rainfall and soil saturation signal overrides and restores base observation fixtures without persisting mutations."
+    },
+    "is_synthetic_replay": true,
+    "synthetic_notice": "Fictional synthetic/replayed scenario prototype data for demonstration purposes; not real field measurements or actual meteorological forecasts."
+  }
+]

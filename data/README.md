@@ -101,3 +101,76 @@ To support the product requirement for handling stale satellite observations and
 - **Age:** `25` days (`age_days: 25`, exceeding the 12-day threshold)
 - **Quality Flag:** `"stale"`
 - **Behavioral Intent:** The backend and UI can flag this field with low observation confidence and recommend manual inspection before scarce water allocation.
+
+---
+
+## Demo Scenarios (`scenarios.json`)
+
+**Notice:**
+> **Fictional synthetic/replayed prototype data for demonstration purposes; not real field measurements.**  
+> Climate shocks, signal perturbations, and expected risk directions are deterministic scenario fixtures for the shock-mode simulator demonstration.
+
+### Overview
+
+- **File:** `data/scenarios.json`
+- **Scenario Count:** 3 deterministic demo scenarios
+- **Target Fields:** Demonstrates subsets within `PC-001` through `PC-010`
+
+### Scenarios Summary
+
+| Scenario ID | Name | Scenario Type | Affected Fields | Expected Risk Direction | Primary Impact / Narrative |
+|---|---|---|---|---|---|
+| `normal_01` | Normal Baseline Replay | `baseline` | *None* (`[]`) | `baseline_nominal` | Nominal replay baseline and reset anchor state |
+| `rainfall_deficit_heat_01` | Rainfall Deficit + Heat Shock | `rainfall_deficit` | `PC-001`, `PC-003`, `PC-009` | `increased_water_stress_risk` | Heat wave (+4°C) & zero rain elevate stress, moving fields toward amber/red |
+| `heavy_rain_pause_01` | Heavy Rain & Pause Irrigation | `intense_rain` | `PC-002`, `PC-005` | `reduced_immediate_irrigation_need_increased_pause_inspect` | Cloudburst (65 mm) + 42 mm forecast surge soil moisture (0.92); triggers pause/inspect |
+
+### Scenario Contract
+
+Each scenario conforms to the following schema:
+
+```json
+{
+  "id": "rainfall_deficit_heat_01",
+  "name": "Rainfall Deficit + Heat Shock",
+  "title": "Rainfall Deficit with Heat Shock Scenario",
+  "description": "Compound climate shock: persistent rainfall deficit coupled with a sharp heat wave...",
+  "scenario_type": "rainfall_deficit",
+  "intensity": "severe",
+  "affected_field_ids": ["PC-001", "PC-003", "PC-009"],
+  "changed_input_signals": [
+    {
+      "variable": "forecast_tmax",
+      "source": "synthetic_weather_replay",
+      "unit": "deg_C",
+      "change_type": "delta",
+      "value": 4.0,
+      "replayed_value": 38.2,
+      "baseline_reference_value": 34.2,
+      "description": "..."
+    }
+  ],
+  "expected_risk_direction": "increased_water_stress_risk",
+  "reset_behavior": {
+    "target_scenario_id": "normal_01",
+    "reverts_to_baseline": true,
+    "mutates_base_fixtures": false,
+    "description": "..."
+  },
+  "is_synthetic_replay": true,
+  "synthetic_notice": "..."
+}
+```
+
+### Reset Behavior & Determinism
+
+- **Non-mutating replay:** Applying a scenario introduces temporary signal changes for evaluation without modifying the base fixture files (`fields.geojson` or `observations.json`).
+- **Reset target:** Calling reset reverts the active replay state to `normal_01`.
+- **Determinism:** All signal overrides are static, fixed values; no dynamic generation or random values are used.
+
+### Validation
+
+To validate all scenario fixtures against the schema and field registry:
+
+```bash
+node scripts/validate_scenarios.js
+```
