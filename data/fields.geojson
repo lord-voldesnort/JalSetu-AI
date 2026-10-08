@@ -1,0 +1,225 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "PC-001",
+        "name": "Field 01",
+        "crop": "tomato",
+        "stage": "vegetative",
+        "area_acres": 1.5
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [73.7802, 18.6601],
+            [73.7811, 18.6600],
+            [73.7812, 18.6609],
+            [73.7801, 18.6608],
+            [73.7802, 18.6601]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "PC-002",
+        "name": "Field 02",
+        "crop": "tomato",
+        "stage": "flowering",
+        "area_acres": 1.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [73.7813, 18.6600],
+            [73.7821, 18.6601],
+            [73.7820, 18.6609],
+            [73.7813, 18.6609],
+            [73.7813, 18.6600]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "PC-003",
+        "name": "Field 03",
+        "crop": "tomato",
+        "stage": "fruiting",
+        "area_acres": 2.0
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [73.7823, 18.6600],
+            [73.7835, 18.6600],
+            [73.7834, 18.6610],
+            [73.7822, 18.6609],
+            [73.7823, 18.6600]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "PC-004",
+        "name": "Field 04",
+        "crop": "chili",
+        "stage": "flowering",
+        "area_acres": 0.8
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [73.7837, 18.6601],
+            [73.7844, 18.6602],
+            [73.7843, 18.6608],
+            [73.7836, 18.6609],
+            [73.7837, 18.6601]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "PC-005",
+        "name": "Field 05",
+        "crop": "tomato",
+        "stage": "fruiting",
+        "area_acres": 1.8
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [73.7846, 18.6600],
+            [73.7858, 18.6601],
+            [73.7857, 18.6610],
+            [73.7845, 18.6609],
+            [73.7846, 18.6600]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "PC-006",
+        "name": "Field 06",
+        "crop": "brinjal",
+        "stage": "vegetative",
+        "area_acres": 1.0
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [73.7801, 18.6611],
+            [73.7810, 18.6611],
+            [73.7809, 18.6618],
+            [73.7800, 18.6617],
+            [73.7801, 18.6611]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "PC-007",
+        "name": "Field 07",
+        "crop": "tomato",
+        "stage": "ripening",
+        "area_acres": 2.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [73.7812, 18.6611],
+            [73.7823, 18.6611],
+            [73.7824, 18.6621],
+            [73.7811, 18.6620],
+            [73.7812, 18.6611]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "PC-008",
+        "name": "Field 08",
+        "crop": "onion",
+        "stage": "vegetative",
+        "area_acres": 1.4
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [73.7825, 18.6612],
+            [73.7834, 18.6612],
+            [73.7835, 18.6620],
+            [73.7824, 18.6619],
+            [73.7825, 18.6612]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "PC-009",
+        "name": "Field 09",
+        "crop": "tomato",
+        "stage": "flowering",
+        "area_acres": 1.6
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [73.7836, 18.6611],
+            [73.7846, 18.6612],
+            [73.7845, 18.6621],
+            [73.7835, 18.6620],
+            [73.7836, 18.6611]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "PC-010",
+        "name": "Field 10",
+        "crop": "capsicum",
+        "stage": "fruiting",
+        "area_acres": 1.1
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [73.7848, 18.6612],
+            [73.7856, 18.6612],
+            [73.7855, 18.6619],
+            [73.7847, 18.6619],
+            [73.7848, 18.6612]
+          ]
+        ]
+      }
+    }
+  ]
+}
