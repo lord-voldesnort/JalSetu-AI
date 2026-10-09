@@ -1,0 +1,1390 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base { html, body { margin: 0; padding: 0; } body { overscroll-behavior: none; } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "secondary-container": "#febf90", "surface-container-low": "#eaf6f3", "tertiary-container": "#6a4cb6", "error": "#ba1a1a", "surface-variant": "#d9e5e2", "on-primary": "#ffffff", "surface": "#f0fcf8", "outline-variant": "#bec9c8", "on-secondary-fixed-variant": "#673d18", "on-primary-container": "#9be9e8", "on-secondary-fixed": "#2f1500", "on-secondary-container": "#794c26", "tertiary": "#52329c", "on-surface-variant": "#3f4948", "surface-tint": "#0a6969", "on-surface": "#131e1c", "primary-fixed-dim": "#86d4d3", "on-error": "#ffffff", "on-primary-fixed-variant": "#004f50", "primary": "#005151", "on-error-container": "#93000a", "on-tertiary-fixed": "#22005c", "surface-container-high": "#deebe7", "on-tertiary": "#ffffff", "primary-container": "#0e6b6b", "secondary": "#82542d", "inverse-primary": "#86d4d3", "surface-container-lowest": "#ffffff", "tertiary-fixed-dim": "#cfbcff", "surface-bright": "#f0fcf8", "on-secondary": "#ffffff", "secondary-fixed": "#ffdcc4", "primary-fixed": "#a2f0ef", "on-tertiary-container": "#e2d4ff", "secondary-fixed-dim": "#f8ba8b", "on-primary-fixed": "#002020", "outline": "#6f7979", "surface-container": "#e4f1ed", "inverse-on-surface": "#e7f3f0", "error-container": "#ffdad6", "surface-dim": "#d0ddd9", "tertiary-fixed": "#e9ddff", "on-tertiary-fixed-variant": "#50309b", "background": "#f0fcf8", "inverse-surface": "#273330", "on-background": "#131e1c", "surface-container-highest": "#d9e5e2" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "gutter": "1.5rem", "space-sm": "0.5rem", "gutter-mobile": "1rem", "space-xl": "2.5rem", "margin-mobile": "1rem", "space-xs": "0.25rem", "margin": "2rem", "space-md": "1rem", "space-lg": "1.5rem" }, "fontFamily": { "display-lg-mobile": [ "Newsreader" ], "display-lg": [ "Newsreader" ], "title-md": [ "Newsreader" ], "body-lg": [ "Manrope" ], "headline-md": [ "Newsreader" ], "body-md": [ "Manrope" ], "metric-numeral-lg": [ "Manrope" ], "body-sm": [ "Manrope" ], "label-badge": [ "Manrope" ], "label-md": [ "Manrope" ], "headline-lg": [ "Newsreader" ], "headline-lg-mobile": [ "Newsreader" ], "metric-numeral-xl": [ "Manrope" ] }, "fontSize": { "display-lg-mobile": [ "32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "400" } ], "display-lg": [ "44px", { "lineHeight": "52px", "letterSpacing": "-0.02em", "fontWeight": "400" } ], "title-md": [ "20px", { "lineHeight": "28px", "fontWeight": "600" } ], "body-lg": [ "18px", { "lineHeight": "28px", "fontWeight": "400" } ], "headline-md": [ "24px", { "lineHeight": "32px", "fontWeight": "500" } ], "body-md": [ "16px", { "lineHeight": "24px", "fontWeight": "400" } ], "metric-numeral-lg": [ "28px", { "lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "600" } ], "body-sm": [ "14px", { "lineHeight": "20px", "fontWeight": "500" } ], "label-badge": [ "12px", { "lineHeight": "16px", "letterSpacing": "0.03em", "fontWeight": "700" } ], "label-md": [ "13px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "600" } ], "headline-lg": [ "32px", { "lineHeight": "40px", "letterSpacing": "-0.015em", "fontWeight": "400" } ], "headline-lg-mobile": [ "26px", { "lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "400" } ], "metric-numeral-xl": [ "36px", { "lineHeight": "44px", "letterSpacing": "-0.03em", "fontWeight": "700" } ] } } } };</script></head><body class="bg-background font-body-md text-on-surface min-h-screen selection:bg-secondary-fixed selection:text-on-secondary-fixed"><aside class="fixed left-0 top-0 bottom-0 w-64 bg-surface-container-low shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50 flex flex-col justify-between"><div class="flex flex-col"><div class="h-20 px-space-md flex items-center gap-space-sm bg-surface-container-low"><img alt="JalSetu AI Brand Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1U9N0aFFKO4EzMzgTgixd6WdSfq6WUtx169p3cGgnQ-TwS7cJa7pdrsYJxRBJ9bOwibEGqfmN4RRs5FbbdDXszY_I7qK9hPv0itK7V9lC0yvgFBGaoRHHJUzjVlp5ijkPrt9JqX648eR2Thbww5I2GV8qyANciQut-Nu1bSL6o439SPlGRp6_AFICJi5d6dsscO-nze5EcICvkvIXaYwR9vEm4c5ltu4pHwRSLp-Ds"/><div class="flex flex-col min-w-0"><span class="font-title-md text-title-md text-primary tracking-tight leading-none truncate">JalSetu AI</span><span class="font-label-badge text-label-badge text-secondary uppercase tracking-widest leading-normal mt-0.5">Decision Copilot</span></div></div><div class="px-space-md py-space-xs"><div class="flex items-center justify-between px-space-sm mb-space-xs"><span class="font-label-badge text-label-badge text-on-surface-variant uppercase tracking-wider">Workflow Loop</span><span class="font-label-badge text-label-badge text-primary font-semibold">4 Stages</span></div><div class="px-space-sm mb-2"><div class="flex items-center justify-between text-[10px] uppercase font-bold text-outline-variant"><span class="text-primary">1</span><span class="h-0.5 w-4 bg-outline-variant/60 rounded"></span><span>2</span><span class="h-0.5 w-4 bg-outline-variant/60 rounded"></span><span>3</span><span class="h-0.5 w-4 bg-outline-variant/60 rounded"></span><span>4</span></div></div></div><nav class="relative flex flex-col gap-2 px-space-sm" data-active-classes="bg-primary-container text-on-primary font-bold shadow-sm"><div aria-hidden="true" class="absolute left-7 top-4 bottom-4 w-0.5 bg-outline-variant/40 -z-0 pointer-events-none"></div><a class="relative z-10 flex flex-col gap-0.5 px-space-md py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-sm text-body-sm group" data-path="monitor" href="#"><span class="font-semibold truncate leading-snug group-hover:text-primary transition-colors">Monitor</span><span class="font-label-badge text-label-badge text-outline group-hover:text-on-surface-variant uppercase tracking-wide">Observe</span></a><a class="relative z-10 flex flex-col gap-0.5 px-space-md py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-sm text-body-sm group" data-path="fields-and-crops" href="#"><span class="font-semibold truncate leading-snug group-hover:text-primary transition-colors">Fields &amp; Crops</span><span class="font-label-badge text-label-badge text-outline group-hover:text-on-surface-variant uppercase tracking-wide">Understand</span></a><a class="relative z-10 flex flex-col gap-0.5 px-space-md py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-sm text-body-sm group" data-path="water-plan" href="#"><span class="font-semibold truncate leading-snug group-hover:text-primary transition-colors">Water Plan</span><span class="font-label-badge text-label-badge text-outline group-hover:text-on-surface-variant uppercase tracking-wide">Decide</span></a><a class="relative z-10 flex flex-col gap-0.5 px-space-md py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-sm text-body-sm group" data-path="log-and-trust" href="#"><span class="font-semibold truncate leading-snug group-hover:text-primary transition-colors">Log &amp; Trust</span><span class="font-label-badge text-label-badge text-outline group-hover:text-on-surface-variant uppercase tracking-wide">Review</span></a></nav></div><div class="p-space-sm"><div class="bg-surface-container-lowest p-space-sm rounded-lg shadow-[0_1px_4px_rgba(0,0,0,0.03)] flex flex-col gap-1.5"><div class="flex items-center justify-between"><span class="font-label-badge text-label-badge text-on-surface-variant uppercase">Telemetry Link</span><span class="h-2 w-2 rounded-full bg-primary animate-pulse"></span></div><div class="font-label-md text-label-md text-primary font-semibold truncate">IMD Pune Doppler Linked</div><div class="font-label-badge text-label-badge text-outline">Stream Latency: 1.4s</div></div></div></aside><div class="pl-64 flex flex-col min-h-screen"><header class="fixed top-0 left-64 right-0 h-20 bg-surface-container-lowest/90 backdrop-blur-md shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 px-space-lg flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-sm bg-surface-container-low px-space-md py-1.5 rounded-lg"><span class="material-symbols-outlined text-primary text-[20px]">location_on</span><div class="flex flex-col"><span class="font-label-md text-label-md text-on-surface leading-tight font-semibold">Pimpri-Chinchwad Cluster, Pune</span><span class="font-label-badge text-label-badge text-secondary leading-none">10 Fields · Tomato / Vegetable</span></div></div><div class="flex items-center gap-space-xs bg-surface-container px-space-md py-1.5 rounded-lg"><span class="material-symbols-outlined text-secondary text-[18px]">thunderstorm</span><div class="flex flex-col"><span class="font-label-md text-label-md text-on-surface leading-tight font-semibold">Rainfall deficit + Heat event</span><span class="font-label-badge text-label-badge text-secondary font-bold">Replay Scenario Active</span></div><span class="material-symbols-outlined text-on-surface-variant text-[18px] ml-1">expand_more</span></div></div><div class="flex items-center gap-space-md"><button aria-label="Settings and Configurations" class="p-2 rounded-full bg-surface-container-low text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" title="Settings &amp; Demo Setup" type="button"><span class="material-symbols-outlined text-[20px]">settings</span></button><div class="flex items-center bg-surface-container-high rounded-full p-0.5 text-on-surface-variant font-label-badge text-label-badge"><button class="px-2.5 py-1 rounded-full bg-surface-container-lowest text-primary shadow-xs font-bold" type="button">English</button><button class="px-2.5 py-1 rounded-full hover:text-on-surface transition-colors font-medium" type="button">मराठी</button><button class="px-2.5 py-1 rounded-full hover:text-on-surface transition-colors font-medium" type="button">हिन्दी</button></div><button aria-label="Toggle Light or Dark Mode Demo" class="flex items-center gap-1 bg-surface-container-low px-2.5 py-1.5 rounded-full text-on-surface-variant hover:text-on-surface transition-colors font-label-badge text-label-badge" title="Light/Dark Demo Mode" type="button"><span class="material-symbols-outlined text-[16px] text-secondary">light_mode</span><span>Light</span></button><div class="relative group flex items-center gap-space-sm pl-space-xs"><button aria-haspopup="true" class="flex items-center gap-space-sm text-left focus:outline-none" type="button"><div class="flex flex-col text-right hidden sm:flex"><span class="font-label-md text-label-md text-on-surface leading-tight font-semibold">Anand Patil</span><span class="font-label-badge text-label-badge text-on-surface-variant leading-none">Lead Agronomist</span></div><img alt="Profile of Anand Patil" class="w-9 h-9 rounded-full object-cover ring-2 ring-primary/20" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2CJWhMR6ILwIcxYQd72H5efhDg7q7HjjahaUIACr0dR5znRLIUgdydssxkC4za-8YUCSl7EglM6VVHOMqhcHZXxcIIxdb4xTA-NfgX7DkMjH24vfrfzKu0EzPTDn-7TVf-cdZi7rbPv2tmSXcOsBXvNFfd2g9xPx9PNffZG8jf1hL4NacPDKEVjY55hUqUDrJorgBzMZaUanWO2qGDgifbwgn5W-dkrOzxPQ5T08"/></button><div class="absolute right-0 top-full mt-2 w-56 bg-surface-container-lowest rounded-xl shadow-lg border border-outline-variant/30 py-2 hidden group-hover:flex flex-col z-50 text-body-sm font-body-sm"><div class="px-space-md py-1 border-b border-surface-container"><p class="font-semibold text-on-surface">Anand Patil</p><p class="text-[11px] text-outline font-normal">anand.patil@jalsetu.gov.in</p></div><div class="py-1"><div class="flex items-center justify-between px-space-md py-1.5 text-on-surface-variant hover:bg-surface-container transition-colors cursor-pointer"><span class="flex items-center gap-2"><span class="material-symbols-outlined text-[18px]">person</span>Profile &amp; Role</span><span class="text-[10px] bg-surface-container-high px-1.5 py-0.5 rounded text-primary font-bold">Admin</span></div><div class="flex items-center gap-2 px-space-md py-1.5 text-on-surface-variant hover:bg-surface-container transition-colors cursor-pointer"><span class="material-symbols-outlined text-[18px]">tune</span>Cluster Settings</div><div class="flex items-center gap-2 px-space-md py-1.5 text-on-surface-variant hover:bg-surface-container transition-colors cursor-pointer"><span class="material-symbols-outlined text-[18px]">help_outline</span>Documentation</div></div><div class="pt-1 border-t border-surface-container"><div class="flex items-center gap-2 px-space-md py-1.5 text-error hover:bg-error-container/20 transition-colors cursor-pointer font-semibold"><span class="material-symbols-outlined text-[18px]">logout</span>Sign Out</div></div></div></div></div></header><main class="w-full pt-20 pb-12 px-space-lg flex-1 bg-background"><div class="flex flex-col w-full relative">
+<!-- Top Bar / Stage Context & Spatial Filters -->
+<section class="flex flex-col gap-space-md mb-space-lg">
+<!-- Header Level Block -->
+<div class="flex flex-col xl:flex-row xl:items-end justify-between gap-space-md">
+<div class="flex flex-col max-w-3xl">
+<div class="flex items-center gap-space-xs mb-1">
+<span class="inline-flex items-center justify-center px-2 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-badge text-label-badge uppercase tracking-wider">
+            Stage 2 · Understand
+          </span>
+<span class="text-outline-variant font-label-badge text-label-badge">•</span>
+<span class="text-primary font-label-badge text-label-badge uppercase tracking-widest font-bold">
+            Cluster Field Cadastre
+          </span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">
+          Fields &amp; Crops Gallery
+        </h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1 leading-relaxed">
+          Ground-truth crop stages, vegetative health, and hydrological stress diagnostics across 10 monitored tomato plots in Pimpri-Chinchwad.
+        </p>
+</div>
+<!-- View and Sort Controls -->
+<div class="flex flex-wrap items-center gap-space-sm">
+<div class="flex items-center bg-surface-container-high rounded-lg p-1 text-on-surface-variant shadow-sm">
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-surface-container-lowest text-primary font-label-md text-label-md font-bold shadow-xs transition-all" id="viewGridBtn" onclick="setViewMode('grid')">
+<span class="material-symbols-outlined text-[18px]">grid_view</span>
+<span>Grid Cards</span>
+</button>
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-md text-on-surface-variant hover:text-on-surface font-label-md text-label-md font-medium transition-all" id="viewTableBtn" onclick="setViewMode('table')">
+<span class="material-symbols-outlined text-[18px]">table_rows</span>
+<span>Dense Table</span>
+</button>
+</div>
+<div class="relative inline-flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-on-surface-variant text-[18px] pointer-events-none">sort</span>
+<select class="appearance-none bg-surface-container-lowest text-on-surface pl-9 pr-9 py-2 rounded-lg font-label-md text-label-md font-semibold shadow-sm focus:outline-none cursor-pointer" id="sortSelect" onchange="handleSortChange(this.value)">
+<option selected="" value="stress-desc">Highest Stress First</option>
+<option value="id-asc">Field ID (F01 - F10)</option>
+<option value="stage-asc">Crop Stage (Phenology)</option>
+<option value="area-desc">Plot Acreage (ha)</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 text-on-surface-variant text-[18px] pointer-events-none">unfold_more</span>
+</div>
+</div>
+</div>
+<!-- Filter Control Pills Row -->
+<div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-space-sm bg-surface-container-lowest p-space-sm rounded-xl shadow-sm">
+<!-- Status Filter Group -->
+<div class="flex flex-wrap items-center gap-1.5">
+<span class="font-label-badge text-label-badge text-outline uppercase tracking-wider mr-1">Risk Filter:</span>
+<button class="status-btn px-3 py-1 rounded-full font-label-badge text-label-badge font-bold bg-primary text-on-primary shadow-xs transition-colors" data-status="all" onclick="setStatusFilter('all')">
+          All (10)
+        </button>
+<button class="status-btn px-3 py-1 rounded-full font-label-badge text-label-badge font-bold bg-surface-container-low text-error hover:bg-error-container hover:text-on-error-container transition-colors flex items-center gap-1" data-status="high" onclick="setStatusFilter('high')">
+<span class="w-2 h-2 rounded-full bg-error"></span>
+          High Risk (3)
+        </button>
+<button class="status-btn px-3 py-1 rounded-full font-label-badge text-label-badge font-bold bg-surface-container-low text-secondary hover:bg-secondary-fixed hover:text-on-secondary-fixed transition-colors flex items-center gap-1" data-status="medium" onclick="setStatusFilter('medium')">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+          Medium Risk (4)
+        </button>
+<button class="status-btn px-3 py-1 rounded-full font-label-badge text-label-badge font-bold bg-surface-container-low text-primary hover:bg-primary-fixed hover:text-on-primary-fixed transition-colors flex items-center gap-1" data-status="low" onclick="setStatusFilter('low')">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+          Low Risk (2)
+        </button>
+<button class="status-btn px-3 py-1 rounded-full font-label-badge text-label-badge font-bold bg-surface-container-low text-tertiary hover:bg-tertiary-fixed hover:text-on-tertiary-fixed transition-colors flex items-center gap-1" data-status="inspect" onclick="setStatusFilter('inspect')">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+          Inspect (1)
+        </button>
+</div>
+<!-- Phenology Stage Filter -->
+<div class="flex flex-wrap items-center gap-1">
+<span class="font-label-badge text-label-badge text-outline uppercase tracking-wider mr-1">Phenology:</span>
+<button class="stage-btn px-2.5 py-1 rounded-lg font-label-badge text-label-badge font-bold bg-surface-container-high text-on-surface transition-all" data-stage="all" onclick="setStageFilter('all')">All Stages</button>
+<button class="stage-btn px-2.5 py-1 rounded-lg font-label-badge text-label-badge font-medium text-on-surface-variant hover:bg-surface-container-high transition-all" data-stage="vegetative" onclick="setStageFilter('vegetative')">Vegetative</button>
+<button class="stage-btn px-2.5 py-1 rounded-lg font-label-badge text-label-badge font-medium text-on-surface-variant hover:bg-surface-container-high transition-all" data-stage="flowering" onclick="setStageFilter('flowering')">Flowering</button>
+<button class="stage-btn px-2.5 py-1 rounded-lg font-label-badge text-label-badge font-medium text-on-surface-variant hover:bg-surface-container-high transition-all" data-stage="fruiting" onclick="setStageFilter('fruiting')">Fruiting/Harvest</button>
+</div>
+</div>
+</section>
+<!-- Main Dynamic Area: Grid Cards View vs Dense Table View -->
+<div class="flex flex-col w-full">
+<!-- GRID VIEW CONTAINER -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-space-md" id="cardGridContainer">
+<!-- CARD 1: F03 -->
+<article class="field-card group flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-200" data-area="1.8" data-field-id="F03" data-stage="flowering" data-status="high" data-stress="86">
+<div class="relative h-48 w-full overflow-hidden bg-surface-container">
+<img alt="F03 Shinde Farm flowering tomato plants" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7qMivjOHkQ17XcVFX4jn_AKCpNrOYQD4TKPeVC79_8g9I1YhI30MXf9C12w2is8joY6AE0mQCaFOhPmJiR9PSxVXzUpUwijp898cnrRT-FQ007D_xaX2280VJYUKZGboA0QEkfLBM6DvXEOuilbbwmQcIAjlfZsyuDnV2AsAWvFZOb9Ce2YxmjLtVWVy4Eum86aNhsb8jEb5pxF_jvf44X3kq2xJY6z5RnFq_hwg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-inverse-surface/80 via-transparent to-black/20"></div>
+<div class="absolute top-3 left-3 flex items-center gap-1 bg-surface-container-lowest/90 backdrop-blur-md px-2 py-0.5 rounded-full text-primary font-label-badge text-label-badge font-bold shadow-xs">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+<span>Drip: Scheduled</span>
+</div>
+<div class="absolute top-3 right-3 flex items-center gap-1 bg-error text-on-error px-2.5 py-0.5 rounded-full font-label-badge text-label-badge font-bold shadow-sm">
+<span>Critical Stress</span>
+</div>
+<div class="absolute bottom-3 left-3 right-3 flex items-baseline justify-between text-on-primary">
+<div>
+<span class="font-label-badge text-label-badge uppercase tracking-wider text-surface-container-low opacity-90">Plot F03</span>
+<h2 class="font-title-md text-title-md font-bold leading-tight">Shinde Farm</h2>
+</div>
+<div class="text-right">
+<span class="font-metric-numeral-lg text-metric-numeral-lg text-error-container font-bold leading-none">86%</span>
+<span class="block text-[10px] uppercase font-bold tracking-wider text-surface-container-low">Stress Index</span>
+</div>
+</div>
+</div>
+<div class="p-space-md flex-1 flex flex-col justify-between gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between text-on-surface-variant font-body-sm text-body-sm pb-1">
+<span class="flex items-center gap-1 font-semibold text-on-surface">
+<span class="material-symbols-outlined text-[16px] text-secondary">local_florist</span>
+                Flowering Stage
+              </span>
+<span class="font-mono text-outline">1.8 ha</span>
+</div>
+<!-- Stress Meter Bar -->
+<div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden">
+<div class="bg-error h-full rounded-full" style="width: 86%;"></div>
+</div>
+<!-- Diagnostics Pill Badges -->
+<div class="flex flex-wrap gap-1 mt-2">
+<span class="px-2 py-0.5 rounded bg-error-container text-on-error-container font-label-badge text-label-badge font-bold">9d Rain Deficit</span>
+<span class="px-2 py-0.5 rounded bg-secondary-fixed text-on-secondary-fixed font-label-badge text-label-badge font-semibold">38.2°C Spike</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-label-badge text-label-badge">Flowering Bloom</span>
+</div>
+</div>
+<div class="pt-2 flex items-center justify-between gap-2">
+<span class="font-label-badge text-label-badge text-outline flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-primary">verified</span>
+              High Confidence
+            </span>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container text-primary hover:bg-primary hover:text-on-primary font-label-md text-label-md font-bold transition-colors flex items-center gap-1" onclick="openDrawer('F03')">
+<span>Inspect Drawer</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</button>
+</div>
+</div>
+</article>
+<!-- CARD 2: F07 -->
+<article class="field-card group flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-200" data-area="1.0" data-field-id="F07" data-stage="flowering" data-status="high" data-stress="81">
+<div class="relative h-48 w-full overflow-hidden bg-surface-container">
+<img alt="F07 Pawar Plot flowering tomato plants" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7qMivjOHkQ17XcVFX4jn_AKCpNrOYQD4TKPeVC79_8g9I1YhI30MXf9C12w2is8joY6AE0mQCaFOhPmJiR9PSxVXzUpUwijp898cnrRT-FQ007D_xaX2280VJYUKZGboA0QEkfLBM6DvXEOuilbbwmQcIAjlfZsyuDnV2AsAWvFZOb9Ce2YxmjLtVWVy4Eum86aNhsb8jEb5pxF_jvf44X3kq2xJY6z5RnFq_hwg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-inverse-surface/80 via-transparent to-black/20"></div>
+<div class="absolute top-3 left-3 flex items-center gap-1 bg-surface-container-lowest/90 backdrop-blur-md px-2 py-0.5 rounded-full text-primary font-label-badge text-label-badge font-bold shadow-xs">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+<span>Drip: Ready</span>
+</div>
+<div class="absolute top-3 right-3 flex items-center gap-1 bg-error text-on-error px-2.5 py-0.5 rounded-full font-label-badge text-label-badge font-bold shadow-sm">
+<span>Severe Deficit</span>
+</div>
+<div class="absolute bottom-3 left-3 right-3 flex items-baseline justify-between text-on-primary">
+<div>
+<span class="font-label-badge text-label-badge uppercase tracking-wider text-surface-container-low opacity-90">Plot F07</span>
+<h2 class="font-title-md text-title-md font-bold leading-tight">Pawar Plot</h2>
+</div>
+<div class="text-right">
+<span class="font-metric-numeral-lg text-metric-numeral-lg text-error-container font-bold leading-none">81%</span>
+<span class="block text-[10px] uppercase font-bold tracking-wider text-surface-container-low">Stress Index</span>
+</div>
+</div>
+</div>
+<div class="p-space-md flex-1 flex flex-col justify-between gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between text-on-surface-variant font-body-sm text-body-sm pb-1">
+<span class="flex items-center gap-1 font-semibold text-on-surface">
+<span class="material-symbols-outlined text-[16px] text-secondary">local_florist</span>
+                Flowering Stage
+              </span>
+<span class="font-mono text-outline">1.0 ha</span>
+</div>
+<div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden">
+<div class="bg-error h-full rounded-full" style="width: 81%;"></div>
+</div>
+<div class="flex flex-wrap gap-1 mt-2">
+<span class="px-2 py-0.5 rounded bg-error-container text-on-error-container font-label-badge text-label-badge font-bold">Severe Root Deficit</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-label-badge text-label-badge">Bloom Peak</span>
+<span class="px-2 py-0.5 rounded bg-secondary-fixed text-on-secondary-fixed font-label-badge text-label-badge font-semibold">ET Peak 5.8mm</span>
+</div>
+</div>
+<div class="pt-2 flex items-center justify-between gap-2">
+<span class="font-label-badge text-label-badge text-outline flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-primary">sensors</span>
+              Soil Probe Sync
+            </span>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container text-primary hover:bg-primary hover:text-on-primary font-label-md text-label-md font-bold transition-colors flex items-center gap-1" onclick="openDrawer('F07')">
+<span>Inspect Drawer</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</button>
+</div>
+</div>
+</article>
+<!-- CARD 3: F01 -->
+<article class="field-card group flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-200" data-area="1.2" data-field-id="F01" data-stage="flowering" data-status="high" data-stress="74">
+<div class="relative h-48 w-full overflow-hidden bg-surface-container">
+<img alt="F01 Kadam Farm flowering tomato plants" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7qMivjOHkQ17XcVFX4jn_AKCpNrOYQD4TKPeVC79_8g9I1YhI30MXf9C12w2is8joY6AE0mQCaFOhPmJiR9PSxVXzUpUwijp898cnrRT-FQ007D_xaX2280VJYUKZGboA0QEkfLBM6DvXEOuilbbwmQcIAjlfZsyuDnV2AsAWvFZOb9Ce2YxmjLtVWVy4Eum86aNhsb8jEb5pxF_jvf44X3kq2xJY6z5RnFq_hwg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-inverse-surface/80 via-transparent to-black/20"></div>
+<div class="absolute top-3 left-3 flex items-center gap-1 bg-surface-container-lowest/90 backdrop-blur-md px-2 py-0.5 rounded-full text-primary font-label-badge text-label-badge font-bold shadow-xs">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+<span>Drip: Active</span>
+</div>
+<div class="absolute top-3 right-3 flex items-center gap-1 bg-error text-on-error px-2.5 py-0.5 rounded-full font-label-badge text-label-badge font-bold shadow-sm">
+<span>Flower Drop Risk</span>
+</div>
+<div class="absolute bottom-3 left-3 right-3 flex items-baseline justify-between text-on-primary">
+<div>
+<span class="font-label-badge text-label-badge uppercase tracking-wider text-surface-container-low opacity-90">Plot F01</span>
+<h2 class="font-title-md text-title-md font-bold leading-tight">Kadam Farm</h2>
+</div>
+<div class="text-right">
+<span class="font-metric-numeral-lg text-metric-numeral-lg text-error-container font-bold leading-none">74%</span>
+<span class="block text-[10px] uppercase font-bold tracking-wider text-surface-container-low">Stress Index</span>
+</div>
+</div>
+</div>
+<div class="p-space-md flex-1 flex flex-col justify-between gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between text-on-surface-variant font-body-sm text-body-sm pb-1">
+<span class="flex items-center gap-1 font-semibold text-on-surface">
+<span class="material-symbols-outlined text-[16px] text-secondary">local_florist</span>
+                Flowering Stage
+              </span>
+<span class="font-mono text-outline">1.2 ha</span>
+</div>
+<div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden">
+<div class="bg-error h-full rounded-full" style="width: 74%;"></div>
+</div>
+<div class="flex flex-wrap gap-1 mt-2">
+<span class="px-2 py-0.5 rounded bg-error-container text-on-error-container font-label-badge text-label-badge font-bold">7d Heat Load</span>
+<span class="px-2 py-0.5 rounded bg-secondary-fixed text-on-secondary-fixed font-label-badge text-label-badge font-semibold">Drop Warning</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-label-badge text-label-badge">Canopy: Dense</span>
+</div>
+</div>
+<div class="pt-2 flex items-center justify-between gap-2">
+<span class="font-label-badge text-label-badge text-outline flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-primary">satellite_alt</span>
+              NDVI 0.61
+            </span>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container text-primary hover:bg-primary hover:text-on-primary font-label-md text-label-md font-bold transition-colors flex items-center gap-1" onclick="openDrawer('F01')">
+<span>Inspect Drawer</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</button>
+</div>
+</div>
+</article>
+<!-- CARD 4: F09 -->
+<article class="field-card group flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-200" data-area="0.8" data-field-id="F09" data-stage="fruiting" data-status="medium" data-stress="62">
+<div class="relative h-48 w-full overflow-hidden bg-surface-container">
+<img alt="F09 Bhosale Agro green unripe fruiting tomatoes" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAs_vuvEosqmp0o5CU-tqClxQSErO6LoVLaRiOZ4W6VdAH0twoIjcam-aoUDH5_YbV9mtwCc5Fqjr6GhppsO31d7kMKTGG27JhXloVRyuMP3FxAlnXpF19j2PG0bTWYinv_sjKt6w92TVZMN0XLVA2X6IVaKvp6kAoRjLxeZhng208wURFx0klzg49aigxkMMiP8MfGS0E1huEImc8HXei15TTfYUdEWSQ9Q9KJW_c"/>
+<div class="absolute inset-0 bg-gradient-to-t from-inverse-surface/80 via-transparent to-black/20"></div>
+<div class="absolute top-3 left-3 flex items-center gap-1 bg-surface-container-lowest/90 backdrop-blur-md px-2 py-0.5 rounded-full text-primary font-label-badge text-label-badge font-bold shadow-xs">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span>Drip: Standby</span>
+</div>
+<div class="absolute top-3 right-3 flex items-center gap-1 bg-secondary-container text-on-secondary-container px-2.5 py-0.5 rounded-full font-label-badge text-label-badge font-bold shadow-sm">
+<span>Moderate Stress</span>
+</div>
+<div class="absolute bottom-3 left-3 right-3 flex items-baseline justify-between text-on-primary">
+<div>
+<span class="font-label-badge text-label-badge uppercase tracking-wider text-surface-container-low opacity-90">Plot F09</span>
+<h2 class="font-title-md text-title-md font-bold leading-tight">Bhosale Agro</h2>
+</div>
+<div class="text-right">
+<span class="font-metric-numeral-lg text-metric-numeral-lg text-secondary-fixed font-bold leading-none">62%</span>
+<span class="block text-[10px] uppercase font-bold tracking-wider text-surface-container-low">Stress Index</span>
+</div>
+</div>
+</div>
+<div class="p-space-md flex-1 flex flex-col justify-between gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between text-on-surface-variant font-body-sm text-body-sm pb-1">
+<span class="flex items-center gap-1 font-semibold text-on-surface">
+<span class="material-symbols-outlined text-[16px] text-primary">eco</span>
+                Fruiting Stage
+              </span>
+<span class="font-mono text-outline">0.8 ha</span>
+</div>
+<div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden">
+<div class="bg-secondary h-full rounded-full" style="width: 62%;"></div>
+</div>
+<div class="flex flex-wrap gap-1 mt-2">
+<span class="px-2 py-0.5 rounded bg-secondary-fixed text-on-secondary-fixed font-label-badge text-label-badge font-bold">Green Fruit Load</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-label-badge text-label-badge">Moderate ET Deficit</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-outline font-label-badge text-label-badge">Trellis System</span>
+</div>
+</div>
+<div class="pt-2 flex items-center justify-between gap-2">
+<span class="font-label-badge text-label-badge text-outline flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-primary">grain</span>
+              Clay-Loam Soil
+            </span>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container text-primary hover:bg-primary hover:text-on-primary font-label-md text-label-md font-bold transition-colors flex items-center gap-1" onclick="openDrawer('F09')">
+<span>Inspect Drawer</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</button>
+</div>
+</div>
+</article>
+<!-- CARD 5: F05 -->
+<article class="field-card group flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-200" data-area="1.1" data-field-id="F05" data-stage="vegetative" data-status="medium" data-stress="58">
+<div class="relative h-48 w-full overflow-hidden bg-surface-container">
+<img alt="F05 Deshmukh Field vegetative tomato plants" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUUJ_6JurCwLzPJi4IdILuVzNHhDwwwXmzAb8E0tFiW3ms-znvj9UHKRBuZIHVECJvib4dbqbawHsIyU0kFko6xYDH8b1STK4LZAGfsGOB1NGp3qqK-ut120hfl2H7_qQsQ-heW92DnB72KtF0VJ1vJJxSpSYgMAn0URHyOEP6KLNtR4NCFL421sxTNCVTg0fAwVdaPjvmt-KCXvra7FOp3FuwI_j1TmGsC9IXKis"/>
+<div class="absolute inset-0 bg-gradient-to-t from-inverse-surface/80 via-transparent to-black/20"></div>
+<div class="absolute top-3 left-3 flex items-center gap-1 bg-surface-container-lowest/90 backdrop-blur-md px-2 py-0.5 rounded-full text-primary font-label-badge text-label-badge font-bold shadow-xs">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span>Drip: Ready</span>
+</div>
+<div class="absolute top-3 right-3 flex items-center gap-1 bg-secondary-container text-on-secondary-container px-2.5 py-0.5 rounded-full font-label-badge text-label-badge font-bold shadow-sm">
+<span>Moderate Stress</span>
+</div>
+<div class="absolute bottom-3 left-3 right-3 flex items-baseline justify-between text-on-primary">
+<div>
+<span class="font-label-badge text-label-badge uppercase tracking-wider text-surface-container-low opacity-90">Plot F05</span>
+<h2 class="font-title-md text-title-md font-bold leading-tight">Deshmukh Field</h2>
+</div>
+<div class="text-right">
+<span class="font-metric-numeral-lg text-metric-numeral-lg text-secondary-fixed font-bold leading-none">58%</span>
+<span class="block text-[10px] uppercase font-bold tracking-wider text-surface-container-low">Stress Index</span>
+</div>
+</div>
+</div>
+<div class="p-space-md flex-1 flex flex-col justify-between gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between text-on-surface-variant font-body-sm text-body-sm pb-1">
+<span class="flex items-center gap-1 font-semibold text-on-surface">
+<span class="material-symbols-outlined text-[16px] text-primary">psychiatry</span>
+                Vegetative Stage
+              </span>
+<span class="font-mono text-outline">1.1 ha</span>
+</div>
+<div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden">
+<div class="bg-secondary h-full rounded-full" style="width: 58%;"></div>
+</div>
+<div class="flex flex-wrap gap-1 mt-2">
+<span class="px-2 py-0.5 rounded bg-secondary-fixed text-on-secondary-fixed font-label-badge text-label-badge font-semibold">Rapid Canopy Expansion</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-label-badge text-label-badge">Dry Topsoil (0-15cm)</span>
+</div>
+</div>
+<div class="pt-2 flex items-center justify-between gap-2">
+<span class="font-label-badge text-label-badge text-outline flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-primary">schedule</span>
+              Next window: 18:00
+            </span>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container text-primary hover:bg-primary hover:text-on-primary font-label-md text-label-md font-bold transition-colors flex items-center gap-1" onclick="openDrawer('F05')">
+<span>Inspect Drawer</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</button>
+</div>
+</div>
+</article>
+<!-- CARD 6: F02 -->
+<article class="field-card group flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-200" data-area="1.0" data-field-id="F02" data-stage="vegetative" data-status="medium" data-stress="52">
+<div class="relative h-48 w-full overflow-hidden bg-surface-container">
+<img alt="F02 Shirole Plot vegetative tomato plants" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUUJ_6JurCwLzPJi4IdILuVzNHhDwwwXmzAb8E0tFiW3ms-znvj9UHKRBuZIHVECJvib4dbqbawHsIyU0kFko6xYDH8b1STK4LZAGfsGOB1NGp3qqK-ut120hfl2H7_qQsQ-heW92DnB72KtF0VJ1vJJxSpSYgMAn0URHyOEP6KLNtR4NCFL421sxTNCVTg0fAwVdaPjvmt-KCXvra7FOp3FuwI_j1TmGsC9IXKis"/>
+<div class="absolute inset-0 bg-gradient-to-t from-inverse-surface/80 via-transparent to-black/20"></div>
+<div class="absolute top-3 left-3 flex items-center gap-1 bg-surface-container-lowest/90 backdrop-blur-md px-2 py-0.5 rounded-full text-primary font-label-badge text-label-badge font-bold shadow-xs">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span>Drip: Ready</span>
+</div>
+<div class="absolute top-3 right-3 flex items-center gap-1 bg-secondary-container text-on-secondary-container px-2.5 py-0.5 rounded-full font-label-badge text-label-badge font-bold shadow-sm">
+<span>Moderate Stress</span>
+</div>
+<div class="absolute bottom-3 left-3 right-3 flex items-baseline justify-between text-on-primary">
+<div>
+<span class="font-label-badge text-label-badge uppercase tracking-wider text-surface-container-low opacity-90">Plot F02</span>
+<h2 class="font-title-md text-title-md font-bold leading-tight">Shirole Plot</h2>
+</div>
+<div class="text-right">
+<span class="font-metric-numeral-lg text-metric-numeral-lg text-secondary-fixed font-bold leading-none">52%</span>
+<span class="block text-[10px] uppercase font-bold tracking-wider text-surface-container-low">Stress Index</span>
+</div>
+</div>
+</div>
+<div class="p-space-md flex-1 flex flex-col justify-between gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between text-on-surface-variant font-body-sm text-body-sm pb-1">
+<span class="flex items-center gap-1 font-semibold text-on-surface">
+<span class="material-symbols-outlined text-[16px] text-primary">psychiatry</span>
+                Vegetative Stage
+              </span>
+<span class="font-mono text-outline">1.0 ha</span>
+</div>
+<div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden">
+<div class="bg-secondary h-full rounded-full" style="width: 52%;"></div>
+</div>
+<div class="flex flex-wrap gap-1 mt-2">
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface font-label-badge text-label-badge font-semibold">Stable Canopy</span>
+<span class="px-2 py-0.5 rounded bg-secondary-fixed text-on-secondary-fixed font-label-badge text-label-badge">Baseline Moisture Decay</span>
+</div>
+</div>
+<div class="pt-2 flex items-center justify-between gap-2">
+<span class="font-label-badge text-label-badge text-outline flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-primary">water_drop</span>
+              Sub-surface moist
+            </span>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container text-primary hover:bg-primary hover:text-on-primary font-label-md text-label-md font-bold transition-colors flex items-center gap-1" onclick="openDrawer('F02')">
+<span>Inspect Drawer</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</button>
+</div>
+</div>
+</article>
+<!-- CARD 7: F08 -->
+<article class="field-card group flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-200" data-area="0.9" data-field-id="F08" data-stage="vegetative" data-status="medium" data-stress="48">
+<div class="relative h-48 w-full overflow-hidden bg-surface-container">
+<img alt="F08 Gaikwad Farm vegetative tomato seedlings" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUUJ_6JurCwLzPJi4IdILuVzNHhDwwwXmzAb8E0tFiW3ms-znvj9UHKRBuZIHVECJvib4dbqbawHsIyU0kFko6xYDH8b1STK4LZAGfsGOB1NGp3qqK-ut120hfl2H7_qQsQ-heW92DnB72KtF0VJ1vJJxSpSYgMAn0URHyOEP6KLNtR4NCFL421sxTNCVTg0fAwVdaPjvmt-KCXvra7FOp3FuwI_j1TmGsC9IXKis"/>
+<div class="absolute inset-0 bg-gradient-to-t from-inverse-surface/80 via-transparent to-black/20"></div>
+<div class="absolute top-3 left-3 flex items-center gap-1 bg-surface-container-lowest/90 backdrop-blur-md px-2 py-0.5 rounded-full text-primary font-label-badge text-label-badge font-bold shadow-xs">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span>Drip: Ready</span>
+</div>
+<div class="absolute top-3 right-3 flex items-center gap-1 bg-secondary-container text-on-secondary-container px-2.5 py-0.5 rounded-full font-label-badge text-label-badge font-bold shadow-sm">
+<span>Moderate Stress</span>
+</div>
+<div class="absolute bottom-3 left-3 right-3 flex items-baseline justify-between text-on-primary">
+<div>
+<span class="font-label-badge text-label-badge uppercase tracking-wider text-surface-container-low opacity-90">Plot F08</span>
+<h2 class="font-title-md text-title-md font-bold leading-tight">Gaikwad Farm</h2>
+</div>
+<div class="text-right">
+<span class="font-metric-numeral-lg text-metric-numeral-lg text-secondary-fixed font-bold leading-none">48%</span>
+<span class="block text-[10px] uppercase font-bold tracking-wider text-surface-container-low">Stress Index</span>
+</div>
+</div>
+</div>
+<div class="p-space-md flex-1 flex flex-col justify-between gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between text-on-surface-variant font-body-sm text-body-sm pb-1">
+<span class="flex items-center gap-1 font-semibold text-on-surface">
+<span class="material-symbols-outlined text-[16px] text-primary">psychiatry</span>
+                Vegetative Stage
+              </span>
+<span class="font-mono text-outline">0.9 ha</span>
+</div>
+<div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden">
+<div class="bg-secondary h-full rounded-full" style="width: 48%;"></div>
+</div>
+<div class="flex flex-wrap gap-1 mt-2">
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface font-label-badge text-label-badge font-semibold">Minor Stress Detected</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-outline font-label-badge text-label-badge">Normal Transpiration</span>
+</div>
+</div>
+<div class="pt-2 flex items-center justify-between gap-2">
+<span class="font-label-badge text-label-badge text-outline flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-primary">wb_sunny</span>
+              Full Sunlight
+            </span>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container text-primary hover:bg-primary hover:text-on-primary font-label-md text-label-md font-bold transition-colors flex items-center gap-1" onclick="openDrawer('F08')">
+<span>Inspect Drawer</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</button>
+</div>
+</div>
+</article>
+<!-- CARD 8: F10 -->
+<article class="field-card group flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-200" data-area="1.5" data-field-id="F10" data-stage="fruiting" data-status="low" data-stress="24">
+<div class="relative h-48 w-full overflow-hidden bg-surface-container">
+<img alt="F10 Jagtap West ripe and semi-ripe tomatoes" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA58DqRKKHyWGXm2kn_p9yxkcVkTh3UOGpQ1AxO3W9iX5MAjfk7m1w9J5NmthhjhfvVuWX1r8Yt5Ij0Idq5EyreYIvklXld9LpMqVCLfhGppHOEHOI-7VVks-8uaYxrwiTteO9id40xAztZ5tcZoeYnehrfUgQejTH5CqCVNMxTWvMpml34O6EWVffHLNJykHcrPnT8_RsolCY9syJJ8Pjo6J3pzfoqSeY3RFvptDY"/>
+<div class="absolute inset-0 bg-gradient-to-t from-inverse-surface/80 via-transparent to-black/20"></div>
+<div class="absolute top-3 left-3 flex items-center gap-1 bg-surface-container-lowest/90 backdrop-blur-md px-2 py-0.5 rounded-full text-primary font-label-badge text-label-badge font-bold shadow-xs">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+<span>Drip: Reduced Quota</span>
+</div>
+<div class="absolute top-3 right-3 flex items-center gap-1 bg-primary text-on-primary px-2.5 py-0.5 rounded-full font-label-badge text-label-badge font-bold shadow-sm">
+<span>Low Risk</span>
+</div>
+<div class="absolute bottom-3 left-3 right-3 flex items-baseline justify-between text-on-primary">
+<div>
+<span class="font-label-badge text-label-badge uppercase tracking-wider text-surface-container-low opacity-90">Plot F10</span>
+<h2 class="font-title-md text-title-md font-bold leading-tight">Jagtap West</h2>
+</div>
+<div class="text-right">
+<span class="font-metric-numeral-lg text-metric-numeral-lg text-primary-fixed font-bold leading-none">24%</span>
+<span class="block text-[10px] uppercase font-bold tracking-wider text-surface-container-low">Stress Index</span>
+</div>
+</div>
+</div>
+<div class="p-space-md flex-1 flex flex-col justify-between gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between text-on-surface-variant font-body-sm text-body-sm pb-1">
+<span class="flex items-center gap-1 font-semibold text-on-surface">
+<span class="material-symbols-outlined text-[16px] text-primary">nutrition</span>
+                Maturity / Ripening
+              </span>
+<span class="font-mono text-outline">1.5 ha</span>
+</div>
+<div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 24%;"></div>
+</div>
+<div class="flex flex-wrap gap-1 mt-2">
+<span class="px-2 py-0.5 rounded bg-primary-fixed text-on-primary-fixed font-label-badge text-label-badge font-bold">Ripe Fruit Stage</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface font-label-badge text-label-badge">Low Moisture Demand</span>
+</div>
+</div>
+<div class="pt-2 flex items-center justify-between gap-2">
+<span class="font-label-badge text-label-badge text-outline flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-primary">eco</span>
+              Harvesting in 5d
+            </span>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container text-primary hover:bg-primary hover:text-on-primary font-label-md text-label-md font-bold transition-colors flex items-center gap-1" onclick="openDrawer('F10')">
+<span>Inspect Drawer</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</button>
+</div>
+</div>
+</article>
+<!-- CARD 9: F04 -->
+<article class="field-card group flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-200" data-area="1.3" data-field-id="F04" data-stage="vegetative" data-status="low" data-stress="28">
+<div class="relative h-48 w-full overflow-hidden bg-surface-container">
+<img alt="F04 More Plot healthy vegetative tomato plants" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUUJ_6JurCwLzPJi4IdILuVzNHhDwwwXmzAb8E0tFiW3ms-znvj9UHKRBuZIHVECJvib4dbqbawHsIyU0kFko6xYDH8b1STK4LZAGfsGOB1NGp3qqK-ut120hfl2H7_qQsQ-heW92DnB72KtF0VJ1vJJxSpSYgMAn0URHyOEP6KLNtR4NCFL421sxTNCVTg0fAwVdaPjvmt-KCXvra7FOp3FuwI_j1TmGsC9IXKis"/>
+<div class="absolute inset-0 bg-gradient-to-t from-inverse-surface/80 via-transparent to-black/20"></div>
+<div class="absolute top-3 left-3 flex items-center gap-1 bg-surface-container-lowest/90 backdrop-blur-md px-2 py-0.5 rounded-full text-primary font-label-badge text-label-badge font-bold shadow-xs">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+<span>Drip: Optimal</span>
+</div>
+<div class="absolute top-3 right-3 flex items-center gap-1 bg-primary text-on-primary px-2.5 py-0.5 rounded-full font-label-badge text-label-badge font-bold shadow-sm">
+<span>Low Risk</span>
+</div>
+<div class="absolute bottom-3 left-3 right-3 flex items-baseline justify-between text-on-primary">
+<div>
+<span class="font-label-badge text-label-badge uppercase tracking-wider text-surface-container-low opacity-90">Plot F04</span>
+<h2 class="font-title-md text-title-md font-bold leading-tight">More Plot</h2>
+</div>
+<div class="text-right">
+<span class="font-metric-numeral-lg text-metric-numeral-lg text-primary-fixed font-bold leading-none">28%</span>
+<span class="block text-[10px] uppercase font-bold tracking-wider text-surface-container-low">Stress Index</span>
+</div>
+</div>
+</div>
+<div class="p-space-md flex-1 flex flex-col justify-between gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between text-on-surface-variant font-body-sm text-body-sm pb-1">
+<span class="flex items-center gap-1 font-semibold text-on-surface">
+<span class="material-symbols-outlined text-[16px] text-primary">psychiatry</span>
+                Vegetative Stage
+              </span>
+<span class="font-mono text-outline">1.3 ha</span>
+</div>
+<div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 28%;"></div>
+</div>
+<div class="flex flex-wrap gap-1 mt-2">
+<span class="px-2 py-0.5 rounded bg-primary-fixed text-on-primary-fixed font-label-badge text-label-badge font-bold">Hydrated Soil</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface font-label-badge text-label-badge">Vigorous Flush</span>
+</div>
+</div>
+<div class="pt-2 flex items-center justify-between gap-2">
+<span class="font-label-badge text-label-badge text-outline flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-primary">format_image_left</span>
+              Balanced ETa
+            </span>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container text-primary hover:bg-primary hover:text-on-primary font-label-md text-label-md font-bold transition-colors flex items-center gap-1" onclick="openDrawer('F04')">
+<span>Inspect Drawer</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</button>
+</div>
+</div>
+</article>
+<!-- CARD 10: F06 (Special Inspect Before Irrigating) -->
+<article class="field-card group flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-200" data-area="1.1" data-field-id="F06" data-stage="flowering" data-status="inspect" data-stress="42">
+<div class="relative h-48 w-full overflow-hidden bg-surface-container">
+<img alt="F06 Jagtap Plot flowering tomato plants" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7qMivjOHkQ17XcVFX4jn_AKCpNrOYQD4TKPeVC79_8g9I1YhI30MXf9C12w2is8joY6AE0mQCaFOhPmJiR9PSxVXzUpUwijp898cnrRT-FQ007D_xaX2280VJYUKZGboA0QEkfLBM6DvXEOuilbbwmQcIAjlfZsyuDnV2AsAWvFZOb9Ce2YxmjLtVWVy4Eum86aNhsb8jEb5pxF_jvf44X3kq2xJY6z5RnFq_hwg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-tertiary/90 via-transparent to-black/20"></div>
+<div class="absolute top-3 left-3 flex items-center gap-1 bg-surface-container-lowest/90 backdrop-blur-md px-2 py-0.5 rounded-full text-tertiary font-label-badge text-label-badge font-bold shadow-xs">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-ping"></span>
+<span>Ground Check Needed</span>
+</div>
+<div class="absolute top-3 right-3 flex items-center gap-1 bg-tertiary text-on-tertiary px-2.5 py-0.5 rounded-full font-label-badge text-label-badge font-bold shadow-sm">
+<span>Inspect Flag</span>
+</div>
+<div class="absolute bottom-3 left-3 right-3 flex items-baseline justify-between text-on-primary">
+<div>
+<span class="font-label-badge text-label-badge uppercase tracking-wider text-tertiary-fixed font-bold opacity-90">Plot F06</span>
+<h2 class="font-title-md text-title-md font-bold leading-tight">Jagtap Plot</h2>
+</div>
+<div class="text-right">
+<span class="font-metric-numeral-lg text-metric-numeral-lg text-tertiary-fixed font-bold leading-none">42%</span>
+<span class="block text-[10px] uppercase font-bold tracking-wider text-tertiary-fixed/90">Low Confidence</span>
+</div>
+</div>
+</div>
+<div class="p-space-md flex-1 flex flex-col justify-between gap-space-md bg-tertiary-fixed/10">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between text-on-surface-variant font-body-sm text-body-sm pb-1">
+<span class="flex items-center gap-1 font-semibold text-on-surface">
+<span class="material-symbols-outlined text-[16px] text-tertiary">local_florist</span>
+                Flowering Stage
+              </span>
+<span class="font-mono text-outline">1.1 ha</span>
+</div>
+<div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden">
+<div class="bg-tertiary h-full rounded-full" style="width: 42%;"></div>
+</div>
+<!-- Prominent Violet Stale Telemetry Warning -->
+<div class="mt-2 p-2 rounded-lg bg-tertiary-fixed text-on-tertiary-fixed flex items-start gap-2">
+<span class="material-symbols-outlined text-[16px] text-tertiary shrink-0 mt-0.5">warning</span>
+<p class="font-label-badge text-label-badge leading-tight">
+<strong>Telemetry Staleness:</strong> 9-day satellite lag, Ground inspection mandated before water release.
+              </p>
+</div>
+</div>
+<div class="pt-2 flex items-center justify-between gap-2">
+<span class="font-label-badge text-label-badge text-tertiary font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">fact_check</span>
+              Awaiting Scouting
+            </span>
+<button class="px-3 py-1.5 rounded-lg bg-tertiary text-on-tertiary hover:bg-tertiary-container font-label-md text-label-md font-bold transition-colors flex items-center gap-1 shadow-sm" onclick="openDrawer('F06')">
+<span>Inspect Drawer</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</button>
+</div>
+</div>
+</article>
+</div>
+<!-- DENSE TABLE VIEW (Hidden by default, toggled via View Switcher) -->
+<div class="hidden w-full overflow-x-auto bg-surface-container-lowest rounded-xl shadow-sm" id="tableViewContainer">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low text-on-surface-variant font-label-badge text-label-badge uppercase tracking-wider">
+<th class="py-3 px-4">Plot ID &amp; Name</th>
+<th class="py-3 px-4">Stage</th>
+<th class="py-3 px-4">Area (ha)</th>
+<th class="py-3 px-4">Stress Index</th>
+<th class="py-3 px-4">Telemetry Status</th>
+<th class="py-3 px-4">Primary Diagnostics</th>
+<th class="py-3 px-4 text-right">Action</th>
+</tr>
+</thead>
+<tbody class="text-body-sm font-body-sm text-on-surface" id="tableBodyRows">
+<!-- Dynamic row representations rendered consistently -->
+<tr class="hover:bg-surface-container transition-colors" data-area="1.8" data-field-id="F03" data-stage="flowering" data-status="high" data-stress="86">
+<td class="py-3 px-4 font-bold text-on-surface">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-error"></span>
+<span>F03 · Shinde Farm</span>
+</div>
+</td>
+<td class="py-3 px-4">Flowering</td>
+<td class="py-3 px-4 font-mono">1.8 ha</td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-error-container text-on-error-container font-bold text-label-badge">86% High</span>
+</td>
+<td class="py-3 px-4 text-primary font-semibold text-label-badge">Fresh (0.8h)</td>
+<td class="py-3 px-4 text-on-surface-variant">9d Rain Deficit, 38.2°C Spike</td>
+<td class="py-3 px-4 text-right">
+<button class="px-2.5 py-1 rounded bg-surface-container-high text-primary font-bold hover:bg-primary hover:text-on-primary" onclick="openDrawer('F03')">Inspect</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container transition-colors" data-area="1.0" data-field-id="F07" data-stage="flowering" data-status="high" data-stress="81">
+<td class="py-3 px-4 font-bold text-on-surface">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-error"></span>
+<span>F07 · Pawar Plot</span>
+</div>
+</td>
+<td class="py-3 px-4">Flowering</td>
+<td class="py-3 px-4 font-mono">1.0 ha</td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-error-container text-on-error-container font-bold text-label-badge">81% High</span>
+</td>
+<td class="py-3 px-4 text-primary font-semibold text-label-badge">Fresh (1.2h)</td>
+<td class="py-3 px-4 text-on-surface-variant">Severe root moisture deficit, Bloom peak</td>
+<td class="py-3 px-4 text-right">
+<button class="px-2.5 py-1 rounded bg-surface-container-high text-primary font-bold hover:bg-primary hover:text-on-primary" onclick="openDrawer('F07')">Inspect</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container transition-colors" data-area="1.2" data-field-id="F01" data-stage="flowering" data-status="high" data-stress="74">
+<td class="py-3 px-4 font-bold text-on-surface">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-error"></span>
+<span>F01 · Kadam Farm</span>
+</div>
+</td>
+<td class="py-3 px-4">Flowering</td>
+<td class="py-3 px-4 font-mono">1.2 ha</td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-error-container text-on-error-container font-bold text-label-badge">74% High</span>
+</td>
+<td class="py-3 px-4 text-primary font-semibold text-label-badge">Fresh (2.0h)</td>
+<td class="py-3 px-4 text-on-surface-variant">7d Heat Load, Flower drop risk</td>
+<td class="py-3 px-4 text-right">
+<button class="px-2.5 py-1 rounded bg-surface-container-high text-primary font-bold hover:bg-primary hover:text-on-primary" onclick="openDrawer('F01')">Inspect</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container transition-colors" data-area="0.8" data-field-id="F09" data-stage="fruiting" data-status="medium" data-stress="62">
+<td class="py-3 px-4 font-bold text-on-surface">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span>F09 · Bhosale Agro</span>
+</div>
+</td>
+<td class="py-3 px-4">Fruiting</td>
+<td class="py-3 px-4 font-mono">0.8 ha</td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-bold text-label-badge">62% Medium</span>
+</td>
+<td class="py-3 px-4 text-primary font-semibold text-label-badge">Fresh (0.5h)</td>
+<td class="py-3 px-4 text-on-surface-variant">Green fruit load, Moderate ET deficit</td>
+<td class="py-3 px-4 text-right">
+<button class="px-2.5 py-1 rounded bg-surface-container-high text-primary font-bold hover:bg-primary hover:text-on-primary" onclick="openDrawer('F09')">Inspect</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container transition-colors" data-area="1.1" data-field-id="F05" data-stage="vegetative" data-status="medium" data-stress="58">
+<td class="py-3 px-4 font-bold text-on-surface">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span>F05 · Deshmukh Field</span>
+</div>
+</td>
+<td class="py-3 px-4">Vegetative</td>
+<td class="py-3 px-4 font-mono">1.1 ha</td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-bold text-label-badge">58% Medium</span>
+</td>
+<td class="py-3 px-4 text-primary font-semibold text-label-badge">Fresh (3.1h)</td>
+<td class="py-3 px-4 text-on-surface-variant">Rapid canopy expansion, Dry topsoil</td>
+<td class="py-3 px-4 text-right">
+<button class="px-2.5 py-1 rounded bg-surface-container-high text-primary font-bold hover:bg-primary hover:text-on-primary" onclick="openDrawer('F05')">Inspect</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container transition-colors" data-area="1.0" data-field-id="F02" data-stage="vegetative" data-status="medium" data-stress="52">
+<td class="py-3 px-4 font-bold text-on-surface">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span>F02 · Shirole Plot</span>
+</div>
+</td>
+<td class="py-3 px-4">Vegetative</td>
+<td class="py-3 px-4 font-mono">1.0 ha</td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-bold text-label-badge">52% Medium</span>
+</td>
+<td class="py-3 px-4 text-primary font-semibold text-label-badge">Fresh (1.8h)</td>
+<td class="py-3 px-4 text-on-surface-variant">Stable canopy, Baseline moisture decay</td>
+<td class="py-3 px-4 text-right">
+<button class="px-2.5 py-1 rounded bg-surface-container-high text-primary font-bold hover:bg-primary hover:text-on-primary" onclick="openDrawer('F02')">Inspect</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container transition-colors" data-area="0.9" data-field-id="F08" data-stage="vegetative" data-status="medium" data-stress="48">
+<td class="py-3 px-4 font-bold text-on-surface">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span>F08 · Gaikwad Farm</span>
+</div>
+</td>
+<td class="py-3 px-4">Vegetative</td>
+<td class="py-3 px-4 font-mono">0.9 ha</td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-bold text-label-badge">48% Medium</span>
+</td>
+<td class="py-3 px-4 text-primary font-semibold text-label-badge">Fresh (4.5h)</td>
+<td class="py-3 px-4 text-on-surface-variant">Minor stress detected</td>
+<td class="py-3 px-4 text-right">
+<button class="px-2.5 py-1 rounded bg-surface-container-high text-primary font-bold hover:bg-primary hover:text-on-primary" onclick="openDrawer('F08')">Inspect</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container transition-colors" data-area="1.5" data-field-id="F10" data-stage="fruiting" data-status="low" data-stress="24">
+<td class="py-3 px-4 font-bold text-on-surface">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span>F10 · Jagtap West</span>
+</div>
+</td>
+<td class="py-3 px-4">Ripening</td>
+<td class="py-3 px-4 font-mono">1.5 ha</td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed font-bold text-label-badge">24% Low</span>
+</td>
+<td class="py-3 px-4 text-primary font-semibold text-label-badge">Fresh (0.9h)</td>
+<td class="py-3 px-4 text-on-surface-variant">Ripe fruit stage, Low moisture req.</td>
+<td class="py-3 px-4 text-right">
+<button class="px-2.5 py-1 rounded bg-surface-container-high text-primary font-bold hover:bg-primary hover:text-on-primary" onclick="openDrawer('F10')">Inspect</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container transition-colors" data-area="1.3" data-field-id="F04" data-stage="vegetative" data-status="low" data-stress="28">
+<td class="py-3 px-4 font-bold text-on-surface">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span>F04 · More Plot</span>
+</div>
+</td>
+<td class="py-3 px-4">Vegetative</td>
+<td class="py-3 px-4 font-mono">1.3 ha</td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed font-bold text-label-badge">28% Low</span>
+</td>
+<td class="py-3 px-4 text-primary font-semibold text-label-badge">Fresh (1.1h)</td>
+<td class="py-3 px-4 text-on-surface-variant">Hydrated soil, Vigorous vegetative flush</td>
+<td class="py-3 px-4 text-right">
+<button class="px-2.5 py-1 rounded bg-surface-container-high text-primary font-bold hover:bg-primary hover:text-on-primary" onclick="openDrawer('F04')">Inspect</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container transition-colors" data-area="1.1" data-field-id="F06" data-stage="flowering" data-status="inspect" data-stress="42">
+<td class="py-3 px-4 font-bold text-on-surface">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+<span>F06 · Jagtap Plot</span>
+</div>
+</td>
+<td class="py-3 px-4">Flowering</td>
+<td class="py-3 px-4 font-mono">1.1 ha</td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-bold text-label-badge">42% Low Conf</span>
+</td>
+<td class="py-3 px-4 text-tertiary font-bold text-label-badge">Stale (9 Days Lag)</td>
+<td class="py-3 px-4 text-tertiary font-semibold">Telemetry lag: Ground inspect mandated</td>
+<td class="py-3 px-4 text-right">
+<button class="px-2.5 py-1 rounded bg-tertiary text-on-tertiary font-bold hover:bg-tertiary-container" onclick="openDrawer('F06')">Inspect</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- SLIDE-OUT FIELD DETAIL INSPECTOR DRAWER -->
+<div class="fixed inset-0 bg-inverse-surface/40 backdrop-blur-xs z-50 transition-opacity opacity-0 pointer-events-none duration-300" id="inspectorBackdrop" onclick="closeDrawer()"></div>
+<aside class="fixed top-0 right-0 bottom-0 w-full sm:w-[480px] bg-surface-container-lowest shadow-2xl z-50 transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col justify-between overflow-y-auto" id="inspectorDrawer">
+<!-- Drawer Header -->
+<div class="p-space-lg bg-surface-container-low flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded bg-primary text-on-primary font-label-badge text-label-badge font-bold" id="drawerBadgeId">F03</span>
+<span class="font-label-badge text-label-badge uppercase tracking-wider text-outline" id="drawerCropType">Solanum Lycopersicum (Tomato)</span>
+</div>
+<button class="p-1 rounded-full text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" onclick="closeDrawer()">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<div class="flex items-baseline justify-between mt-1">
+<h2 class="font-headline-md text-headline-md text-on-surface font-bold" id="drawerTitle">Shinde Farm</h2>
+<span class="font-mono text-outline font-semibold" id="drawerArea">1.8 Hectares</span>
+</div>
+<div class="flex items-center gap-2 mt-1">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-error text-on-error font-label-badge text-label-badge font-bold" id="drawerStatusBadge">
+<span class="w-2 h-2 rounded-full bg-on-error animate-pulse"></span>
+<span>Critical Hydrological Deficit</span>
+</span>
+<span class="px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface font-label-badge text-label-badge" id="drawerPhenologyBadge">
+          Flowering Stage
+        </span>
+</div>
+</div>
+<!-- Drawer Content Body -->
+<div class="p-space-lg flex flex-col gap-space-lg flex-1">
+<!-- Diagnostic Metric Cluster -->
+<div class="grid grid-cols-2 gap-space-sm">
+<div class="bg-surface-container-low p-space-sm rounded-lg flex flex-col">
+<span class="font-label-badge text-label-badge uppercase text-outline">Stress Index</span>
+<div class="flex items-baseline gap-1 mt-1">
+<span class="font-metric-numeral-xl text-metric-numeral-xl text-error font-bold leading-none" id="drawerStressValue">86%</span>
+<span class="text-[12px] text-error font-bold">+14% vs avg</span>
+</div>
+<span class="text-[11px] text-on-surface-variant mt-1">High crop-water vulnerability</span>
+</div>
+<div class="bg-surface-container-low p-space-sm rounded-lg flex flex-col">
+<span class="font-label-badge text-label-badge uppercase text-outline">Model Confidence</span>
+<div class="flex items-baseline gap-1 mt-1">
+<span class="font-metric-numeral-xl text-metric-numeral-xl text-primary font-bold leading-none" id="drawerConfidenceValue">94%</span>
+<span class="text-[12px] text-primary font-semibold">Calibrated</span>
+</div>
+<span class="text-[11px] text-on-surface-variant mt-1" id="drawerConfidenceSub">Multi-sensor triangulation</span>
+</div>
+</div>
+<!-- Freshness & Telemetry Token -->
+<div class="bg-surface p-space-sm rounded-lg flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">sensors</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-bold text-on-surface" id="drawerTelemetryTitle">Sentinel-2 MSI + IMD Telemetry</span>
+<span class="text-[11px] text-outline" id="drawerTelemetryLag">Data lag: 0.8 hours ago (Synchronous)</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed font-label-badge text-label-badge font-bold" id="drawerFreshnessPill">
+          Live Validated
+        </span>
+</div>
+<!-- Hydrological Stress Gauge (Dual-Track Budget Bar) -->
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between font-label-badge text-label-badge">
+<span class="font-bold text-on-surface uppercase tracking-wide">Rootzone Depletion Quota</span>
+<span class="font-mono text-error font-bold" id="drawerQuotaText">2.4 mm/day Deficit</span>
+</div>
+<div class="relative w-full h-3 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-error rounded-full transition-all duration-500" id="drawerQuotaFill" style="width: 86%;"></div>
+</div>
+<div class="flex items-center justify-between text-[11px] text-outline">
+<span>Field Capacity (45%)</span>
+<span>Stress Threshold (28%)</span>
+<span>Permanent Wilting (12%)</span>
+</div>
+</div>
+<!-- Explainable AI (SHAP Driver Bar Chart) -->
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-title-md text-title-md text-on-surface font-semibold">Hydrological Stress Drivers</span>
+<span class="font-label-badge text-label-badge text-outline uppercase font-mono">SHAP Feature Import</span>
+</div>
+<p class="text-[12px] text-on-surface-variant">Top environmental &amp; biophysical parameters driving the current risk assessment:</p>
+<div class="flex flex-col gap-2 mt-1">
+<!-- Driver 1 -->
+<div class="flex flex-col gap-1">
+<div class="flex justify-between items-center text-body-sm font-body-sm">
+<span class="font-medium text-on-surface" id="driver1Name">Vapor Pressure Deficit (VPD Spike)</span>
+<span class="font-mono font-bold text-secondary" id="driver1Val">+0.38</span>
+</div>
+<div class="w-full bg-surface-container h-1.5 rounded-full overflow-hidden">
+<div class="bg-secondary h-full rounded-full" id="driver1Bar" style="width: 84%;"></div>
+</div>
+</div>
+<!-- Driver 2 -->
+<div class="flex flex-col gap-1">
+<div class="flex justify-between items-center text-body-sm font-body-sm">
+<span class="font-medium text-on-surface" id="driver2Name">Soil Moisture Depletion (0-30cm)</span>
+<span class="font-mono font-bold text-error" id="driver2Val">+0.31</span>
+</div>
+<div class="w-full bg-surface-container h-1.5 rounded-full overflow-hidden">
+<div class="bg-error h-full rounded-full" id="driver2Bar" style="width: 72%;"></div>
+</div>
+</div>
+<!-- Driver 3 -->
+<div class="flex flex-col gap-1">
+<div class="flex justify-between items-center text-body-sm font-body-sm">
+<span class="font-medium text-on-surface" id="driver3Name">Cumulative Rain Deficit (9-day)</span>
+<span class="font-mono font-bold text-secondary" id="driver3Val">+0.22</span>
+</div>
+<div class="w-full bg-surface-container h-1.5 rounded-full overflow-hidden">
+<div class="bg-secondary h-full rounded-full" id="driver3Bar" style="width: 55%;"></div>
+</div>
+</div>
+<!-- Driver 4 -->
+<div class="flex flex-col gap-1">
+<div class="flex justify-between items-center text-body-sm font-body-sm">
+<span class="font-medium text-on-surface" id="driver4Name">Vegetative Stage Vulnerability (Flowering)</span>
+<span class="font-mono font-bold text-primary-container" id="driver4Val">+0.15</span>
+</div>
+<div class="w-full bg-surface-container h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary-container h-full rounded-full" id="driver4Bar" style="width: 38%;"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Agronomic Recommendation Note -->
+<div class="p-space-sm bg-surface-container-high rounded-lg flex items-start gap-space-xs text-body-sm" id="drawerRecommendationBox">
+<span class="material-symbols-outlined text-primary text-[20px] shrink-0 mt-0.5">water_pump</span>
+<div>
+<strong class="text-on-surface block font-semibold">Optimal Prescriptive Action</strong>
+<span class="text-on-surface-variant text-[13px]" id="drawerRecommendationText">
+            Schedule 4.2 hours of pulsed drip irrigation between 18:00 - 22:30 to bypass peak evaporative demand and protect flower sets.
+          </span>
+</div>
+</div>
+</div>
+<!-- Drawer Sticky Action Footer -->
+<div class="p-space-md bg-surface-container-low flex items-center justify-between gap-space-sm">
+<button class="px-4 py-2.5 rounded-lg bg-surface-container-highest text-on-surface font-label-md text-label-md font-semibold hover:bg-surface-variant transition-colors" onclick="closeDrawer()">
+        Dismiss
+      </button>
+<a class="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-primary text-on-primary font-label-md text-label-md font-bold shadow-md hover:bg-primary-container transition-all" data-path="water-plan" href="#" id="drawerWaterPlanLink">
+<span>Proceed to Water Plan</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+</div>
+</aside>
+</div>
+<script>
+  // Field Data Repository for Drawer Interactivity
+  const fieldDataMap = {
+    'F03': {
+      id: 'F03',
+      name: 'Shinde Farm',
+      stage: 'Flowering Stage',
+      area: '1.8 Hectares',
+      stress: '86%',
+      stressCategory: 'high',
+      confidence: '94%',
+      confStatus: 'Calibrated',
+      telemetry: 'Sentinel-2 MSI + IMD Pune Doppler',
+      telemetryLag: 'Data lag: 0.8 hours ago (Synchronous)',
+      freshnessText: 'Live Validated',
+      freshnessClass: 'bg-primary-fixed text-on-primary-fixed',
+      quotaText: '2.4 mm/day Deficit',
+      drivers: [
+        { name: 'Vapor Pressure Deficit (VPD Spike 38°C)', val: '+0.38', width: '84%', color: 'bg-secondary' },
+        { name: 'Soil Moisture Depletion (0-30cm)', val: '+0.31', width: '72%', color: 'bg-error' },
+        { name: 'Cumulative Rain Deficit (9-day)', val: '+0.22', width: '55%', color: 'bg-secondary' },
+        { name: 'Flowering Stage Vulnerability', val: '+0.15', width: '38%', color: 'bg-primary' }
+      ],
+      actionNote: 'Schedule 4.2 hours pulsed drip irrigation between 18:00 - 22:30 to preserve bloom cluster vigor.'
+    },
+    'F07': {
+      id: 'F07',
+      name: 'Pawar Plot',
+      stage: 'Flowering Stage',
+      area: '1.0 Hectare',
+      stress: '81%',
+      stressCategory: 'high',
+      confidence: '92%',
+      confStatus: 'Calibrated',
+      telemetry: 'Soil Moisture Probes + IMD Doppler',
+      telemetryLag: 'Data lag: 1.2 hours ago',
+      freshnessText: 'Live Validated',
+      freshnessClass: 'bg-primary-fixed text-on-primary-fixed',
+      quotaText: '2.1 mm/day Deficit',
+      drivers: [
+        { name: 'Rootzone Soil Tension (< 18% VWC)', val: '+0.41', width: '88%', color: 'bg-error' },
+        { name: 'Reference Evapotranspiration (ETo)', val: '+0.29', width: '68%', color: 'bg-secondary' },
+        { name: 'Flowering Thermal Stress', val: '+0.18', width: '42%', color: 'bg-secondary' },
+        { name: 'Soil Compaction Coeff', val: '+0.09', width: '22%', color: 'bg-primary' }
+      ],
+      actionNote: 'Deploy high-priority 3.4h nocturnal fertigation to alleviate blossom drying.'
+    },
+    'F01': {
+      id: 'F01',
+      name: 'Kadam Farm',
+      stage: 'Flowering Stage',
+      area: '1.2 Hectares',
+      stress: '74%',
+      stressCategory: 'high',
+      confidence: '90%',
+      confStatus: 'Calibrated',
+      telemetry: 'Sentinel-2 + LoRa Agro Weather Node',
+      telemetryLag: 'Data lag: 2.0 hours ago',
+      freshnessText: 'Live Validated',
+      freshnessClass: 'bg-primary-fixed text-on-primary-fixed',
+      quotaText: '1.9 mm/day Deficit',
+      drivers: [
+        { name: 'Cumulative Heat Load (7d Above 36°C)', val: '+0.34', width: '76%', color: 'bg-error' },
+        { name: 'Canopy Temperature Anomaly (+2.4°C)', val: '+0.27', width: '62%', color: 'bg-secondary' },
+        { name: 'Flower Drop Vulnerability Factor', val: '+0.19', width: '45%', color: 'bg-secondary' },
+        { name: 'Clay Soil Infiltration Delay', val: '+0.11', width: '26%', color: 'bg-primary' }
+      ],
+      actionNote: 'Immediate 2.8h drip delivery to mitigate irreversible flower drop.'
+    },
+    'F09': {
+      id: 'F09',
+      name: 'Bhosale Agro',
+      stage: 'Fruiting Stage',
+      area: '0.8 Hectares',
+      stress: '62%',
+      stressCategory: 'medium',
+      confidence: '88%',
+      confStatus: 'Calibrated',
+      telemetry: 'Sentinel-2 MSI Telemetry',
+      telemetryLag: 'Data lag: 0.5 hours ago',
+      freshnessText: 'Live Validated',
+      freshnessClass: 'bg-primary-fixed text-on-primary-fixed',
+      quotaText: '1.4 mm/day Deficit',
+      drivers: [
+        { name: 'Green Fruit Sizing Water Draw', val: '+0.28', width: '65%', color: 'bg-secondary' },
+        { name: 'Atmospheric Vapor Deficit', val: '+0.22', width: '51%', color: 'bg-secondary' },
+        { name: 'Topsoil Dry Layering', val: '+0.14', width: '32%', color: 'bg-primary' },
+        { name: 'Trellis Microclimate Airflow', val: '-0.08', width: '18%', color: 'bg-primary' }
+      ],
+      actionNote: 'Schedule standard 2.2h drip allocation during evening cycle.'
+    },
+    'F05': {
+      id: 'F05',
+      name: 'Deshmukh Field',
+      stage: 'Vegetative Stage',
+      area: '1.1 Hectares',
+      stress: '58%',
+      stressCategory: 'medium',
+      confidence: '91%',
+      confStatus: 'Calibrated',
+      telemetry: 'IMD Station + Field IoT',
+      telemetryLag: 'Data lag: 3.1 hours ago',
+      freshnessText: 'Live Validated',
+      freshnessClass: 'bg-primary-fixed text-on-primary-fixed',
+      quotaText: '1.2 mm/day Deficit',
+      drivers: [
+        { name: 'Rapid Leaf Canopy Expansion', val: '+0.25', width: '58%', color: 'bg-secondary' },
+        { name: 'Topsoil Moisture Depletion (0-15cm)', val: '+0.21', width: '49%', color: 'bg-secondary' },
+        { name: 'Deep Root Buffer Index', val: '-0.12', width: '28%', color: 'bg-primary' },
+        { name: 'Wind Desiccation Factor', val: '+0.09', width: '20%', color: 'bg-primary' }
+      ],
+      actionNote: 'Queue 1.8h maintenance drip session before dawn.'
+    },
+    'F02': {
+      id: 'F02',
+      name: 'Shirole Plot',
+      stage: 'Vegetative Stage',
+      area: '1.0 Hectare',
+      stress: '52%',
+      stressCategory: 'medium',
+      confidence: '89%',
+      confStatus: 'Calibrated',
+      telemetry: 'Sentinel-2 + Cluster Base',
+      telemetryLag: 'Data lag: 1.8 hours ago',
+      freshnessText: 'Live Validated',
+      freshnessClass: 'bg-primary-fixed text-on-primary-fixed',
+      quotaText: '0.9 mm/day Deficit',
+      drivers: [
+        { name: 'Subsurface Decay Rate', val: '+0.20', width: '46%', color: 'bg-secondary' },
+        { name: 'Canopy Density Uniformity', val: '-0.15', width: '34%', color: 'bg-primary' },
+        { name: 'Radiation Net Absorption', val: '+0.12', width: '28%', color: 'bg-secondary' },
+        { name: 'Soil Texture Retentiveness', val: '-0.08', width: '18%', color: 'bg-primary' }
+      ],
+      actionNote: 'Baseline watering recommended within 24 hours.'
+    },
+    'F08': {
+      id: 'F08',
+      name: 'Gaikwad Farm',
+      stage: 'Vegetative Stage',
+      area: '0.9 Hectares',
+      stress: '48%',
+      stressCategory: 'medium',
+      confidence: '86%',
+      confStatus: 'Calibrated',
+      telemetry: 'Sentinel-2 MSI',
+      telemetryLag: 'Data lag: 4.5 hours ago',
+      freshnessText: 'Live Validated',
+      freshnessClass: 'bg-primary-fixed text-on-primary-fixed',
+      quotaText: '0.7 mm/day Deficit',
+      drivers: [
+        { name: 'Solar Insolation Duration', val: '+0.18', width: '42%', color: 'bg-secondary' },
+        { name: 'Transpiration Transmittance', val: '+0.14', width: '32%', color: 'bg-secondary' },
+        { name: 'Basal Soil Moisture', val: '-0.11', width: '25%', color: 'bg-primary' },
+        { name: 'Mulch Buffer Effectiveness', val: '-0.09', width: '21%', color: 'bg-primary' }
+      ],
+      actionNote: 'Maintain standard schedule; no urgent volumetric adjustment required.'
+    },
+    'F10': {
+      id: 'F10',
+      name: 'Jagtap West',
+      stage: 'Ripening / Maturity Stage',
+      area: '1.5 Hectares',
+      stress: '24%',
+      stressCategory: 'low',
+      confidence: '95%',
+      confStatus: 'Calibrated',
+      telemetry: 'Sentinel-2 + Field Probes',
+      telemetryLag: 'Data lag: 0.9 hours ago',
+      freshnessText: 'Live Validated',
+      freshnessClass: 'bg-primary-fixed text-on-primary-fixed',
+      quotaText: 'Surplus Buffer +0.4 mm',
+      drivers: [
+        { name: 'Ripening Crop Water Demand Reduction', val: '-0.32', width: '74%', color: 'bg-primary' },
+        { name: 'Canopy Senescence Normalcy', val: '-0.24', width: '56%', color: 'bg-primary' },
+        { name: 'Rootzone Reserve', val: '-0.18', width: '42%', color: 'bg-primary' },
+        { name: 'Mild Evaporative Draw', val: '+0.10', width: '22%', color: 'bg-secondary' }
+      ],
+      actionNote: 'Withhold extensive irrigation to boost fruit Brix (sugar) content before harvest.'
+    },
+    'F04': {
+      id: 'F04',
+      name: 'More Plot',
+      stage: 'Vegetative Stage',
+      area: '1.3 Hectares',
+      stress: '28%',
+      stressCategory: 'low',
+      confidence: '93%',
+      confStatus: 'Calibrated',
+      telemetry: 'Drone Multispectral + Probes',
+      telemetryLag: 'Data lag: 1.1 hours ago',
+      freshnessText: 'Live Validated',
+      freshnessClass: 'bg-primary-fixed text-on-primary-fixed',
+      quotaText: 'Surplus Buffer +0.2 mm',
+      drivers: [
+        { name: 'Vegetative Vigor (NDVI 0.74)', val: '-0.35', width: '78%', color: 'bg-primary' },
+        { name: 'Adequate Soil Moisture Storage', val: '-0.28', width: '64%', color: 'bg-primary' },
+        { name: 'Recent Micro-drip Cycle', val: '-0.20', width: '46%', color: 'bg-primary' },
+        { name: 'Ambient Temperature Range', val: '+0.12', width: '28%', color: 'bg-secondary' }
+      ],
+      actionNote: 'Plot is stable and optimally hydrated. Defer water allocation.'
+    },
+    'F06': {
+      id: 'F06',
+      name: 'Jagtap Plot',
+      stage: 'Flowering Stage',
+      area: '1.1 Hectares',
+      stress: '42%',
+      stressCategory: 'inspect',
+      confidence: '38%',
+      confStatus: 'Low Confidence (Uncertain)',
+      telemetry: 'Satellite Telemetry Degraded',
+      telemetryLag: 'Data lag: 9 Days Stale (Cloud obstruction)',
+      freshnessText: 'Ground Inspection Mandated',
+      freshnessClass: 'bg-tertiary text-on-tertiary',
+      quotaText: 'Uncertain: Manual Audit Required',
+      drivers: [
+        { name: 'Telemetry Age (9-Day Satellite Lag)', val: '+0.54', width: '92%', color: 'bg-tertiary' },
+        { name: 'Missing Soil Probe Telemetry Link', val: '+0.36', width: '78%', color: 'bg-tertiary' },
+        { name: 'Model Uncertainty Band (+-32%)', val: '+0.25', width: '56%', color: 'bg-secondary' },
+        { name: 'Estimated Flowering Stress', val: '+0.15', width: '34%', color: 'bg-error' }
+      ],
+      actionNote: 'DO NOT irrigate autonomously. Field agronomist must conduct on-site soil tensiometer reading.'
+    }
+  };
+
+  // State Management
+  let currentStatusFilter = 'all';
+  let currentStageFilter = 'all';
+  let currentSort = 'stress-desc';
+  let currentView = 'grid';
+
+  function setViewMode(mode) {
+    currentView = mode;
+    const cardGrid = document.getElementById('cardGridContainer');
+    const tableView = document.getElementById('tableViewContainer');
+    const gridBtn = document.getElementById('viewGridBtn');
+    const tableBtn = document.getElementById('viewTableBtn');
+
+    if (mode === 'grid') {
+      cardGrid.classList.remove('hidden');
+      tableView.classList.add('hidden');
+      gridBtn.className = 'flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-surface-container-lowest text-primary font-label-md text-label-md font-bold shadow-xs transition-all';
+      tableBtn.className = 'flex items-center gap-1.5 px-3 py-1.5 rounded-md text-on-surface-variant hover:text-on-surface font-label-md text-label-md font-medium transition-all';
+    } else {
+      cardGrid.classList.add('hidden');
+      tableView.classList.remove('hidden');
+      tableBtn.className = 'flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-surface-container-lowest text-primary font-label-md text-label-md font-bold shadow-xs transition-all';
+      gridBtn.className = 'flex items-center gap-1.5 px-3 py-1.5 rounded-md text-on-surface-variant hover:text-on-surface font-label-md text-label-md font-medium transition-all';
+    }
+  }
+
+  function setStatusFilter(status) {
+    currentStatusFilter = status;
+    document.querySelectorAll('.status-btn').forEach(btn => {
+      const bStatus = btn.getAttribute('data-status');
+      if (bStatus === status) {
+        btn.classList.add('bg-primary', 'text-on-primary');
+        btn.classList.remove('bg-surface-container-low', 'text-error', 'text-secondary', 'text-tertiary', 'text-on-surface');
+      } else {
+        btn.classList.remove('bg-primary', 'text-on-primary');
+        btn.classList.add('bg-surface-container-low');
+      }
+    });
+    applyFilters();
+  }
+
+  function setStageFilter(stage) {
+    currentStageFilter = stage;
+    document.querySelectorAll('.stage-btn').forEach(btn => {
+      const bStage = btn.getAttribute('data-stage');
+      if (bStage === stage) {
+        btn.classList.add('bg-surface-container-high', 'text-on-surface', 'font-bold');
+        btn.classList.remove('font-medium', 'text-on-surface-variant');
+      } else {
+        btn.classList.remove('bg-surface-container-high', 'text-on-surface', 'font-bold');
+        btn.classList.add('font-medium', 'text-on-surface-variant');
+      }
+    });
+    applyFilters();
+  }
+
+  function handleSortChange(sortVal) {
+    currentSort = sortVal;
+    applySorting();
+  }
+
+  function applyFilters() {
+    const cards = document.querySelectorAll('.field-card');
+    const rows = document.querySelectorAll('#tableBodyRows tr');
+
+    const checkMatch = (status, stage) => {
+      const statusMatch = currentStatusFilter === 'all' || status === currentStatusFilter;
+      const stageMatch = currentStageFilter === 'all' || 
+                         (currentStageFilter === 'fruiting' && (stage === 'fruiting' || stage === 'ripening')) ||
+                         stage === currentStageFilter;
+      return statusMatch && stageMatch;
+    };
+
+    cards.forEach(card => {
+      const status = card.getAttribute('data-status');
+      const stage = card.getAttribute('data-stage');
+      card.style.display = checkMatch(status, stage) ? 'flex' : 'none';
+    });
+
+    rows.forEach(row => {
+      const status = row.getAttribute('data-status');
+      const stage = row.getAttribute('data-stage');
+      row.style.display = checkMatch(status, stage) ? '' : 'none';
+    });
+  }
+
+  function applySorting() {
+    const cardGrid = document.getElementById('cardGridContainer');
+    const tableBody = document.getElementById('tableBodyRows');
+
+    const cardArray = Array.from(cardGrid.querySelectorAll('.field-card'));
+    const rowArray = Array.from(tableBody.querySelectorAll('tr'));
+
+    const sortFn = (a, b) => {
+      if (currentSort === 'stress-desc') {
+        return parseInt(b.getAttribute('data-stress')) - parseInt(a.getAttribute('data-stress'));
+      } else if (currentSort === 'id-asc') {
+        return a.getAttribute('data-field-id').localeCompare(b.getAttribute('data-field-id'));
+      } else if (currentSort === 'area-desc') {
+        return parseFloat(b.getAttribute('data-area')) - parseFloat(a.getAttribute('data-area'));
+      } else if (currentSort === 'stage-asc') {
+        return a.getAttribute('data-stage').localeCompare(b.getAttribute('data-stage'));
+      }
+      return 0;
+    };
+
+    cardArray.sort(sortFn).forEach(card => cardGrid.appendChild(card));
+    rowArray.sort(sortFn).forEach(row => tableBody.appendChild(row));
+  }
+
+  function openDrawer(fieldId) {
+    const data = fieldDataMap[fieldId];
+    if (!data) return;
+
+    document.getElementById('drawerBadgeId').innerText = data.id;
+    document.getElementById('drawerTitle').innerText = data.name;
+    document.getElementById('drawerArea').innerText = data.area;
+    document.getElementById('drawerPhenologyBadge').innerText = data.stage;
+    document.getElementById('drawerStressValue').innerText = data.stress;
+    document.getElementById('drawerConfidenceValue').innerText = data.confidence;
+    document.getElementById('drawerConfidenceSub').innerText = data.confStatus;
+    document.getElementById('drawerTelemetryTitle').innerText = data.telemetry;
+    document.getElementById('drawerTelemetryLag').innerText = data.telemetryLag;
+    document.getElementById('drawerQuotaText').innerText = data.quotaText;
+    document.getElementById('drawerQuotaFill').style.width = data.stress;
+    document.getElementById('drawerRecommendationText').innerText = data.actionNote;
+
+    const freshnessPill = document.getElementById('drawerFreshnessPill');
+    freshnessPill.innerText = data.freshnessText;
+    freshnessPill.className = `px-2 py-0.5 rounded-full font-label-badge text-label-badge font-bold ${data.freshnessClass}`;
+
+    // Status styling
+    const statusBadge = document.getElementById('drawerStatusBadge');
+    const stressValElem = document.getElementById('drawerStressValue');
+    const quotaFill = document.getElementById('drawerQuotaFill');
+
+    if (data.stressCategory === 'high') {
+      statusBadge.className = 'inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-error text-on-error font-label-badge text-label-badge font-bold';
+      statusBadge.innerHTML = '<span class="w-2 h-2 rounded-full bg-on-error animate-pulse"></span><span>Critical Stress</span>';
+      stressValElem.className = 'font-metric-numeral-xl text-metric-numeral-xl text-error font-bold leading-none';
+      quotaFill.className = 'h-full bg-error rounded-full transition-all duration-500';
+    } else if (data.stressCategory === 'medium') {
+      statusBadge.className = 'inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-secondary text-on-secondary font-label-badge text-label-badge font-bold';
+      statusBadge.innerHTML = '<span class="w-2 h-2 rounded-full bg-on-secondary"></span><span>Moderate Stress</span>';
+      stressValElem.className = 'font-metric-numeral-xl text-metric-numeral-xl text-secondary font-bold leading-none';
+      quotaFill.className = 'h-full bg-secondary rounded-full transition-all duration-500';
+    } else if (data.stressCategory === 'low') {
+      statusBadge.className = 'inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-primary text-on-primary font-label-badge text-label-badge font-bold';
+      statusBadge.innerHTML = '<span class="w-2 h-2 rounded-full bg-on-primary"></span><span>Low Hydrological Risk</span>';
+      stressValElem.className = 'font-metric-numeral-xl text-metric-numeral-xl text-primary font-bold leading-none';
+      quotaFill.className = 'h-full bg-primary rounded-full transition-all duration-500';
+    } else {
+      statusBadge.className = 'inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-tertiary text-on-tertiary font-label-badge text-label-badge font-bold';
+      statusBadge.innerHTML = '<span class="w-2 h-2 rounded-full bg-on-tertiary animate-ping"></span><span>Inspect Before Irrigating</span>';
+      stressValElem.className = 'font-metric-numeral-xl text-metric-numeral-xl text-tertiary font-bold leading-none';
+      quotaFill.className = 'h-full bg-tertiary rounded-full transition-all duration-500';
+    }
+
+    // Set Driver Bars
+    data.drivers.forEach((d, idx) => {
+      const num = idx + 1;
+      const nameElem = document.getElementById(`driver${num}Name`);
+      const valElem = document.getElementById(`driver${num}Val`);
+      const barElem = document.getElementById(`driver${num}Bar`);
+      if (nameElem && valElem && barElem) {
+        nameElem.innerText = d.name;
+        valElem.innerText = d.val;
+        barElem.style.width = d.width;
+        barElem.className = `${d.color} h-full rounded-full`;
+      }
+    });
+
+    // Link URL update with field param
+    const link = document.getElementById('drawerWaterPlanLink');
+    link.setAttribute('href', `#field=${data.id}`);
+
+    // Show Drawer
+    const backdrop = document.getElementById('inspectorBackdrop');
+    const drawer = document.getElementById('inspectorDrawer');
+    backdrop.classList.remove('opacity-0', 'pointer-events-none');
+    backdrop.classList.add('opacity-100', 'pointer-events-auto');
+    drawer.classList.remove('translate-x-full');
+  }
+
+  function closeDrawer() {
+    const backdrop = document.getElementById('inspectorBackdrop');
+    const drawer = document.getElementById('inspectorDrawer');
+    backdrop.classList.remove('opacity-100', 'pointer-events-auto');
+    backdrop.classList.add('opacity-0', 'pointer-events-none');
+    drawer.classList.add('translate-x-full');
+  }
+
+  // Keyboard accessibility
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeDrawer();
+  });
+</script></main><footer class="fixed bottom-0 left-64 right-0 h-10 bg-surface-container-low/95 backdrop-blur-sm z-30 px-space-lg flex items-center justify-between text-on-surface-variant font-label-badge text-label-badge shadow-[0_-1px_6px_rgba(0,0,0,0.02)]"><div class="flex items-center gap-space-sm truncate"><span class="text-secondary font-bold">⚠️ Decision support, not an autonomous agronomist. Review recommendations in local context.</span></div><div class="flex items-center gap-space-md whitespace-nowrap hidden md:flex"><span>Model: <strong class="text-primary">XGBoost v0.3 (Calibrated)</strong></span><span>·</span><span>Deterministic replay data</span><span>·</span><span class="inline-flex items-center gap-1 text-primary font-bold"><span class="material-symbols-outlined text-[14px]">nest_eco_leaf</span>SDG 13 Climate Action</span></div></footer></div></body></html>
