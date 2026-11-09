@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "postinstall": "node scripts/patch-rollup.js"
+    "postinstall": "node scripts/patch-rollup.cjs"
   },
   "dependencies": {
     "lucide-react": "^0.453.0",

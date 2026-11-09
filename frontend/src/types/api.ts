@@ -1,6 +1,7 @@
 export interface HealthResponse {
   status: string;
   app: string;
+  service?: string;
   environment: string;
   version: string;
   database: string;

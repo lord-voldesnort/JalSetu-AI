@@ -1,6 +1,7 @@
 import React from 'react';
 import { CheckCircle2, XCircle, RefreshCw, Server, Database } from 'lucide-react';
 import { HealthResponse } from '../types/api';
+import { api } from '../api/client';
 
 interface Props {
   health: HealthResponse | null;
@@ -75,6 +76,23 @@ export const BackendStatusCard: React.FC<Props> = ({
                 <span className="font-semibold text-emerald-600">{health?.database}</span>
               </div>
             </div>
+            <div className="pt-2 flex flex-wrap items-center gap-3">
+              <button
+                type="button"
+                onClick={() => {
+                  api.setMockMode(!api.isMockMode());
+                  onRefresh();
+                }}
+                className="text-xs px-3 py-1.5 rounded-lg bg-[#C96D3B] hover:bg-[#B95B55] text-white font-medium transition shadow-sm"
+              >
+                {api.isMockMode() ? 'Switch to Live API Mode' : 'Switch to Offline Mock / Demo Mode'}
+              </button>
+              {api.isMockMode() && (
+                <span className="text-xs text-amber-800 bg-amber-50 border border-amber-200 px-2 py-1 rounded">
+                  Operating in Offline Mock / Demo Mode
+                </span>
+              )}
+            </div>
           </div>
         ) : (
           <div className="space-y-3">
@@ -88,6 +106,18 @@ export const BackendStatusCard: React.FC<Props> = ({
             <p className="text-xs text-slate-500">
               Make sure the FastAPI server is running on <code className="bg-slate-100 px-1 py-0.5 rounded text-slate-700">{apiUrl}</code> using command <code className="bg-slate-100 px-1 py-0.5 rounded text-slate-700">python -m uvicorn app.main:app --port 8000</code>.
             </p>
+            <div className="pt-1 flex items-center gap-3">
+              <button
+                type="button"
+                onClick={() => {
+                  api.setMockMode(true);
+                  onRefresh();
+                }}
+                className="text-xs px-3 py-1.5 rounded-lg bg-[#C96D3B] hover:bg-[#B95B55] text-white font-medium transition shadow-sm"
+              >
+                Switch to Offline Mock / Demo Mode
+              </button>
+            </div>
           </div>
         )}
       </div>
