@@ -2,12 +2,73 @@
 JalSetu AI is a climate-resilience copilot for agriculture. It combines rainfall, weather, soil, satellite, crop-stage, and field signals to forecast near-term water stress, explain the key drivers, and prioritize scarce irrigation under a fixed water budget. Built for transparent, actionable decisions.
 JalSetu AI
 
-
-Predict water stress early. Prioritize scarce water. Protect crops.
+> **Predict water stress early. Prioritize scarce water. Protect crops.**
 
 JalSetu AI is a climate-resilience copilot for agriculture. It combines rainfall, weather, soil, satellite, crop-stage, and field signals to forecast near-term water stress, explain the key drivers, and prioritize scarce irrigation under a fixed water budget. Built for transparent, actionable decisions.
 
-Why JalSetu AI?
+---
+
+## Quickstart & Local Execution Guide
+
+### 1. Prerequisites
+- **Python**: 3.12+
+- **Node.js**: v20+ with npm (use `npm.cmd` on Windows PowerShell)
+
+### 2. Run Data Validation
+Verify the deterministic demonstration fixtures (10 fields, 170 observations, 3 scenarios):
+```bash
+node scripts/validate_fields.js
+node scripts/validate_observations.js
+node scripts/validate_scenarios.js
+```
+
+### 3. Start Backend Service
+From the repository root:
+```powershell
+# 1. Install dependencies
+pip install -r backend/requirements.txt
+
+# 2. Initialize and seed SQLite database
+python scripts/seed_db.py
+
+# 3. Launch FastAPI backend service
+python -m uvicorn app.main:app --app-dir backend --host 127.0.0.1 --port 8000 --reload
+```
+- **Health Check**: `http://127.0.0.1:8000/health`
+- **Interactive OpenAPI Docs**: `http://127.0.0.1:8000/docs`
+- **Field GeoJSON API**: `http://127.0.0.1:8000/api/v1/fields`
+
+### 4. Start Frontend Application
+In a separate terminal, from the repository root:
+```powershell
+cd frontend
+npm.cmd run dev
+```
+- **Frontend Dashboard**: `http://localhost:5173`
+
+> **Note for Windows Environments**: When running in corporate or restricted environments (e.g. Windows Application Control / AppLocker), Vite uses `@rollup/wasm-node` automatically via our postinstall patch script (`scripts/patch-rollup.js`).
+
+### 5. Automated Tests & Build Verification
+```powershell
+# Run full backend pytest suite (46 tests)
+python -m pytest backend/tests -v
+
+# Run frontend TypeScript type-check and production build
+cd frontend
+npm.cmd run build
+```
+
+---
+
+## Prototype Scope & Scientific Integrity Notice
+> [!IMPORTANT]
+> **Planning aid — not an agronomic prescription.**
+> JalSetu AI is currently a decision-support prototype. Outputs are calculated using deterministic heuristics evaluated against synthetic and replayed demo fixtures for the Pimpri-Chinchwad peri-urban cluster.
+> The system does not claim verified physical yield improvements or field water savings. All actions should be reviewed by an agronomist or field operator.
+
+---
+
+## Why JalSetu AI?
 
 Climate variability makes fixed irrigation schedules unreliable. Neighboring fields can experience different rainfall, heat, soil, crop-stage, and vegetation conditions, yet water is often allocated equally or after visible crop stress appears.
 

@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --navy-900: #0F2A43;
+  --navy-700: #1B3D5C;
+  --teal-600: #0B8A8F;
+  --teal-700: #08707A;
+  --teal-100: #DFF3F3;
+  --green-600: #2E9E5B;
+  --amber-500: #E0A21B;
+  --red-600: #D64545;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: #f5f8fb;
+  color: #0F2A43;
+}
+
