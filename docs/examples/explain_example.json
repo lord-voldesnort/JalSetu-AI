@@ -1,0 +1,95 @@
+{
+  "request": {
+    "field_id": "PC-005",
+    "scenario_id": "rainfall_deficit_heat_01"
+  },
+  "response": {
+    "field_id": "PC-005",
+    "field_name": "Field 5 - Chili South",
+    "crop": "Chili",
+    "stage": "Flowering",
+    "area_acres": 1.8,
+    "as_of_date": "2026-10-08T00:00:00Z",
+    "horizon_days": 7,
+    "stress_probability": 0.95,
+    "risk_state": "HIGH",
+    "confidence": 0.65,
+    "uncertainty_band": {
+      "p10": 0.79,
+      "p50": 0.95,
+      "p90": 1.0
+    },
+    "top_drivers": [
+      {
+        "rank": 1,
+        "feature": "rainfall_deficit",
+        "label": "Complete precipitation deficit simulated (0.0 mm); severe drought stress",
+        "value": 0.0,
+        "contribution": 0.28,
+        "direction": "increases_risk"
+      },
+      {
+        "rank": 2,
+        "feature": "heat_load_forecast",
+        "label": "Simulated heat wave (+4.0\u00b0C) elevates crop evapotranspiration & thermal stress",
+        "value": 4.0,
+        "contribution": 0.12,
+        "direction": "increases_risk"
+      },
+      {
+        "rank": 3,
+        "feature": "vegetation_canopy_ndvi",
+        "label": "Satellite NDVI observation missing/stale (3 days old); ground verification required",
+        "value": null,
+        "contribution": 0.08,
+        "direction": "increases_risk"
+      },
+      {
+        "rank": 4,
+        "feature": "crop_stage_sensitivity",
+        "label": "Chili in Flowering stage has peak sensitivity to moisture deficit",
+        "value": null,
+        "contribution": 0.1,
+        "direction": "increases_risk"
+      },
+      {
+        "rank": 5,
+        "feature": "soil_water_proxy",
+        "label": "Direct root-zone soil telemetry unobserved; relying on climate water-balance proxy",
+        "value": null,
+        "contribution": 0.0,
+        "direction": "neutral"
+      }
+    ],
+    "freshness": {
+      "weather": {
+        "age_days": 0,
+        "stale": false,
+        "quality_flag": "GOOD",
+        "last_updated": "2026-10-08T00:00:00Z"
+      },
+      "satellite": {
+        "age_days": 3,
+        "stale": false,
+        "quality_flag": "GOOD",
+        "last_updated": "2026-10-05T10:30:00Z"
+      },
+      "soil": {
+        "age_days": 0,
+        "stale": false,
+        "quality_flag": "GOOD",
+        "last_updated": "2026-10-08T06:00:00Z"
+      }
+    },
+    "recommended_action": "irrigate",
+    "action_reason": "Irrigate to relieve crop moisture deficit",
+    "why_card": "IRRIGATION RECOMMENDED: Stress probability is 95% (HIGH risk) for Chili in Flowering stage. Driven primarily by: Complete precipitation deficit simulated (0.0 mm); severe drought stress.\n\nKey Drivers:\n\u2022 Complete precipitation deficit simulated (0.0 mm); severe drought stress (increases stress)\n\u2022 Simulated heat wave (+4.0\u00b0C) elevates crop evapotranspiration & thermal stress (increases stress)\n\u2022 Satellite NDVI observation missing/stale (3 days old); ground verification required (increases stress)",
+    "insufficient_data": false,
+    "scenario_id": "rainfall_deficit_heat_01",
+    "model_version": "heuristic-baseline-v0.1",
+    "model_type": "deterministic_agronomic_heuristic_baseline",
+    "data_type": "synthetic_demo_data",
+    "data_limitations": "Synthetic demonstration data for Pimpri-Chinchwad cluster. Offline cached observations; not live IoT sensor feeds.",
+    "disclaimer": "Planning aid only \u2014 deterministic heuristic baseline using synthetic demonstration data. Not an agronomic prescription or trained ML model."
+  }
+}

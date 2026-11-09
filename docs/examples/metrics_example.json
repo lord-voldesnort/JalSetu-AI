@@ -1,0 +1,35 @@
+{
+  "response": {
+    "as_of": "2026-11-09T05:15:14.726052+00:00",
+    "total_fields": 10,
+    "fields_by_risk_state": {
+      "HIGH": 2,
+      "MODERATE": 4,
+      "LOW": 4
+    },
+    "total_events": 3,
+    "events_by_type": {
+      "irrigation_planned": 1,
+      "recommendation_overridden": 2
+    },
+    "latest_event_timestamp": "2026-11-09T05:15:14.700116+00:00",
+    "data_quality": {
+      "fresh_signals": 26,
+      "stale_signals": 2,
+      "missing_signals": 1,
+      "suspect_signals": 1,
+      "freshness_rate_pct": 86.7
+    },
+    "process_counters": {
+      "forecasts_requested": 0,
+      "scenarios_replayed": 0,
+      "plans_generated": 1,
+      "counter_scope": "since_process_start"
+    },
+    "ml_performance": "not_evaluated",
+    "notes": "Event counts are persistent. Process counters are since process start. All metrics evaluate synthetic/cached demonstration data.",
+    "model_version": "heuristic-baseline-v0.1",
+    "data_type": "synthetic_demo_data",
+    "disclaimer": "Planning aid only \u2014 deterministic heuristic baseline using synthetic demonstration data. Not an agronomic prescription or trained ML model."
+  }
+}

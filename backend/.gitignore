@@ -4,3 +4,5 @@ __pycache__/
 *.pyd
 .pytest_cache/
 .env
+app/data/runtime_events*.json
+*.corrupt*.json

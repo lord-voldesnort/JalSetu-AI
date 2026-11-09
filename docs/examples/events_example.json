@@ -1,0 +1,30 @@
+{
+  "request": {
+    "event_type": "recommendation_overridden",
+    "field_id": "PC-004",
+    "action": "wait",
+    "planned_amount": 25.0,
+    "override_reason": "Soil moisture verified manually via tensiometer; delayed irrigation by 24h",
+    "note": "Demonstration override logged by farmer",
+    "actor": "farmer_demo",
+    "source": "mobile_app"
+  },
+  "response": {
+    "event_id": "db65e9d8-916e-4f62-a809-f4f91ba62b02",
+    "created_at": "2026-11-09T05:15:14.700116+00:00",
+    "event_type": "recommendation_overridden",
+    "field_id": "PC-004",
+    "action": "wait",
+    "planned_amount": 25.0,
+    "actual_amount": null,
+    "override_reason": "Soil moisture verified manually via tensiometer; delayed irrigation by 24h",
+    "note": "Demonstration override logged by farmer",
+    "scenario_id": null,
+    "plan_ref": null,
+    "recommendation": null,
+    "model_version": null,
+    "actor": "farmer_demo",
+    "source": "mobile_app",
+    "metadata": null
+  }
+}
