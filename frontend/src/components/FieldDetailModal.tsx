@@ -109,45 +109,46 @@ export const FieldDetailModal: React.FC<FieldDetailModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-900/60 backdrop-blur-xs overflow-y-auto">
-      <div className="bg-white rounded-2xl max-w-3xl w-full max-h-[92vh] flex flex-col shadow-2xl border border-slate-200 overflow-hidden my-auto animate-in fade-in zoom-in-95 duration-150">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-[#382A25]/75 backdrop-blur-xs overflow-y-auto">
+      <div className="bg-[#FFFCF6] rounded-2xl max-w-3xl w-full max-h-[92vh] flex flex-col shadow-warm-xl border border-[#E8D6C5] overflow-hidden my-auto animate-in fade-in zoom-in-95 duration-150">
         {/* Modal Header */}
-        <div className="p-4 sm:p-5 border-b border-slate-100 flex items-center justify-between bg-gradient-to-r from-slate-50 to-white">
+        <div className="p-4 sm:p-5 border-b border-[#E8D6C5] flex items-center justify-between bg-[#F2E1D4]/40">
           <div className="flex items-center gap-3">
-            <span className="font-mono text-xs font-bold px-2.5 py-1 rounded-md bg-teal-600 text-white shadow-xs">
+            <span className="font-mono text-xs font-bold px-2.5 py-1 rounded-md bg-[#C96D3B] text-[#FFFCF6] shadow-warm-sm">
               {fieldId}
             </span>
             <div>
-              <h2 className="text-lg font-bold text-slate-800">
+              <h2 className="text-lg font-bold text-[#382A25] font-display">
                 {assessment ? assessment.field_name : `Field ${fieldId}`} — Decision Diagnostics
               </h2>
-              <p className="text-xs text-slate-500">
+              <p className="text-xs text-[#817064]">
                 {assessment ? `${assessment.crop} (${assessment.stage}) • ${assessment.area_acres} acres (${assessment.area_ha} ha)` : 'Loading metadata...'}
               </p>
             </div>
           </div>
           <button
             onClick={onClose}
-            className="p-1.5 rounded-lg text-slate-400 hover:text-slate-600 hover:bg-slate-100 transition-colors"
+            className="font-inter font-semibold p-2 rounded-xl text-[#69483A] hover:text-[#382A25] bg-[#FFFCF6] hover:bg-[#FAF5ED] active:scale-[0.98] border border-[#E8D6C5] hover:border-[#D99A91] shadow-warm-sm transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-[#C96D3B]/30"
+            aria-label="Close modal"
           >
-            <X className="w-5 h-5" />
+            <X className="w-4 h-4" />
           </button>
         </div>
 
         {/* Modal Body */}
         <div className="flex-1 overflow-y-auto p-4 sm:p-6 space-y-6">
           {loading && (
-            <div className="py-16 text-center text-slate-500 text-sm flex flex-col items-center justify-center gap-3">
-              <div className="w-8 h-8 border-3 border-teal-600 border-t-transparent rounded-full animate-spin"></div>
+            <div className="py-16 text-center text-[#817064] text-xs flex flex-col items-center justify-center gap-3">
+              <div className="w-8 h-8 border-3 border-[#C96D3B] border-t-transparent rounded-full animate-spin"></div>
               <span>Computing deterministic stress signals and multi-source drivers...</span>
             </div>
           )}
 
           {error && (
-            <div className="p-4 bg-red-50 border border-red-200 rounded-xl text-red-700 text-sm flex items-start gap-3">
-              <AlertTriangle className="w-5 h-5 shrink-0 mt-0.5" />
+            <div className="p-4 bg-[#B95B55]/10 border border-[#B95B55]/30 rounded-xl text-[#8A3C37] text-xs flex items-start gap-3">
+              <AlertTriangle className="w-5 h-5 shrink-0 mt-0.5 text-[#B95B55]" />
               <div>
-                <p className="font-semibold">Unable to load field assessment</p>
+                <p className="font-bold">Unable to load field assessment</p>
                 <p className="text-xs mt-1">{error}</p>
               </div>
             </div>
@@ -158,54 +159,54 @@ export const FieldDetailModal: React.FC<FieldDetailModalProps> = ({
               {/* Top KPI Cards Row */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                 {/* Risk Score */}
-                <div className="bg-slate-50 p-4 rounded-xl border border-slate-200">
-                  <div className="text-xs text-slate-500 font-medium">Risk Score & Level</div>
+                <div className="bg-[#FAF5ED] p-4 rounded-xl border border-[#E8D6C5]">
+                  <div className="text-xs text-[#817064] font-medium">Risk Score & Level</div>
                   <div className="flex items-baseline gap-2 mt-1">
-                    <span className="text-3xl font-extrabold text-slate-800">
+                    <span className="text-3xl font-extrabold text-[#382A25] font-display">
                       {assessment.risk_score.toFixed(1)}
                     </span>
-                    <span className="text-xs text-slate-400 font-mono">/100</span>
+                    <span className="text-xs text-[#9D8D82] font-mono">/100</span>
                   </div>
                   <div className="mt-2 flex items-center gap-1.5">
                     <span
                       className={`px-2 py-0.5 rounded text-xs font-bold uppercase ${
                         assessment.risk_level === 'Critical' || assessment.risk_level === 'High'
-                          ? 'bg-red-100 text-red-800'
+                          ? 'bg-[#B95B55]/15 text-[#8A3C37] border border-[#B95B55]/30'
                           : assessment.risk_level === 'Moderate'
-                          ? 'bg-amber-100 text-amber-800'
-                          : 'bg-emerald-100 text-emerald-800'
+                          ? 'bg-[#E5B94B]/20 text-[#69483A] border border-[#E5B94B]/40'
+                          : 'bg-[#85845A]/15 text-[#585736] border border-[#85845A]/30'
                       }`}
                     >
                       {assessment.risk_level}
                     </span>
-                    <span className="text-[11px] text-slate-500">
+                    <span className="text-[11px] text-[#817064]">
                       ({(assessment.stress_index * 100).toFixed(0)}% Index)
                     </span>
                   </div>
                 </div>
 
                 {/* Recommended Action */}
-                <div className="bg-slate-50 p-4 rounded-xl border border-slate-200">
-                  <div className="text-xs text-slate-500 font-medium">Prescribed Action</div>
-                  <div className="mt-1 text-base font-bold text-teal-800 capitalize">
+                <div className="bg-[#FAF5ED] p-4 rounded-xl border border-[#E8D6C5]">
+                  <div className="text-xs text-[#817064] font-medium">Prescribed Action</div>
+                  <div className="mt-1 text-base font-bold text-[#C96D3B] capitalize">
                     {assessment.recommended_action.replace('_', ' ')}
                   </div>
-                  <div className="mt-2 text-xs text-slate-600 flex items-center gap-1">
-                    <Clock className="w-3.5 h-3.5 text-slate-400" />
+                  <div className="mt-2 text-xs text-[#817064] flex items-center gap-1">
+                    <Clock className="w-3.5 h-3.5 text-[#C96D3B]" />
                     <span>{assessment.action_window}</span>
                   </div>
                 </div>
 
                 {/* Recommended Volume */}
-                <div className="bg-slate-50 p-4 rounded-xl border border-slate-200">
-                  <div className="text-xs text-slate-500 font-medium">Recommended Water</div>
+                <div className="bg-[#FAF5ED] p-4 rounded-xl border border-[#E8D6C5]">
+                  <div className="text-xs text-[#817064] font-medium">Recommended Water</div>
                   <div className="flex items-baseline gap-1 mt-1">
-                    <span className="text-3xl font-extrabold text-teal-700">
+                    <span className="text-3xl font-extrabold text-[#B95B55] font-display">
                       {assessment.recommended_volume_m3.toFixed(1)}
                     </span>
-                    <span className="text-xs text-slate-500 font-semibold">m³</span>
+                    <span className="text-xs text-[#69483A] font-semibold">m³</span>
                   </div>
-                  <div className="mt-2 text-[11px] text-slate-500">
+                  <div className="mt-2 text-[11px] text-[#817064]">
                     Confidence: {(assessment.confidence * 100).toFixed(0)}%
                   </div>
                 </div>
@@ -213,13 +214,13 @@ export const FieldDetailModal: React.FC<FieldDetailModalProps> = ({
 
               {/* Warnings Banner if any */}
               {assessment.warnings && assessment.warnings.length > 0 && (
-                <div className="bg-amber-50 border border-amber-200 rounded-xl p-3 text-xs text-amber-900 space-y-1">
-                  <div className="font-semibold flex items-center gap-1.5 text-amber-800">
-                    <AlertTriangle className="w-4 h-4 text-amber-600" />
+                <div className="bg-[#E5B94B]/15 border border-[#E5B94B]/40 rounded-xl p-3.5 text-xs text-[#69483A] space-y-1">
+                  <div className="font-bold flex items-center gap-1.5 text-[#382A25]">
+                    <AlertTriangle className="w-4 h-4 text-[#C96D3B]" />
                     <span>Operational Warnings Detected:</span>
                   </div>
                   {assessment.warnings.map((w, idx) => (
-                    <p key={idx} className="pl-5 text-amber-800/90 leading-relaxed font-mono text-[11px]">
+                    <p key={idx} className="pl-5 text-[#69483A] leading-relaxed font-mono text-[11px]">
                       • {w}
                     </p>
                   ))}
@@ -228,11 +229,11 @@ export const FieldDetailModal: React.FC<FieldDetailModalProps> = ({
 
               {/* 4 Agronomic Signal Drivers Attribution */}
               <div>
-                <h3 className="text-sm font-bold text-slate-800 mb-2 flex items-center gap-2">
-                  <Layers className="w-4 h-4 text-teal-600" />
+                <h3 className="text-sm font-bold text-[#382A25] mb-2 flex items-center gap-2 font-display">
+                  <Layers className="w-4 h-4 text-[#C96D3B]" />
                   <span>Explainable Signal Driver Attribution</span>
                 </h3>
-                <p className="text-xs text-slate-500 mb-3">
+                <p className="text-xs text-[#817064] mb-3">
                   Each signal contributes additive points toward the total risk score based on crop stage thresholds.
                 </p>
 
@@ -242,28 +243,28 @@ export const FieldDetailModal: React.FC<FieldDetailModalProps> = ({
                     return (
                       <div
                         key={idx}
-                        className="bg-slate-50/70 p-3 rounded-xl border border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-2"
+                        className="bg-[#FAF5ED] p-3.5 rounded-xl border border-[#E8D6C5] flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 shadow-warm-sm"
                       >
                         <div className="space-y-0.5">
                           <div className="flex items-center gap-2">
-                            <span className="font-semibold text-xs text-slate-800 uppercase font-mono">
+                            <span className="font-bold text-xs text-[#382A25] uppercase font-mono">
                               {d.signal_name.replace('_', ' ')}
                             </span>
-                            <span className="text-[11px] font-mono text-slate-500 bg-white px-1.5 py-0.5 rounded border border-slate-200">
+                            <span className="text-[11px] font-mono text-[#817064] bg-[#FFFCF6] px-2 py-0.5 rounded border border-[#E8D6C5]">
                               Observed: {d.observed_value} {d.unit}
                             </span>
                           </div>
-                          <p className="text-xs text-slate-600 leading-normal">
+                          <p className="text-xs text-[#69483A] leading-relaxed">
                             {d.statement}
                           </p>
                         </div>
 
                         <div className="sm:text-right shrink-0">
                           <span
-                            className={`inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-bold ${
+                            className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-xs font-bold ${
                               isIncreases
-                                ? 'bg-red-100 text-red-800 border border-red-200'
-                                : 'bg-emerald-100 text-emerald-800 border border-emerald-200'
+                                ? 'bg-[#B95B55]/15 text-[#8A3C37] border border-[#B95B55]/30'
+                                : 'bg-[#85845A]/15 text-[#585736] border border-[#85845A]/30'
                             }`}
                           >
                             {isIncreases ? '+' : ''}
@@ -278,41 +279,41 @@ export const FieldDetailModal: React.FC<FieldDetailModalProps> = ({
 
               {/* Data Freshness Table */}
               <div>
-                <h3 className="text-sm font-bold text-slate-800 mb-2 flex items-center gap-2">
-                  <Clock className="w-4 h-4 text-teal-600" />
+                <h3 className="text-sm font-bold text-[#382A25] mb-2 flex items-center gap-2 font-display">
+                  <Clock className="w-4 h-4 text-[#C96D3B]" />
                   <span>Data Freshness & Provenance Audit</span>
                 </h3>
-                <div className="overflow-x-auto rounded-xl border border-slate-200">
+                <div className="overflow-x-auto rounded-xl border border-[#E8D6C5] bg-[#FFFCF6]">
                   <table className="w-full text-left text-xs">
-                    <thead className="bg-slate-50 text-slate-600 font-semibold border-b border-slate-200">
+                    <thead className="bg-[#FAF5ED] text-[#382A25] font-bold border-b border-[#E8D6C5]">
                       <tr>
-                        <th className="p-2.5">Signal Variable</th>
-                        <th className="p-2.5">Data Source</th>
-                        <th className="p-2.5">Timestamp</th>
-                        <th className="p-2.5">Age</th>
-                        <th className="p-2.5">Quality Flag</th>
-                        <th className="p-2.5">Status</th>
+                        <th className="p-3">Signal Variable</th>
+                        <th className="p-3">Data Source</th>
+                        <th className="p-3">Timestamp</th>
+                        <th className="p-3">Age</th>
+                        <th className="p-3">Quality Flag</th>
+                        <th className="p-3">Status</th>
                       </tr>
                     </thead>
-                    <tbody className="divide-y divide-slate-100 text-slate-700">
+                    <tbody className="divide-y divide-[#E8D6C5]/60 text-[#69483A]">
                       {assessment.freshness_table.map((row, idx) => (
-                        <tr key={idx} className={row.is_stale ? 'bg-amber-50/50' : 'bg-white'}>
-                          <td className="p-2.5 font-mono font-medium">{row.variable}</td>
-                          <td className="p-2.5 text-slate-500">{row.source}</td>
-                          <td className="p-2.5 text-slate-500">{row.observed_at}</td>
-                          <td className="p-2.5">{row.age_days}d ago</td>
-                          <td className="p-2.5">
-                            <span className="px-1.5 py-0.5 rounded text-[10px] bg-slate-100 font-mono">
+                        <tr key={idx} className={row.is_stale ? 'bg-[#F2E1D4]/40' : 'bg-[#FFFCF6]'}>
+                          <td className="p-3 font-mono font-bold text-[#382A25]">{row.variable}</td>
+                          <td className="p-3 text-[#817064]">{row.source}</td>
+                          <td className="p-3 text-[#817064]">{row.observed_at}</td>
+                          <td className="p-3 font-semibold">{row.age_days}d ago</td>
+                          <td className="p-3">
+                            <span className="px-2 py-0.5 rounded text-[10px] bg-[#FAF5ED] border border-[#E8D6C5] font-mono">
                               {row.quality_flag}
                             </span>
                           </td>
-                          <td className="p-2.5">
+                          <td className="p-3">
                             {row.is_stale ? (
-                              <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-amber-100 text-amber-800 border border-amber-300">
+                              <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-[#B95B55]/15 text-[#8A3C37] border border-[#B95B55]/40">
                                 STALE
                               </span>
                             ) : (
-                              <span className="px-2 py-0.5 rounded text-[10px] font-medium bg-emerald-100 text-emerald-800">
+                              <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-[#85845A]/15 text-[#585736] border border-[#85845A]/30">
                                 FRESH
                               </span>
                             )}
@@ -325,22 +326,22 @@ export const FieldDetailModal: React.FC<FieldDetailModalProps> = ({
               </div>
 
               {/* Action Recording Form */}
-              <div className="bg-gradient-to-br from-slate-50 to-teal-50/30 p-4 sm:p-5 rounded-xl border border-teal-200/60">
+              <div className="bg-[#F2E1D4]/30 p-4 sm:p-5 rounded-2xl border border-[#E8D6C5]">
                 <div className="flex items-center justify-between mb-3">
                   <div>
-                    <h3 className="text-sm font-bold text-slate-800 flex items-center gap-2">
-                      <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+                    <h3 className="text-sm font-bold text-[#382A25] flex items-center gap-2 font-display">
+                      <CheckCircle2 className="w-4 h-4 text-[#85845A]" />
                       <span>Record Operator Action & Feedback</span>
                     </h3>
-                    <p className="text-xs text-slate-500">
-                      Operator Role: <span className="font-semibold capitalize text-teal-800">{userRole}</span>
+                    <p className="text-xs text-[#817064]">
+                      Operator Role: <span className="font-bold capitalize text-[#C96D3B]">{userRole}</span>
                     </p>
                   </div>
                 </div>
 
                 {actionSuccess && (
-                  <div className="mb-4 p-3 bg-emerald-50 border border-emerald-300 rounded-lg text-xs text-emerald-900 flex items-start gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                  <div className="mb-4 p-3.5 bg-[#85845A]/15 border border-[#85845A]/40 rounded-xl text-xs text-[#585736] flex items-start gap-2.5">
+                    <CheckCircle2 className="w-4 h-4 text-[#85845A] shrink-0 mt-0.5" />
                     <div>
                       <p className="font-bold">Action Recorded Successfully!</p>
                       <p className="text-[11px] mt-0.5">
@@ -351,8 +352,8 @@ export const FieldDetailModal: React.FC<FieldDetailModalProps> = ({
                 )}
 
                 {actionError && (
-                  <div className="mb-4 p-3 bg-red-50 border border-red-300 rounded-lg text-xs text-red-900 flex items-start gap-2">
-                    <AlertTriangle className="w-4 h-4 text-red-600 shrink-0 mt-0.5" />
+                  <div className="mb-4 p-3.5 bg-[#B95B55]/15 border border-[#B95B55]/40 rounded-xl text-xs text-[#8A3C37] flex items-start gap-2.5">
+                    <AlertTriangle className="w-4 h-4 text-[#B95B55] shrink-0 mt-0.5" />
                     <div>
                       <p className="font-bold">Failed to record action</p>
                       <p className="text-[11px] mt-0.5">{actionError}</p>
@@ -363,7 +364,7 @@ export const FieldDetailModal: React.FC<FieldDetailModalProps> = ({
                 <form onSubmit={handleActionSubmit} className="space-y-4">
                   {/* Followed Recommendation Toggle */}
                   <div>
-                    <label className="block text-xs font-semibold text-slate-700 mb-1.5">
+                    <label className="block text-xs font-bold text-[#382A25] mb-2">
                       Did you follow the AI recommendation ({assessment.recommended_action})?
                     </label>
                     <div className="grid grid-cols-2 gap-3">
@@ -373,10 +374,10 @@ export const FieldDetailModal: React.FC<FieldDetailModalProps> = ({
                           setFollowedRecommendation(true);
                           setActionTaken(assessment.recommended_action);
                         }}
-                        className={`py-2 px-3 rounded-lg border text-xs font-semibold transition-all flex items-center justify-center gap-1.5 ${
+                        className={`font-inter font-semibold text-[14px] py-2.5 px-4 rounded-xl border transition-all duration-150 inline-flex items-center justify-center gap-2 active:scale-[0.98] focus:outline-none focus:ring-2 ${
                           followedRecommendation
-                            ? 'bg-emerald-600 text-white border-emerald-600 shadow-sm'
-                            : 'bg-white text-slate-700 border-slate-300 hover:bg-slate-50'
+                            ? 'bg-[#C96D3B] hover:bg-[#B35E30] text-[#FFFCF6] border-transparent shadow-warm-sm focus:ring-[#C96D3B]/40'
+                            : 'bg-[#FFFCF6] text-[#69483A] border-[#E8D6C5] hover:bg-[#FAF5ED] hover:text-[#382A25] focus:ring-[#C96D3B]/30'
                         }`}
                       >
                         <CheckCircle2 className="w-4 h-4" />
@@ -391,10 +392,10 @@ export const FieldDetailModal: React.FC<FieldDetailModalProps> = ({
                             setActionTaken(assessment.recommended_action === 'irrigate_now' ? 'wait' : 'irrigate_now');
                           }
                         }}
-                        className={`py-2 px-3 rounded-lg border text-xs font-semibold transition-all flex items-center justify-center gap-1.5 ${
+                        className={`font-inter font-semibold text-[14px] py-2.5 px-4 rounded-xl border transition-all duration-150 inline-flex items-center justify-center gap-2 active:scale-[0.98] focus:outline-none focus:ring-2 ${
                           !followedRecommendation
-                            ? 'bg-amber-600 text-white border-amber-600 shadow-sm'
-                            : 'bg-white text-slate-700 border-slate-300 hover:bg-slate-50'
+                            ? 'bg-[#B95B55] hover:bg-[#A34E48] text-[#FFFCF6] border-transparent shadow-warm-sm focus:ring-[#B95B55]/40'
+                            : 'bg-[#FFFCF6] text-[#69483A] border-[#E8D6C5] hover:bg-[#FAF5ED] hover:text-[#382A25] focus:ring-[#C96D3B]/30'
                         }`}
                       >
                         <AlertTriangle className="w-4 h-4" />
@@ -405,15 +406,15 @@ export const FieldDetailModal: React.FC<FieldDetailModalProps> = ({
 
                   {/* If Overrode: Mandatory Override Reason */}
                   {!followedRecommendation && (
-                    <div className="p-3 bg-amber-50/80 rounded-lg border border-amber-300/80 space-y-2">
-                      <label className="block text-xs font-bold text-amber-900">
+                    <div className="p-3.5 bg-[#FAF5ED] rounded-xl border border-[#B95B55]/30 space-y-2">
+                      <label className="block text-xs font-bold text-[#8A3C37]">
                         Reason for Override (Mandatory) *
                       </label>
                       <select
                         value={overrideReason}
                         onChange={(e) => setOverrideReason(e.target.value)}
                         required
-                        className="w-full text-xs p-2 rounded-md border border-amber-300 bg-white text-slate-800 focus:outline-none focus:ring-2 focus:ring-amber-500/20"
+                        className="w-full text-xs p-2.5 rounded-lg border border-[#E8D6C5] bg-[#FFFCF6] text-[#2C201C] focus:outline-none focus:ring-2 focus:ring-[#C96D3B]/30"
                       >
                         <option value="pump_failure">Mechanical pump failure / power outage</option>
                         <option value="canopy_looks_fine">Visual canopy inspection showed no visual stress</option>
@@ -427,13 +428,13 @@ export const FieldDetailModal: React.FC<FieldDetailModalProps> = ({
                   {/* Actual Action Taken & Volume */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     <div>
-                      <label className="block text-xs font-semibold text-slate-700 mb-1">
+                      <label className="block text-xs font-semibold text-[#382A25] mb-1">
                         Actual Action Taken
                       </label>
                       <select
                         value={actionTaken}
                         onChange={(e) => setActionTaken(e.target.value)}
-                        className="w-full text-xs p-2 rounded-lg border border-slate-300 bg-white text-slate-800"
+                        className="w-full text-xs p-2.5 rounded-xl border border-[#E8D6C5] bg-[#FFFCF6] text-[#2C201C]"
                       >
                         <option value="irrigate_now">Irrigate Now</option>
                         <option value="wait">Wait / Delay</option>
@@ -444,7 +445,7 @@ export const FieldDetailModal: React.FC<FieldDetailModalProps> = ({
                     </div>
 
                     <div>
-                      <label className="block text-xs font-semibold text-slate-700 mb-1">
+                      <label className="block text-xs font-semibold text-[#382A25] mb-1">
                         Actual Applied Volume (m³)
                       </label>
                       <input
@@ -454,14 +455,14 @@ export const FieldDetailModal: React.FC<FieldDetailModalProps> = ({
                         value={actualVolume}
                         onChange={(e) => setActualVolume(e.target.value)}
                         placeholder="e.g. 15.0"
-                        className="w-full text-xs p-2 rounded-lg border border-slate-300 bg-white text-slate-800"
+                        className="w-full text-xs p-2.5 rounded-xl border border-[#E8D6C5] bg-[#FFFCF6] text-[#2C201C]"
                       />
                     </div>
                   </div>
 
                   {/* Notes */}
                   <div>
-                    <label className="block text-xs font-semibold text-slate-700 mb-1">
+                    <label className="block text-xs font-semibold text-[#382A25] mb-1">
                       Field Operator Notes
                     </label>
                     <input
@@ -470,7 +471,7 @@ export const FieldDetailModal: React.FC<FieldDetailModalProps> = ({
                       value={notes}
                       onChange={(e) => setNotes(e.target.value)}
                       placeholder="Optional observations or remarks..."
-                      className="w-full text-xs p-2 rounded-lg border border-slate-300 bg-white text-slate-800"
+                      className="w-full text-xs p-2.5 rounded-xl border border-[#E8D6C5] bg-[#FFFCF6] text-[#2C201C]"
                     />
                   </div>
 
@@ -479,7 +480,7 @@ export const FieldDetailModal: React.FC<FieldDetailModalProps> = ({
                     <button
                       type="submit"
                       disabled={submittingAction}
-                      className="px-4 py-2 bg-teal-600 hover:bg-teal-700 disabled:opacity-50 text-white rounded-lg text-xs font-semibold transition-colors flex items-center gap-1.5 shadow-sm"
+                      className="font-inter font-semibold text-[14px] px-5 py-2.5 bg-[#C96D3B] hover:bg-[#B35E30] active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed text-[#FFFCF6] rounded-xl shadow-warm-sm border border-transparent transition-all duration-150 inline-flex items-center justify-center gap-2 focus:outline-none focus:ring-2 focus:ring-[#C96D3B]/40"
                     >
                       {submittingAction ? (
                         <>
@@ -488,7 +489,7 @@ export const FieldDetailModal: React.FC<FieldDetailModalProps> = ({
                         </>
                       ) : (
                         <>
-                          <CheckCircle2 className="w-3.5 h-3.5" />
+                          <CheckCircle2 className="w-4 h-4" />
                           <span>Submit Action Event</span>
                         </>
                       )}
@@ -498,8 +499,8 @@ export const FieldDetailModal: React.FC<FieldDetailModalProps> = ({
               </div>
 
               {/* Policy Disclaimer */}
-              <div className="p-3 bg-slate-100 rounded-lg text-[11px] text-slate-500 flex items-start gap-2">
-                <Info className="w-3.5 h-3.5 shrink-0 mt-0.5 text-slate-400" />
+              <div className="p-3.5 bg-[#FAF5ED] rounded-xl text-[11px] text-[#817064] flex items-start gap-2.5 border border-[#E8D6C5]">
+                <Info className="w-4 h-4 shrink-0 mt-0.5 text-[#C96D3B]" />
                 <span>{assessment.policy_disclaimer}</span>
               </div>
             </>
@@ -507,13 +508,13 @@ export const FieldDetailModal: React.FC<FieldDetailModalProps> = ({
         </div>
 
         {/* Modal Footer */}
-        <div className="p-3 sm:p-4 border-t border-slate-100 bg-slate-50 flex items-center justify-between text-xs">
+        <div className="p-4 sm:p-5 border-t border-[#E8D6C5] bg-[#FAF5ED] flex items-center justify-between text-xs">
           <button
             onClick={() => {
               onClose();
               onViewForecast(fieldId);
             }}
-            className="text-teal-700 hover:text-teal-900 font-semibold flex items-center gap-1 transition-colors"
+            className="font-inter font-semibold text-[14px] text-[#C96D3B] hover:text-[#B35E30] active:scale-[0.98] inline-flex items-center gap-1.5 transition-all duration-150 focus:outline-none focus:underline"
           >
             <span>View 3–7 Day Projections for this Field</span>
             <ArrowRight className="w-3.5 h-3.5" />
@@ -521,7 +522,7 @@ export const FieldDetailModal: React.FC<FieldDetailModalProps> = ({
 
           <button
             onClick={onClose}
-            className="px-4 py-1.5 bg-slate-200 hover:bg-slate-300 text-slate-700 rounded-lg font-medium transition-colors"
+            className="font-inter font-semibold text-[14px] px-5 py-2.5 bg-[#FFFCF6] hover:bg-[#FAF5ED] active:scale-[0.98] text-[#69483A] hover:text-[#382A25] border border-[#E8D6C5] hover:border-[#D99A91] rounded-xl shadow-warm-sm transition-all duration-150 inline-flex items-center justify-center gap-2 focus:outline-none focus:ring-2 focus:ring-[#C96D3B]/30"
           >
             Close
           </button>

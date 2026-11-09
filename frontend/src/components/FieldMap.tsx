@@ -43,7 +43,6 @@ export const FieldMap: React.FC<FieldMapProps> = ({
       });
     });
 
-    // Add 5% margin to prevent touching the edges
     const spanX = maxX - minX || 0.005;
     const spanY = maxY - minY || 0.002;
     return {
@@ -59,47 +58,46 @@ export const FieldMap: React.FC<FieldMapProps> = ({
     return (lng: number, lat: number) => {
       const { minX, maxX, minY, maxY } = bounds;
       const x = padding + ((lng - minX) / (maxX - minX)) * (viewBoxWidth - 2 * padding);
-      // SVG y goes down; latitude increases up (north)
       const y = padding + ((maxY - lat) / (maxY - minY)) * (viewBoxHeight - 2 * padding);
       return { x, y };
     };
   }, [bounds, viewBoxWidth, viewBoxHeight, padding]);
 
-  // Status-based color configuration
+  // Status-based color configuration aligned with palette
   const getStatusStyle = (status?: string) => {
     switch (status) {
       case 'red':
         return {
-          fill: '#EF4444',
-          fillOpacity: 0.55,
-          stroke: '#B91C1C',
-          badgeBg: 'bg-red-100 text-red-800 border-red-300',
+          fill: '#B95B55', // Muted Tomato
+          fillOpacity: 0.70,
+          stroke: '#8A3C37',
+          badgeBg: 'bg-[#B95B55]/15 text-[#8A3C37] border-[#B95B55]/40',
           label: 'High / Critical Stress',
         };
       case 'amber':
         return {
-          fill: '#F59E0B',
-          fillOpacity: 0.55,
-          stroke: '#D97706',
-          badgeBg: 'bg-amber-100 text-amber-800 border-amber-300',
+          fill: '#E5B94B', // Orchid Gold
+          fillOpacity: 0.65,
+          stroke: '#B88E28',
+          badgeBg: 'bg-[#E5B94B]/20 text-[#69483A] border-[#E5B94B]/50',
           label: 'Moderate Stress',
         };
       case 'blue':
         return {
-          fill: '#3B82F6',
-          fillOpacity: 0.55,
-          stroke: '#1D4ED8',
-          badgeBg: 'bg-blue-100 text-blue-800 border-blue-300',
+          fill: '#4B729F', // Muted Slate Blue
+          fillOpacity: 0.65,
+          stroke: '#2F4F75',
+          badgeBg: 'bg-blue-100 text-blue-900 border-blue-300',
           label: 'Paused (Deluge / Protect)',
         };
       case 'green':
       default:
         return {
-          fill: '#10B981',
-          fillOpacity: 0.55,
-          stroke: '#047857',
-          badgeBg: 'bg-emerald-100 text-emerald-800 border-emerald-300',
-          label: 'Low Stress / Normal',
+          fill: '#85845A', // Muted Olive
+          fillOpacity: 0.65,
+          stroke: '#585736',
+          badgeBg: 'bg-[#85845A]/15 text-[#585736] border-[#85845A]/40',
+          label: 'Low Stress / Nominal',
         };
     }
   };
@@ -122,82 +120,83 @@ export const FieldMap: React.FC<FieldMapProps> = ({
   }, [hoveredFieldId, fields]);
 
   return (
-    <div className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+    <div className="bg-[#FFFCF6] rounded-2xl shadow-warm-md border border-[#E8D6C5] overflow-hidden">
       {/* Map Header */}
-      <div className="p-4 sm:p-5 border-b border-slate-100 flex flex-wrap items-center justify-between gap-3 bg-slate-50/50">
-        <div className="flex items-center gap-2.5">
-          <div className="w-9 h-9 rounded-xl bg-teal-600 flex items-center justify-center text-white shadow-sm">
+      <div className="p-4 sm:p-5 border-b border-[#E8D6C5] flex flex-wrap items-center justify-between gap-3 bg-[#F2E1D4]/30">
+        <div className="flex items-center gap-3">
+          <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#C96D3B] to-[#B95B55] flex items-center justify-center text-[#FFFCF6] shadow-warm-sm">
             <Layers className="w-5 h-5" />
           </div>
           <div>
-            <h2 className="text-base font-semibold text-slate-800">
-              Interactive Field Spatial Map
+            <h2 className="text-base font-bold text-[#382A25]">
+              Interactive Field Spatial Geometry
             </h2>
-            <p className="text-xs text-slate-500">
+            <p className="text-xs text-[#817064]">
               Pimpri-Chinchwad Peri-Urban Demonstration Cluster • 10 Monitored Polygons
             </p>
           </div>
         </div>
 
-        {/* Controls */}
+        {/* Map Controls */}
         <div className="flex items-center gap-2">
           <button
             onClick={() => setShowLabels(!showLabels)}
-            className={`px-3 py-1.5 text-xs font-medium rounded-lg border transition-colors flex items-center gap-1.5 ${
+            className={`font-inter font-semibold text-[14px] px-4 py-2 rounded-xl border transition-all duration-150 inline-flex items-center justify-center gap-2 active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-[#C96D3B]/40 shadow-warm-sm ${
               showLabels
-                ? 'bg-slate-800 text-white border-slate-800'
-                : 'bg-white text-slate-600 border-slate-300 hover:bg-slate-50'
+                ? 'bg-[#B95B55] hover:bg-[#A34E48] text-[#FFFCF6] border-transparent'
+                : 'bg-[#FFFCF6] hover:bg-[#FAF5ED] text-[#69483A] hover:text-[#382A25] border-[#E8D6C5] hover:border-[#D99A91]'
             }`}
             title="Toggle field ID labels"
           >
-            <Eye className="w-3.5 h-3.5" />
-            {showLabels ? 'Labels Visible' : 'Labels Hidden'}
+            <Eye className="w-4 h-4" />
+            <span>{showLabels ? 'Labels Visible' : 'Labels Hidden'}</span>
           </button>
         </div>
       </div>
 
       {/* Map Canvas / SVG Container */}
-      <div className="relative w-full bg-gradient-to-b from-slate-100/70 to-slate-200/50 p-2 sm:p-4">
+      <div className="relative w-full bg-[#FAF5ED] p-2 sm:p-4">
         {loading && (
-          <div className="absolute inset-0 bg-white/70 backdrop-blur-sm z-20 flex items-center justify-center">
-            <div className="flex items-center gap-2 text-sm text-slate-600 font-medium">
-              <div className="w-4 h-4 border-2 border-teal-600 border-t-transparent rounded-full animate-spin"></div>
-              <span>Updating spatial polygons...</span>
+          <div className="absolute inset-0 bg-[#FFFCF6]/80 backdrop-blur-xs z-20 flex items-center justify-center">
+            <div className="flex items-center gap-2.5 text-xs text-[#69483A] font-semibold bg-[#FFFCF6] px-4 py-2 rounded-xl border border-[#E8D6C5] shadow-warm-md">
+              <div className="w-4 h-4 border-2 border-[#C96D3B] border-t-transparent rounded-full animate-spin"></div>
+              <span>Updating spatial stress polygons...</span>
             </div>
           </div>
         )}
 
         <svg
           viewBox={`0 0 ${viewBoxWidth} ${viewBoxHeight}`}
-          className="w-full h-auto max-h-[500px] select-none rounded-xl bg-emerald-950/[0.04] border border-slate-200/80 shadow-inner"
+          className="w-full h-auto max-h-[500px] select-none rounded-xl bg-[#FAF5ED] border border-[#E8D6C5] shadow-inner"
         >
           {/* Subtle agricultural grid pattern */}
           <defs>
-            <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-              <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#CBD5E1" strokeWidth="0.5" strokeOpacity="0.4" />
+            <pattern id="agri-grid" width="36" height="36" patternUnits="userSpaceOnUse">
+              <path d="M 36 0 L 0 0 0 36" fill="none" stroke="#E8D6C5" strokeWidth="0.6" strokeOpacity="0.7" />
             </pattern>
-            <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
-              <feDropShadow dx="0" dy="0" stdDeviation="4" floodColor="#0F766E" floodOpacity="0.8" />
+            <filter id="poly-glow" x="-20%" y="-20%" width="140%" height="140%">
+              <feDropShadow dx="0" dy="0" stdDeviation="5" floodColor="#C96D3B" floodOpacity="0.85" />
             </filter>
           </defs>
-          <rect width={viewBoxWidth} height={viewBoxHeight} fill="url(#grid)" />
+          <rect width={viewBoxWidth} height={viewBoxHeight} fill="url(#agri-grid)" />
 
-          {/* Demonstration Canal / Road Reference Line */}
+          {/* Demonstration Canal Reference Line */}
           <path
             d={`M 30 ${viewBoxHeight * 0.88} Q ${viewBoxWidth * 0.4} ${viewBoxHeight * 0.82} ${viewBoxWidth - 30} ${viewBoxHeight * 0.92}`}
             fill="none"
-            stroke="#94A3B8"
-            strokeWidth="3"
+            stroke="#85845A"
+            strokeWidth="3.5"
             strokeDasharray="6 4"
-            strokeOpacity="0.6"
+            strokeOpacity="0.65"
           />
           <text
-            x={viewBoxWidth - 140}
+            x={viewBoxWidth - 180}
             y={viewBoxHeight * 0.95}
-            fill="#64748B"
+            fill="#69483A"
             fontSize="10"
             fontFamily="sans-serif"
             fontStyle="italic"
+            fontWeight="500"
           >
             Pavana Irrigation Canal Corridor
           </text>
@@ -228,7 +227,7 @@ export const FieldMap: React.FC<FieldMapProps> = ({
             return (
               <g
                 key={fid}
-                className="cursor-pointer transition-all duration-200"
+                className="cursor-pointer transition-all duration-150"
                 onClick={() => onSelectField(fid)}
                 onMouseEnter={() => setHoveredFieldId(fid)}
                 onMouseLeave={() => setHoveredFieldId(null)}
@@ -236,10 +235,10 @@ export const FieldMap: React.FC<FieldMapProps> = ({
                 <path
                   d={pathData}
                   fill={style.fill}
-                  fillOpacity={isHovered ? 0.85 : isSelected ? 0.8 : style.fillOpacity}
-                  stroke={isSelected ? '#0F766E' : isHovered ? '#1E293B' : style.stroke}
+                  fillOpacity={isHovered ? 0.90 : isSelected ? 0.85 : style.fillOpacity}
+                  stroke={isSelected ? '#C96D3B' : isHovered ? '#382A25' : style.stroke}
                   strokeWidth={isSelected ? 3.5 : isHovered ? 2.5 : 1.8}
-                  filter={isSelected ? 'url(#glow)' : undefined}
+                  filter={isSelected ? 'url(#poly-glow)' : undefined}
                 />
 
                 {/* Field ID Centroid Label */}
@@ -250,15 +249,15 @@ export const FieldMap: React.FC<FieldMapProps> = ({
                       y={centroid.y - 10}
                       width="44"
                       height="20"
-                      rx="4"
-                      fill={isSelected ? '#0F766E' : '#1E293B'}
-                      fillOpacity={0.88}
+                      rx="5"
+                      fill={isSelected ? '#C96D3B' : '#382A25'}
+                      fillOpacity={0.92}
                     />
                     <text
                       x={centroid.x}
                       y={centroid.y + 4}
                       textAnchor="middle"
-                      fill="#FFFFFF"
+                      fill="#FFFCF6"
                       fontSize="10"
                       fontWeight="bold"
                       fontFamily="system-ui, -apple-system, sans-serif"
@@ -272,36 +271,36 @@ export const FieldMap: React.FC<FieldMapProps> = ({
           })}
         </svg>
 
-        {/* Hover Floating Card Tooltip */}
+        {/* Hover Tooltip Floating Card */}
         {hoveredFeature && (
-          <div className="absolute top-6 left-6 z-10 bg-white/95 backdrop-blur-md rounded-xl p-3 shadow-lg border border-slate-200 text-xs w-64 pointer-events-none transition-all">
-            <div className="flex items-center justify-between font-bold text-slate-800 border-b border-slate-100 pb-1.5 mb-1.5">
+          <div className="absolute top-6 left-6 z-10 bg-[#FFFCF6]/95 backdrop-blur-md rounded-xl p-3.5 shadow-warm-lg border border-[#E8D6C5] text-xs w-64 pointer-events-none transition-all">
+            <div className="flex items-center justify-between font-bold text-[#382A25] border-b border-[#E8D6C5] pb-2 mb-2">
               <span>{hoveredFeature.properties.name} ({hoveredFeature.properties.id})</span>
-              <span className={`px-2 py-0.5 rounded text-[10px] font-semibold border ${getStatusStyle(hoveredFeature.properties.stress_status).badgeBg}`}>
+              <span className={`px-2 py-0.5 rounded text-[10px] font-bold border ${getStatusStyle(hoveredFeature.properties.stress_status).badgeBg}`}>
                 {hoveredFeature.properties.stress_status?.toUpperCase() || 'NORMAL'}
               </span>
             </div>
-            <div className="space-y-1 text-slate-600">
+            <div className="space-y-1.5 text-[#817064]">
               <div className="flex justify-between">
                 <span>Crop & Stage:</span>
-                <span className="font-medium text-slate-800">{hoveredFeature.properties.crop} ({hoveredFeature.properties.stage})</span>
+                <span className="font-semibold text-[#382A25] capitalize">{hoveredFeature.properties.crop} ({hoveredFeature.properties.stage})</span>
               </div>
               <div className="flex justify-between">
                 <span>Area:</span>
-                <span className="font-medium text-slate-800">{hoveredFeature.properties.area_acres} acres ({hoveredFeature.properties.area_ha || (hoveredFeature.properties.area_acres * 0.4047).toFixed(2)} ha)</span>
+                <span className="font-semibold text-[#382A25]">{hoveredFeature.properties.area_acres} acres ({hoveredFeature.properties.area_ha || (hoveredFeature.properties.area_acres * 0.4047).toFixed(2)} ha)</span>
               </div>
               <div className="flex justify-between">
                 <span>Stress Probability:</span>
-                <span className="font-bold text-slate-900">{((hoveredFeature.properties.stress_probability || 0) * 100).toFixed(0)}%</span>
+                <span className="font-bold text-[#B95B55]">{((hoveredFeature.properties.stress_probability || 0) * 100).toFixed(0)}%</span>
               </div>
-              <div className="flex justify-between items-center pt-1 border-t border-slate-100">
-                <span>Action:</span>
-                <span className="font-semibold text-teal-700 bg-teal-50 px-1.5 py-0.5 rounded">
-                  {hoveredFeature.properties.recommended_action || 'wait'}
+              <div className="flex justify-between items-center pt-1.5 border-t border-[#E8D6C5]/70">
+                <span>Prescribed:</span>
+                <span className="font-bold text-[#C96D3B] bg-[#C96D3B]/10 px-2 py-0.5 rounded capitalize">
+                  {hoveredFeature.properties.recommended_action?.replace('_', ' ') || 'wait'}
                 </span>
               </div>
             </div>
-            <div className="mt-2 text-[10px] text-teal-600 font-semibold text-center bg-teal-50/80 py-1 rounded">
+            <div className="mt-2 text-[10px] text-[#C96D3B] font-semibold text-center bg-[#F2E1D4]/50 py-1 rounded-md">
               Click polygon to inspect full driver analysis
             </div>
           </div>
@@ -309,32 +308,32 @@ export const FieldMap: React.FC<FieldMapProps> = ({
       </div>
 
       {/* Map Legend and Status Counts Footer */}
-      <div className="p-3 sm:p-4 bg-white border-t border-slate-100 flex flex-wrap items-center justify-between gap-3 text-xs">
+      <div className="p-3 sm:p-4 bg-[#FFFCF6] border-t border-[#E8D6C5] flex flex-wrap items-center justify-between gap-3 text-xs">
         <div className="flex flex-wrap items-center gap-4">
-          <span className="font-semibold text-slate-700 flex items-center gap-1.5">
-            <MapPin className="w-3.5 h-3.5 text-slate-400" /> Stress Status:
+          <span className="font-bold text-[#382A25] flex items-center gap-1.5">
+            <MapPin className="w-3.5 h-3.5 text-[#C96D3B]" /> Stress Status:
           </span>
           <div className="flex items-center gap-1.5">
-            <span className="w-3 h-3 rounded-full bg-emerald-500 border border-emerald-600"></span>
-            <span className="text-slate-600">Low ({statusCounts.green})</span>
+            <span className="w-3 h-3 rounded-full bg-[#85845A] border border-[#585736]"></span>
+            <span className="text-[#817064]">Low ({statusCounts.green})</span>
           </div>
           <div className="flex items-center gap-1.5">
-            <span className="w-3 h-3 rounded-full bg-amber-500 border border-amber-600"></span>
-            <span className="text-slate-600">Moderate ({statusCounts.amber})</span>
+            <span className="w-3 h-3 rounded-full bg-[#E5B94B] border border-[#B88E28]"></span>
+            <span className="text-[#817064]">Moderate ({statusCounts.amber})</span>
           </div>
           <div className="flex items-center gap-1.5">
-            <span className="w-3 h-3 rounded-full bg-red-500 border border-red-600"></span>
-            <span className="text-slate-600 font-medium">High / Critical ({statusCounts.red})</span>
+            <span className="w-3 h-3 rounded-full bg-[#B95B55] border border-[#8A3C37]"></span>
+            <span className="text-[#8A3C37] font-bold">High / Critical ({statusCounts.red})</span>
           </div>
           <div className="flex items-center gap-1.5">
-            <span className="w-3 h-3 rounded-full bg-blue-500 border border-blue-600"></span>
-            <span className="text-slate-600">Pause / Deluge ({statusCounts.blue})</span>
+            <span className="w-3 h-3 rounded-full bg-[#4B729F] border border-[#2F4F75]"></span>
+            <span className="text-[#817064]">Pause / Deluge ({statusCounts.blue})</span>
           </div>
         </div>
 
-        <div className="text-[11px] text-slate-500 flex items-center gap-1">
-          <Info className="w-3.5 h-3.5 text-slate-400" />
-          <span>Coordinates: WGS84 peri-urban zone</span>
+        <div className="text-[11px] text-[#817064] flex items-center gap-1">
+          <Info className="w-3.5 h-3.5 text-[#69483A]" />
+          <span>Coordinates: WGS84 peri-urban agricultural zone</span>
         </div>
       </div>
     </div>

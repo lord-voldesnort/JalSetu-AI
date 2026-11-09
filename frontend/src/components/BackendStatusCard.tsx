@@ -35,9 +35,9 @@ export const BackendStatusCard: React.FC<Props> = ({
         <button
           onClick={onRefresh}
           disabled={loading}
-          className="flex items-center space-x-1.5 px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-100 hover:bg-slate-200 text-slate-700 transition disabled:opacity-50"
+          className="font-inter font-semibold text-[14px] px-4 py-2 bg-[#FFFCF6] hover:bg-[#FAF5ED] active:scale-[0.98] text-[#69483A] hover:text-[#382A25] border border-[#E8D6C5] hover:border-[#D99A91] rounded-xl shadow-warm-sm transition-all duration-150 inline-flex items-center justify-center gap-1.5 focus:outline-none focus:ring-2 focus:ring-[#C96D3B]/30 disabled:opacity-50"
         >
-          <RefreshCw className={`w-3.5 h-3.5 ${loading ? 'animate-spin' : ''}`} />
+          <RefreshCw className={`w-3.5 h-3.5 ${loading ? 'animate-spin text-[#C96D3B]' : ''}`} />
           <span>{loading ? 'Checking...' : 'Check Health'}</span>
         </button>
       </div>

@@ -100,8 +100,8 @@ export const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#F5F8FB]">
-      {/* Global Navigation Header */}
+    <div className="min-h-screen flex flex-col bg-[#F5EFE3] text-[#2C201C]">
+      {/* Global Navigation Header in Deep Cocoa */}
       <Header
         activeTab={activeTab}
         onTabChange={setActiveTab}
@@ -117,50 +117,60 @@ export const App: React.FC = () => {
         {/* TAB 1: FIELD MONITORING & SPATIAL MAP */}
         {activeTab === 'observe' && (
           <div className="space-y-6">
-            {/* Cluster Status Hero Banner */}
-            <div className="bg-gradient-to-r from-[#005151] to-[#0B8A8F] rounded-2xl p-6 sm:p-7 text-white shadow-md">
-              <div className="max-w-3xl space-y-2">
-                <div className="flex flex-wrap items-center gap-2">
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-white/15 text-white/95 backdrop-blur-sm border border-white/20">
-                    <ShieldCheck className="w-3.5 h-3.5 text-emerald-300" />
-                    Decision Engine Online
-                  </span>
-                  {activeScenarioId !== 'normal_01' && (
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-amber-400/20 text-amber-200 border border-amber-400/30">
-                      <AlertTriangle className="w-3.5 h-3.5" />
-                      Climate Shock Simulated: {activeScenarioId}
+            {/* Cluster Status Hero Banner with Agricultural Photography */}
+            <div className="relative rounded-2xl overflow-hidden shadow-warm-md border border-[#E8D6C5]">
+              <img
+                src="/images/hero-tomatoes.jpg"
+                alt="Ripe tomatoes on vine in sunlit agricultural field"
+                className="absolute inset-0 w-full h-full object-cover object-center"
+                onError={(e) => {
+                  (e.target as HTMLElement).style.display = 'none';
+                }}
+              />
+              <div className="relative bg-gradient-to-r from-[#382A25]/95 via-[#382A25]/85 to-[#69483A]/70 p-6 sm:p-8 text-[#FFFCF6]">
+                <div className="max-w-2xl space-y-2">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-[#C96D3B]/30 text-[#E8D6C5] backdrop-blur-xs border border-[#C96D3B]/40">
+                      <ShieldCheck className="w-3.5 h-3.5 text-[#E5B94B]" />
+                      Decision Engine Online
                     </span>
-                  )}
+                    {activeScenarioId !== 'normal_01' && (
+                      <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-[#B95B55]/30 text-[#E8D6C5] border border-[#B95B55]/40">
+                        <AlertTriangle className="w-3.5 h-3.5 text-[#E5B94B]" />
+                        Active Shock Mode: {activeScenarioId}
+                      </span>
+                    )}
+                  </div>
+
+                  <h1 className="text-2xl sm:text-3xl font-bold tracking-tight font-display text-[#FFFCF6]">
+                    Pimpri-Chinchwad Agricultural Cluster Monitoring
+                  </h1>
+                  <p className="text-xs sm:text-sm text-[#E8D6C5]/90 leading-relaxed">
+                    Closed-loop water allocation intelligence across 10 demonstration fields in the Pune peri-urban corridor. Synthesizing soil moisture, canopy vigor (NDVI), and evapotranspiration into actionable, deterministic irrigation guidance.
+                  </p>
                 </div>
 
-                <h1 className="text-2xl sm:text-3xl font-normal tracking-tight font-display">
-                  Pimpri-Chinchwad Agricultural Cluster Monitoring
-                </h1>
-                <p className="text-xs sm:text-sm text-teal-50/90 leading-relaxed">
-                  Real-time observation of 10 demonstration fields in Pune peri-urban corridor. Synthesizing soil moisture, canopy vigor (NDVI), and evapotranspiration into actionable, deterministic irrigation guidance.
-                </p>
-              </div>
-
-              <div className="mt-5 pt-4 border-t border-white/20 flex flex-wrap items-center gap-6 text-xs text-teal-100/90">
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></div>
-                  <span>Decision Loop: <strong>Observe → Forecast → Prioritize → Explain → Allocate</strong></span>
-                </div>
-                <div className="flex items-center gap-1.5">
-                  <Layers className="w-3.5 h-3.5 text-teal-300" />
-                  <span>Cluster: <strong>10 Monitored Fields (14.8 Acres Total)</strong></span>
+                <div className="mt-6 pt-4 border-t border-[#69483A]/80 flex flex-wrap items-center gap-6 text-xs text-[#E8D6C5]">
+                  <div className="flex items-center gap-2">
+                    <div className="w-2 h-2 rounded-full bg-[#E5B94B] animate-pulse"></div>
+                    <span>Decision Loop: <strong>Observe → Forecast → Prioritize → Explain → Allocate</strong></span>
+                  </div>
+                  <div className="flex items-center gap-1.5">
+                    <Layers className="w-3.5 h-3.5 text-[#E5B94B]" />
+                    <span>Cluster: <strong>10 Monitored Fields (14.8 Acres Total)</strong></span>
+                  </div>
                 </div>
               </div>
             </div>
 
             {/* Error Message if API unreachable */}
             {fieldsError && (
-              <div className="p-4 bg-red-50 border border-red-200 rounded-xl text-xs text-red-800 flex items-start gap-2">
-                <AlertTriangle className="w-4 h-4 text-red-600 shrink-0 mt-0.5" />
+              <div className="p-4 bg-[#B95B55]/10 border border-[#B95B55]/30 rounded-2xl text-xs text-[#8A3C37] flex items-start gap-2.5 shadow-warm-sm">
+                <AlertTriangle className="w-4 h-4 text-[#B95B55] shrink-0 mt-0.5" />
                 <div>
                   <span className="font-bold">Unable to load fields from backend: </span>
                   <span>{fieldsError}</span>
-                  <p className="mt-1 text-[11px] text-red-600">Ensure the FastAPI backend server is running on http://localhost:8000.</p>
+                  <p className="mt-1 text-[11px] text-[#817064]">Ensure the FastAPI backend server is running on http://localhost:8000.</p>
                 </div>
               </div>
             )}
@@ -174,13 +184,13 @@ export const App: React.FC = () => {
             />
 
             {/* Field Registry and Cards Grid */}
-            <div>
-              <div className="flex items-center justify-between mb-3">
-                <h2 className="text-base font-bold text-slate-800 flex items-center gap-2">
-                  <Layers className="w-4 h-4 text-teal-600" />
+            <div className="space-y-3">
+              <div className="flex items-center justify-between">
+                <h2 className="text-base font-bold text-[#382A25] flex items-center gap-2 font-display">
+                  <Layers className="w-4 h-4 text-[#C96D3B]" />
                   <span>Field Registry & Diagnostic Action Cards</span>
                 </h2>
-                <span className="text-xs font-mono text-slate-500">
+                <span className="text-xs font-mono font-bold text-[#69483A] bg-[#FFFCF6] px-3 py-1 rounded-md border border-[#E8D6C5]">
                   {fields?.features?.length || 0} Fields Monitored
                 </span>
               </div>
