@@ -128,7 +128,9 @@ class WaterAllocationEngine:
                 allocated = round(min(wanted, remaining_budget), 1)
                 remaining_budget = round(remaining_budget - allocated, 1)
 
-                if allocated >= wanted:
+                if f.recommended_action == "inspect":
+                    reason = f"Rank #{rank}: Physical ground inspection recommended before irrigation due to stale or insufficient observation telemetry."
+                elif allocated >= wanted:
                     reason = f"Fully funded at rank #{rank} based on high risk ({f.risk_score}) and {f.stage} crop sensitivity."
                 else:
                     reason = f"Partially funded at rank #{rank}: capped by remaining available budget."

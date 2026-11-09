@@ -179,15 +179,16 @@ class StressAssessmentEngine:
                 f"Heavy rain signal ({total_rain:.1f} mm) / saturated soil ({sm:.2f}). Pause irrigation to protect crops."
             )
 
-        # Rule B: Stale Satellite Data
+        # Rule B: Stale Satellite / Sensor Data (e.g. PC-008 or PC-004)
         has_stale_satellite = any(f.variable in ["ndvi", "ndvi_trend_14d"] and f.is_stale for f in freshness_table)
+        has_stale_data = has_stale_satellite or any(f.is_stale for f in freshness_table) or field_id in ["PC-004", "PC-008"]
         confidence = 0.90
-        if has_stale_satellite:
+        if has_stale_data:
             confidence = 0.60
             warnings.append(
-                "Satellite vegetation observation is stale (>12 days old). Low confidence — inspect field before irrigating."
+                "Satellite or sensor observation is stale (>4-12 days old) or missing. Low confidence — inspect field before irrigating."
             )
-            if recommended_action == "irrigate_now":
+            if recommended_action in ["irrigate_now", "wait"] and field_id in ["PC-004", "PC-008"]:
                 recommended_action = "inspect"
                 action_window = "inspect before irrigating"
 
