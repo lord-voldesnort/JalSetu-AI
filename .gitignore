@@ -67,6 +67,8 @@ frontend/node_modules/
 Thumbs.db
 .idea/
 .vscode/
-*.swp
-*.swo
+# Temporary / Runtime files
+runtime_events*.json
+*.corrupt*.json
+
 

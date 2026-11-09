@@ -46,16 +46,28 @@ npm.cmd run dev
 ```
 - **Frontend Dashboard**: `http://localhost:5173`
 
-> **Note for Windows Environments**: When running in corporate or restricted environments (e.g. Windows Application Control / AppLocker), Vite uses `@rollup/wasm-node` automatically via our postinstall patch script (`scripts/patch-rollup.js`).
+> **Note for Windows Environments**: When running in corporate or restricted environments (e.g. Windows Application Control / AppLocker), Vite uses `@rollup/wasm-node` automatically via our postinstall patch script (`scripts/patch-rollup.cjs`).
 
-### 5. Automated Tests & Build Verification
+### 5. Dual Operating Modes: Live API vs. Offline Mock Demo
+
+JalSetu AI is designed for seamless operation in both live server environments and offline demonstrations:
+
+- **Live API Mode (Default)**:
+  Connects to the FastAPI backend running at `http://localhost:8000`. Persists actions into SQLite and computes live heuristic risk scores.
+- **Offline Mock / Demo Mode**:
+  Enables running the complete React dashboard without a backend server. Uses pre-bundled static demonstration fixtures from `frontend/src/api/mockData.ts`.
+  - **In-App Toggle**: Click the "Switch to Offline Mock / Demo Mode" button in the Backend Status card on the dashboard.
+  - **Environment Flag**: Set `VITE_MOCK_MODE=true` in `frontend/.env` to start directly in Mock Mode.
+
+### 6. Automated Tests & Build Verification
 ```powershell
 # Run full backend pytest suite (46 tests)
-python -m pytest backend/tests -v
+cd backend
+python -m pytest -v
 
 # Run frontend TypeScript type-check and production build
-cd frontend
-npm.cmd run build
+cd ../frontend
+npm run build
 ```
 
 ---
