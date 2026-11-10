@@ -63,40 +63,48 @@ export const FieldMap: React.FC<FieldMapProps> = ({
     };
   }, [bounds, viewBoxWidth, viewBoxHeight, padding]);
 
-  // Status-based color configuration aligned with palette
-  const getStatusStyle = (status?: string) => {
+  // Agricultural field green color system (Part 2)
+  const getFieldGreenShade = (crop?: string, fid?: string) => {
+    const c = crop?.toLowerCase() || '';
+    if (c.includes('tomato')) return { fill: '#438653', stroke: '#245C38', name: 'Crop Green' };
+    if (c.includes('sugarcane')) return { fill: '#245C38', stroke: '#174026', name: 'Deep Crop Green' };
+    if (c.includes('marigold')) return { fill: '#78AD76', stroke: '#245C38', name: 'Light Crop Green' };
+    if (c.includes('pomegranate')) return { fill: '#2E6B41', stroke: '#1C4A2B', name: 'Orchard Green' };
+    if (c.includes('onion')) return { fill: '#549662', stroke: '#245C38', name: 'Field Green' };
+    if (c.includes('chilli') || c.includes('chili')) return { fill: '#3B7E4C', stroke: '#245C38', name: 'Emerald Green' };
+    if (c.includes('maize') || c.includes('corn')) return { fill: '#4D885B', stroke: '#245C38', name: 'Maize Green' };
+    if (c.includes('brinjal') || c.includes('eggplant')) return { fill: '#357146', stroke: '#245C38', name: 'Garden Green' };
+    const num = parseInt(fid?.replace(/\D/g, '') || '1', 10);
+    const greens = ['#438653', '#245C38', '#78AD76', '#2E6B41', '#549662', '#3B7E4C'];
+    return { fill: greens[num % greens.length], stroke: '#245C38', name: 'Agricultural Green' };
+  };
+
+  // Documented semantic risk mapping (Part 4)
+  const getRiskStyle = (status?: string) => {
     switch (status) {
       case 'red':
         return {
-          fill: '#B95B55', // Muted Tomato
-          fillOpacity: 0.70,
-          stroke: '#8A3C37',
-          badgeBg: 'bg-[#B95B55]/15 text-[#8A3C37] border-[#B95B55]/40',
+          badgeBg: 'bg-[#D32F2F]/15 text-[#D32F2F] border-[#D32F2F]/40',
+          dotColor: '#D32F2F',
           label: 'High / Critical Stress',
         };
       case 'amber':
         return {
-          fill: '#E5B94B', // Orchid Gold
-          fillOpacity: 0.65,
-          stroke: '#B88E28',
-          badgeBg: 'bg-[#E5B94B]/20 text-[#69483A] border-[#E5B94B]/50',
+          badgeBg: 'bg-[#D97706]/15 text-[#D97706] border-[#D97706]/40',
+          dotColor: '#D97706',
           label: 'Moderate Stress',
         };
       case 'blue':
         return {
-          fill: '#4B729F', // Muted Slate Blue
-          fillOpacity: 0.65,
-          stroke: '#2F4F75',
-          badgeBg: 'bg-blue-100 text-blue-900 border-blue-300',
+          badgeBg: 'bg-[#299BCB]/15 text-[#123B66] border-[#299BCB]/40',
+          dotColor: '#299BCB',
           label: 'Paused (Deluge / Protect)',
         };
       case 'green':
       default:
         return {
-          fill: '#85845A', // Muted Olive
-          fillOpacity: 0.65,
-          stroke: '#585736',
-          badgeBg: 'bg-[#85845A]/15 text-[#585736] border-[#85845A]/40',
+          badgeBg: 'bg-[#438653]/15 text-[#245C38] border-[#438653]/40',
+          dotColor: '#438653',
           label: 'Low Stress / Nominal',
         };
     }
@@ -120,19 +128,19 @@ export const FieldMap: React.FC<FieldMapProps> = ({
   }, [hoveredFieldId, fields]);
 
   return (
-    <div className="bg-[#FFFCF6] rounded-2xl shadow-warm-md border border-[#E8D6C5] overflow-hidden">
+    <div className="bg-[#FFFFFF] rounded-2xl shadow-ocean-md border border-[#E2E8F0] overflow-hidden">
       {/* Map Header */}
-      <div className="p-4 sm:p-5 border-b border-[#E8D6C5] flex flex-wrap items-center justify-between gap-3 bg-[#F2E1D4]/30">
+      <div className="p-4 sm:p-5 border-b border-[#E2E8F0] flex flex-wrap items-center justify-between gap-3 bg-[#F5F8FC]">
         <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#C96D3B] to-[#B95B55] flex items-center justify-center text-[#FFFCF6] shadow-warm-sm">
+          <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#299BCB] to-[#123B66] flex items-center justify-center text-[#FFFFFF] shadow-ocean-sm">
             <Layers className="w-5 h-5" />
           </div>
           <div>
-            <h2 className="text-base font-bold text-[#382A25]">
+            <h2 className="text-base font-bold text-[#123B66]">
               Interactive Field Spatial Geometry
             </h2>
-            <p className="text-xs text-[#817064]">
-              Pimpri-Chinchwad Peri-Urban Demonstration Cluster • 10 Monitored Polygons
+            <p className="text-xs text-[#64748B]">
+              Pimpri-Chinchwad Peri-Urban Demonstration Cluster • 10 Monitored Agricultural Plots
             </p>
           </div>
         </div>
@@ -141,10 +149,10 @@ export const FieldMap: React.FC<FieldMapProps> = ({
         <div className="flex items-center gap-2">
           <button
             onClick={() => setShowLabels(!showLabels)}
-            className={`font-inter font-semibold text-[14px] px-4 py-2 rounded-xl border transition-all duration-150 inline-flex items-center justify-center gap-2 active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-[#C96D3B]/40 shadow-warm-sm ${
+            className={`font-inter font-semibold text-[14px] px-4 py-2 rounded-xl border transition-all duration-150 inline-flex items-center justify-center gap-2 active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-[#299BCB]/40 shadow-ocean-sm ${
               showLabels
-                ? 'bg-[#B95B55] hover:bg-[#A34E48] text-[#FFFCF6] border-transparent'
-                : 'bg-[#FFFCF6] hover:bg-[#FAF5ED] text-[#69483A] hover:text-[#382A25] border-[#E8D6C5] hover:border-[#D99A91]'
+                ? 'bg-[#299BCB] hover:bg-[#2184AD] text-[#FFFFFF] border-transparent'
+                : 'bg-[#FFFFFF] hover:bg-[#F5F8FC] text-[#123B66] hover:text-[#299BCB] border-[#CBD5E1] hover:border-[#299BCB]'
             }`}
             title="Toggle field ID labels"
           >
@@ -155,58 +163,59 @@ export const FieldMap: React.FC<FieldMapProps> = ({
       </div>
 
       {/* Map Canvas / SVG Container */}
-      <div className="relative w-full bg-[#FAF5ED] p-2 sm:p-4">
+      <div className="relative w-full bg-[#F5F8FC] p-2 sm:p-4">
         {loading && (
-          <div className="absolute inset-0 bg-[#FFFCF6]/80 backdrop-blur-xs z-20 flex items-center justify-center">
-            <div className="flex items-center gap-2.5 text-xs text-[#69483A] font-semibold bg-[#FFFCF6] px-4 py-2 rounded-xl border border-[#E8D6C5] shadow-warm-md">
-              <div className="w-4 h-4 border-2 border-[#C96D3B] border-t-transparent rounded-full animate-spin"></div>
-              <span>Updating spatial stress polygons...</span>
+          <div className="absolute inset-0 bg-[#FFFFFF]/80 backdrop-blur-xs z-20 flex items-center justify-center">
+            <div className="flex items-center gap-2.5 text-xs text-[#123B66] font-semibold bg-[#FFFFFF] px-4 py-2 rounded-xl border border-[#CBD5E1] shadow-ocean-md">
+              <div className="w-4 h-4 border-2 border-[#299BCB] border-t-transparent rounded-full animate-spin"></div>
+              <span>Updating spatial field polygons...</span>
             </div>
           </div>
         )}
 
         <svg
           viewBox={`0 0 ${viewBoxWidth} ${viewBoxHeight}`}
-          className="w-full h-auto max-h-[500px] select-none rounded-xl bg-[#FAF5ED] border border-[#E8D6C5] shadow-inner"
+          className="w-full h-auto max-h-[500px] select-none rounded-xl bg-[#F5F8FC] border border-[#CBD5E1] shadow-inner"
         >
           {/* Subtle agricultural grid pattern */}
           <defs>
             <pattern id="agri-grid" width="36" height="36" patternUnits="userSpaceOnUse">
-              <path d="M 36 0 L 0 0 0 36" fill="none" stroke="#E8D6C5" strokeWidth="0.6" strokeOpacity="0.7" />
+              <path d="M 36 0 L 0 0 0 36" fill="none" stroke="#E2E8F0" strokeWidth="0.8" strokeOpacity="0.8" />
             </pattern>
             <filter id="poly-glow" x="-20%" y="-20%" width="140%" height="140%">
-              <feDropShadow dx="0" dy="0" stdDeviation="5" floodColor="#C96D3B" floodOpacity="0.85" />
+              <feDropShadow dx="0" dy="0" stdDeviation="5" floodColor="#F29A38" floodOpacity="0.8" />
             </filter>
           </defs>
           <rect width={viewBoxWidth} height={viewBoxHeight} fill="url(#agri-grid)" />
 
-          {/* Demonstration Canal Reference Line */}
+          {/* Demonstration Canal Reference Line in Freshwater Blue */}
           <path
             d={`M 30 ${viewBoxHeight * 0.88} Q ${viewBoxWidth * 0.4} ${viewBoxHeight * 0.82} ${viewBoxWidth - 30} ${viewBoxHeight * 0.92}`}
             fill="none"
-            stroke="#85845A"
+            stroke="#299BCB"
             strokeWidth="3.5"
             strokeDasharray="6 4"
-            strokeOpacity="0.65"
+            strokeOpacity="0.85"
           />
           <text
-            x={viewBoxWidth - 180}
+            x={viewBoxWidth - 190}
             y={viewBoxHeight * 0.95}
-            fill="#69483A"
+            fill="#123B66"
             fontSize="10"
             fontFamily="sans-serif"
             fontStyle="italic"
-            fontWeight="500"
+            fontWeight="600"
           >
             Pavana Irrigation Canal Corridor
           </text>
 
-          {/* Render Field Polygons */}
+          {/* Render Field Polygons in Shades of Green (Part 2) */}
           {fields?.features?.map((feat) => {
             const fid = feat.properties.id;
             const isSelected = selectedFieldId === fid;
             const isHovered = hoveredFieldId === fid;
-            const style = getStatusStyle(feat.properties.stress_status);
+            const greenStyle = getFieldGreenShade(feat.properties.crop, fid);
+            const riskStyle = getRiskStyle(feat.properties.stress_status);
 
             const coords = feat.geometry?.coordinates?.[0] || [];
             if (coords.length === 0) return null;
@@ -234,36 +243,47 @@ export const FieldMap: React.FC<FieldMapProps> = ({
               >
                 <path
                   d={pathData}
-                  fill={style.fill}
-                  fillOpacity={isHovered ? 0.90 : isSelected ? 0.85 : style.fillOpacity}
-                  stroke={isSelected ? '#C96D3B' : isHovered ? '#382A25' : style.stroke}
-                  strokeWidth={isSelected ? 3.5 : isHovered ? 2.5 : 1.8}
+                  fill={greenStyle.fill}
+                  fillOpacity={isHovered ? 0.90 : isSelected ? 0.85 : 0.72}
+                  stroke={isSelected ? '#F29A38' : isHovered ? '#123B66' : greenStyle.stroke}
+                  strokeWidth={isSelected ? 3.5 : isHovered ? 2.5 : 2.0}
                   filter={isSelected ? 'url(#poly-glow)' : undefined}
                 />
 
-                {/* Field ID Centroid Label */}
+                {/* Field ID Centroid Label with Semantic Risk Dot */}
                 {showLabels && (
                   <g pointerEvents="none">
                     <rect
-                      x={centroid.x - 22}
+                      x={centroid.x - 26}
                       y={centroid.y - 10}
-                      width="44"
+                      width="52"
                       height="20"
-                      rx="5"
-                      fill={isSelected ? '#C96D3B' : '#382A25'}
-                      fillOpacity={0.92}
+                      rx="6"
+                      fill={isSelected ? '#123B66' : '#245C38'}
+                      fillOpacity={0.94}
+                      stroke={isSelected ? '#F29A38' : '#78AD76'}
+                      strokeWidth={isSelected ? 1.5 : 0.8}
                     />
                     <text
-                      x={centroid.x}
+                      x={centroid.x - 5}
                       y={centroid.y + 4}
                       textAnchor="middle"
-                      fill="#FFFCF6"
-                      fontSize="10"
+                      fill="#FFFFFF"
+                      fontSize="9.5"
                       fontWeight="bold"
                       fontFamily="system-ui, -apple-system, sans-serif"
                     >
                       {fid.replace('PC-', '#')}
                     </text>
+                    {/* Semantic Risk Indicator Dot */}
+                    <circle
+                      cx={centroid.x + 16}
+                      cy={centroid.y}
+                      r="4"
+                      fill={riskStyle.dotColor}
+                      stroke="#FFFFFF"
+                      strokeWidth="1.2"
+                    />
                   </g>
                 )}
               </g>
@@ -273,66 +293,97 @@ export const FieldMap: React.FC<FieldMapProps> = ({
 
         {/* Hover Tooltip Floating Card */}
         {hoveredFeature && (
-          <div className="absolute top-6 left-6 z-10 bg-[#FFFCF6]/95 backdrop-blur-md rounded-xl p-3.5 shadow-warm-lg border border-[#E8D6C5] text-xs w-64 pointer-events-none transition-all">
-            <div className="flex items-center justify-between font-bold text-[#382A25] border-b border-[#E8D6C5] pb-2 mb-2">
+          <div className="absolute top-6 left-6 z-10 bg-[#FFFFFF]/95 backdrop-blur-md rounded-xl p-3.5 shadow-ocean-lg border border-[#CBD5E1] text-xs w-64 pointer-events-none transition-all">
+            <div className="flex items-center justify-between font-bold text-[#123B66] border-b border-[#E2E8F0] pb-2 mb-2">
               <span>{hoveredFeature.properties.name} ({hoveredFeature.properties.id})</span>
-              <span className={`px-2 py-0.5 rounded text-[10px] font-bold border ${getStatusStyle(hoveredFeature.properties.stress_status).badgeBg}`}>
-                {hoveredFeature.properties.stress_status?.toUpperCase() || 'NORMAL'}
+              <span className={`px-2 py-0.5 rounded text-[10px] font-bold border ${getRiskStyle(hoveredFeature.properties.stress_status).badgeBg}`}>
+                {hoveredFeature.properties.stress_status?.toUpperCase() || 'LOW'}
               </span>
             </div>
-            <div className="space-y-1.5 text-[#817064]">
-              <div className="flex justify-between">
-                <span>Crop & Stage:</span>
-                <span className="font-semibold text-[#382A25] capitalize">{hoveredFeature.properties.crop} ({hoveredFeature.properties.stage})</span>
+            <div className="space-y-1.5 text-[#334155]">
+              <div className="flex justify-between items-center">
+                <span>Crop:</span>
+                <span className="font-semibold text-[#245C38] bg-[#E8F2E5] px-2 py-0.5 rounded border border-[#78AD76]/40 capitalize">
+                  {hoveredFeature.properties.crop} ({hoveredFeature.properties.stage})
+                </span>
               </div>
               <div className="flex justify-between">
                 <span>Area:</span>
-                <span className="font-semibold text-[#382A25]">{hoveredFeature.properties.area_acres} acres ({hoveredFeature.properties.area_ha || (hoveredFeature.properties.area_acres * 0.4047).toFixed(2)} ha)</span>
+                <span className="font-semibold text-[#123B66]">
+                  {hoveredFeature.properties.area_acres} acres ({hoveredFeature.properties.area_ha || (hoveredFeature.properties.area_acres * 0.4047).toFixed(2)} ha)
+                </span>
               </div>
-              <div className="flex justify-between">
-                <span>Stress Probability:</span>
-                <span className="font-bold text-[#B95B55]">{((hoveredFeature.properties.stress_probability || 0) * 100).toFixed(0)}%</span>
+              <div className="space-y-1 pt-1">
+                <div className="flex justify-between items-center">
+                  <span>Stress Level:</span>
+                  <span className="font-bold font-mono text-[#1976B9]">
+                    {((hoveredFeature.properties.stress_probability || 0) * 100).toFixed(0)}%
+                  </span>
+                </div>
+                {/* Percentage bar in shades of blue with pale blue track (Part 3) */}
+                <div className="w-full bg-[#DCEFF8] rounded-full h-1.5 overflow-hidden">
+                  <div
+                    className="bg-[#299BCB] h-1.5 rounded-full"
+                    style={{ width: `${Math.min(100, Math.max(0, (hoveredFeature.properties.stress_probability || 0) * 100))}%` }}
+                  ></div>
+                </div>
               </div>
-              <div className="flex justify-between items-center pt-1.5 border-t border-[#E8D6C5]/70">
+              <div className="flex justify-between items-center pt-1.5 border-t border-[#E2E8F0]">
                 <span>Prescribed:</span>
-                <span className="font-bold text-[#C96D3B] bg-[#C96D3B]/10 px-2 py-0.5 rounded capitalize">
+                <span className="font-bold text-[#123B66] bg-[#299BCB]/15 px-2 py-0.5 rounded capitalize">
                   {hoveredFeature.properties.recommended_action?.replace('_', ' ') || 'wait'}
                 </span>
               </div>
             </div>
-            <div className="mt-2 text-[10px] text-[#C96D3B] font-semibold text-center bg-[#F2E1D4]/50 py-1 rounded-md">
-              Click polygon to inspect full driver analysis
+            <div className="mt-2 text-[10px] text-[#299BCB] font-semibold text-center bg-[#F5F8FC] py-1 rounded-md">
+              Click plot to inspect full driver analysis
             </div>
           </div>
         )}
       </div>
 
       {/* Map Legend and Status Counts Footer */}
-      <div className="p-3 sm:p-4 bg-[#FFFCF6] border-t border-[#E8D6C5] flex flex-wrap items-center justify-between gap-3 text-xs">
+      <div className="p-3 sm:p-4 bg-[#FFFFFF] border-t border-[#E2E8F0] flex flex-wrap items-center justify-between gap-3 text-xs">
         <div className="flex flex-wrap items-center gap-4">
-          <span className="font-bold text-[#382A25] flex items-center gap-1.5">
-            <MapPin className="w-3.5 h-3.5 text-[#C96D3B]" /> Stress Status:
+          <span className="font-bold text-[#123B66] flex items-center gap-1.5">
+            <MapPin className="w-3.5 h-3.5 text-[#299BCB]" /> Field Plots (Green):
           </span>
           <div className="flex items-center gap-1.5">
-            <span className="w-3 h-3 rounded-full bg-[#85845A] border border-[#585736]"></span>
-            <span className="text-[#817064]">Low ({statusCounts.green})</span>
+            <span className="w-3 h-3 rounded-sm bg-[#438653] border border-[#245C38]"></span>
+            <span className="text-[#334155]">Crop Green</span>
           </div>
           <div className="flex items-center gap-1.5">
-            <span className="w-3 h-3 rounded-full bg-[#E5B94B] border border-[#B88E28]"></span>
-            <span className="text-[#817064]">Moderate ({statusCounts.amber})</span>
+            <span className="w-3 h-3 rounded-sm bg-[#245C38] border border-[#174026]"></span>
+            <span className="text-[#334155]">Deep Crop</span>
           </div>
           <div className="flex items-center gap-1.5">
-            <span className="w-3 h-3 rounded-full bg-[#B95B55] border border-[#8A3C37]"></span>
-            <span className="text-[#8A3C37] font-bold">High / Critical ({statusCounts.red})</span>
+            <span className="w-3 h-3 rounded-sm bg-[#78AD76] border border-[#245C38]"></span>
+            <span className="text-[#334155]">Light Crop</span>
+          </div>
+
+          <span className="h-4 w-px bg-[#CBD5E1] mx-1 hidden sm:block"></span>
+
+          <span className="font-bold text-[#123B66]">Risk Status:</span>
+          <div className="flex items-center gap-1.5">
+            <span className="w-2.5 h-2.5 rounded-full bg-[#438653]"></span>
+            <span className="text-[#334155]">Low ({statusCounts.green})</span>
           </div>
           <div className="flex items-center gap-1.5">
-            <span className="w-3 h-3 rounded-full bg-[#4B729F] border border-[#2F4F75]"></span>
-            <span className="text-[#817064]">Pause / Deluge ({statusCounts.blue})</span>
+            <span className="w-2.5 h-2.5 rounded-full bg-[#D97706]"></span>
+            <span className="text-[#334155]">Moderate ({statusCounts.amber})</span>
+          </div>
+          <div className="flex items-center gap-1.5">
+            <span className="w-2.5 h-2.5 rounded-full bg-[#D32F2F]"></span>
+            <span className="text-[#D32F2F] font-bold">High / Crit ({statusCounts.red})</span>
+          </div>
+          <div className="flex items-center gap-1.5">
+            <span className="w-2.5 h-2.5 rounded-full bg-[#299BCB]"></span>
+            <span className="text-[#334155]">Paused ({statusCounts.blue})</span>
           </div>
         </div>
 
-        <div className="text-[11px] text-[#817064] flex items-center gap-1">
-          <Info className="w-3.5 h-3.5 text-[#69483A]" />
+        <div className="text-[11px] text-[#64748B] flex items-center gap-1">
+          <Info className="w-3.5 h-3.5 text-[#299BCB]" />
           <span>Coordinates: WGS84 peri-urban agricultural zone</span>
         </div>
       </div>

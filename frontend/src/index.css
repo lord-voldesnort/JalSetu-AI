@@ -3,48 +3,68 @@
 @tailwind utilities;
 
 :root {
-  /* Core Mandatory JalSetu AI Palette */
-  --color-ivory-rich: #F5EFE3;
-  --color-ivory-porcelain: #FFFCF6;
-  --color-tomato-muted: #B95B55;
-  --color-orange-burnt: #C96D3B;
-  --color-brown-espresso: #69483A;
-  --color-champagne-soft: #E8D6C5;
-  --color-peach-pale: #F2E1D4;
-  --color-rose-dusty: #D99A91;
-  --color-taupe-warm: #817064;
-  --color-cocoa-deep: #382A25;
-  --color-olive-muted: #85845A;
-  --color-gold-orchid: #E5B94B;
+  /* JalSetu AI Proposed Brand Palette */
+  --color-ocean-blue: #123B66;
+  --color-freshwater: #299BCB;
+  --color-stale-water: #647F8C;
 
-  --color-text-primary: #2C201C;
-  --color-text-secondary: #817064;
-  --color-text-muted: #9D8D82;
+  /* Agricultural Field Greens */
+  --color-deep-crop: #245C38;
+  --color-crop-green: #438653;
+  --color-light-crop: #78AD76;
+  --color-pale-field: #E8F2E5;
+
+  /* Sunshine Highlight */
+  --color-sunshine-orange: #F29A38;
+
+  /* Backgrounds & Surfaces */
+  --color-bg-app: #F5F8FC;
+  --color-surface: #FFFFFF;
+  --color-border-subtle: #E2E8F0;
+  --color-border-medium: #CBD5E1;
+
+  /* Percentage Bars */
+  --color-bar-deep: #123B66;
+  --color-bar-std: #1976B9;
+  --color-bar-fresh: #299BCB;
+  --color-bar-light: #76C4E5;
+  --color-bar-track: #DCEFF8;
+
+  /* Documented Semantic Risk Statuses */
+  --color-risk-high: #D32F2F;
+  --color-risk-mod: #D97706;
+  --color-risk-low: #438653;
+  --color-risk-paused: #299BCB;
+
+  /* Typography Text Hierarchy */
+  --color-text-primary: #0F172A;
+  --color-text-secondary: #334155;
+  --color-text-muted: #64748B;
 }
 
 body {
   margin: 0;
   font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  background-color: var(--color-ivory-rich);
+  background-color: var(--color-bg-app);
   color: var(--color-text-primary);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Custom delicate champagne and espresso scrollbars */
+/* Custom delicate scrollbars */
 ::-webkit-scrollbar {
   width: 7px;
   height: 7px;
 }
 ::-webkit-scrollbar-track {
-  background: #F5EFE3;
+  background: #F5F8FC;
 }
 ::-webkit-scrollbar-thumb {
-  background: #E8D6C5;
+  background: #CBD5E1;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #D99A91;
+  background: #299BCB;
 }
 
 /* Subtle image load transition */
@@ -70,7 +90,7 @@ img {
   }
   .btn-base:focus-visible {
     outline: none;
-    box-shadow: 0 0 0 2px #F5EFE3, 0 0 0 4px #C96D3B;
+    box-shadow: 0 0 0 2px #F5F8FC, 0 0 0 4px #299BCB;
   }
   .btn-base:active:not(:disabled) {
     transform: scale(0.98);
@@ -81,50 +101,79 @@ img {
     pointer-events: none;
   }
 
+  /* Primary Button: Freshwater Blue #299BCB */
   .btn-primary {
     @apply btn-base;
-    background-color: #C96D3B;
-    color: #FFFCF6;
+    background-color: #299BCB;
+    color: #FFFFFF;
     border: 1px solid transparent;
     padding: 0.5rem 1rem;
-    box-shadow: 0 1px 3px rgba(105, 72, 58, 0.08), 0 1px 2px rgba(105, 72, 58, 0.05);
+    box-shadow: 0 1px 3px rgba(18, 59, 102, 0.12), 0 1px 2px rgba(18, 59, 102, 0.08);
   }
   .btn-primary:hover:not(:disabled) {
-    background-color: #B35E30;
+    background-color: #2184AD;
   }
   .btn-primary:active:not(:disabled) {
-    background-color: #9E5026;
+    background-color: #1B6E91;
   }
 
+  /* Selected / Active Item: Ocean Blue #123B66 */
   .btn-selected {
     @apply btn-base;
-    background-color: #B95B55;
-    color: #FFFCF6;
+    background-color: #123B66;
+    color: #FFFFFF;
     border: 1px solid transparent;
     padding: 0.5rem 1rem;
-    box-shadow: 0 1px 3px rgba(105, 72, 58, 0.08), 0 1px 2px rgba(105, 72, 58, 0.05);
+    box-shadow: 0 1px 3px rgba(18, 59, 102, 0.14), 0 1px 2px rgba(18, 59, 102, 0.08);
   }
   .btn-selected:hover:not(:disabled) {
-    background-color: #A34E48;
+    background-color: #0D2A4A;
   }
   .btn-selected:active:not(:disabled) {
-    background-color: #8F423D;
+    background-color: #081D33;
   }
 
+  /* Secondary Button: Clean White with Ocean Blue text and slate border */
   .btn-secondary {
     @apply btn-base;
-    background-color: #FFFCF6;
-    color: #69483A;
-    border: 1px solid #E8D6C5;
+    background-color: #FFFFFF;
+    color: #123B66;
+    border: 1px solid #CBD5E1;
     padding: 0.5rem 1rem;
-    box-shadow: 0 1px 2px rgba(105, 72, 58, 0.04);
+    box-shadow: 0 1px 2px rgba(18, 59, 102, 0.04);
   }
   .btn-secondary:hover:not(:disabled) {
-    background-color: #FAF5ED;
-    color: #382A25;
-    border-color: #D99A91;
+    background-color: #F5F8FC;
+    color: #299BCB;
+    border-color: #76C4E5;
   }
   .btn-secondary:active:not(:disabled) {
-    background-color: #F2E1D4;
+    background-color: #E8F2E5;
+  }
+
+  /* Agricultural / Positive Button: Crop Green #438653 */
+  .btn-crop, .btn-success {
+    @apply btn-base;
+    background-color: #438653;
+    color: #FFFFFF;
+    border: 1px solid transparent;
+    padding: 0.5rem 1rem;
+    box-shadow: 0 1px 3px rgba(36, 92, 56, 0.12);
+  }
+  .btn-crop:hover:not(:disabled), .btn-success:hover:not(:disabled) {
+    background-color: #356F43;
+  }
+
+  /* Sunshine Highlight Button: #F29A38 */
+  .btn-sunshine {
+    @apply btn-base;
+    background-color: #F29A38;
+    color: #FFFFFF;
+    border: 1px solid transparent;
+    padding: 0.5rem 1rem;
+    box-shadow: 0 1px 3px rgba(242, 154, 56, 0.2);
+  }
+  .btn-sunshine:hover:not(:disabled) {
+    background-color: #DE8828;
   }
 }
